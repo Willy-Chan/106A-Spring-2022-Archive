@@ -22,10 +22,7 @@ def main():
     pick_up_newspaper()
     return_home()
 
-def turn_right():
-    turn_left()
-    turn_left()
-    turn_left()
+
 
 def move_to_newspaper():
     while front_is_clear():
@@ -46,6 +43,10 @@ def return_home():
     turn_right()
     move()
     turn_right()
+
+def turn_right():
+    for i in range(3):
+        turn_left()
 
 # There is no need to edit code beyond this point
 
