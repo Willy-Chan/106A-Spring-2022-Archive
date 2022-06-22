@@ -12,6 +12,11 @@ import sys
 from simpleimage import SimpleImage
 
 
+def average_3_numbers(num1, num2, num3):
+    avg_n = (num1 + num2 + num3) / 3
+    return avg_n
+
+
 def get_pixel_dist(pixel, red, green, blue):
     """
     Returns the square of the color distance between pixel and mean RGB value
@@ -36,7 +41,10 @@ def get_pixel_dist(pixel, red, green, blue):
     >>> get_pixel_dist(green_pixel, 5, 255, 10)
     125
     """
-    pass
+
+    dist = (pixel.red - red)**2 + (pixel.green - green)**2 + (pixel.blue - blue)**2
+
+    return dist
 
 
 def get_best_pixel(pixel_list):
@@ -64,7 +72,29 @@ def get_best_pixel(pixel_list):
     >>> best3.red, best3.green, best3.blue
     (255, 0, 0)
     """
-    pass
+
+    pixel_1 = pixel_list[0]
+    pixel_2 = pixel_list[1]
+    pixel_3 = pixel_list[2]
+
+    avg_red = average_3_numbers(pixel_1.red, pixel_2.red, pixel_3.red)
+    avg_green = average_3_numbers(pixel_1.green, pixel_2.green, pixel_3.green)
+    avg_blue = average_3_numbers(pixel_1.blue, pixel_2.blue, pixel_3.blue)
+
+    pixel_1_error = get_pixel_dist(pixel_1, avg_red, avg_green, avg_blue)
+    pixel_2_error = get_pixel_dist(pixel_2, avg_red, avg_green, avg_blue)
+    pixel_3_error = get_pixel_dist(pixel_3, avg_red, avg_green, avg_blue)
+
+    best = min(pixel_1_error, pixel_2_error, pixel_3_error)
+
+    if best == pixel_1_error:
+        best_pixel = pixel_1
+    elif best == pixel_2_error:
+        best_pixel = pixel_2
+    elif best == pixel_3_error:
+        best_pixel = pixel_3
+
+    return best_pixel
 
 
 def create_ghost(image_list):
@@ -78,7 +108,23 @@ def create_ghost(image_list):
     Returns:
         a new Ghost solution image
     """
-    pass
+    image_1 = image_list[0]
+    ghost_image = SimpleImage.blank(image_1.width, image_1.height)
+
+    for pixel in ghost_image:
+        pixel_list = []
+        for image in image_list:
+            for pixel in image:
+                pixel_list.append(pixel)
+                break
+
+    #print(pixel_list)             # -> [75, 66, 35, 100, 97, 52, 29, 23, 23]
+
+        best_pixel = get_best_pixel(pixel_list)
+        ghost_image.set_pixel(pixel.x, pixel.y, best_pixel)
+
+
+    return ghost_image
 
 
 ######## DO NOT MODIFY ANY CODE BELOW THIS LINE ###########

@@ -13,6 +13,8 @@ from simpleimage import SimpleImage
 IMAGE_FILE = 'images/simba.jpg'
 
 
+
+
 def create_filtered_image(red_scale, green_scale, blue_scale):
     """
     Implement this function to make a patch for the Warhol program. It creates an
@@ -24,7 +26,15 @@ def create_filtered_image(red_scale, green_scale, blue_scale):
     This function should return a newly generated image with the appropriately
     scaled color values of the pixels.
     """
-    pass
+
+    image = SimpleImage(IMAGE_FILE)
+
+    for pixel in image:
+        pixel.red *= red_scale
+        pixel.green *= green_scale
+        pixel.blue *= blue_scale
+
+    return image
 
 
 def make_warhol():
@@ -33,8 +43,30 @@ def make_warhol():
     file IMAGE_FILE.  The Warhol image contains "patches" that are different colored
     versions of the original image.  This function returns the Warhol image.
     """
-    pass
+    image = SimpleImage(IMAGE_FILE)
+    canvas = SimpleImage.blank(image.width * 3, image.height * 2)
 
+    image_1 = create_filtered_image(1.5, 0, 1.5)
+    image_2 = create_filtered_image(1, 1, 1)
+    image_3 = create_filtered_image(3, 4, 2)
+    image_4 = create_filtered_image(1, 5, 2)
+    image_5 = create_filtered_image(9, 1, 8)
+    image_6 = create_filtered_image(8, 2, 8)
+
+    for pixel in image_1:
+        canvas.set_pixel(pixel.x, pixel.y, image_1.get_pixel(pixel.x, pixel.y))
+    for pixel in image_2:
+        canvas.set_pixel(image.width + pixel.x, pixel.y, image_2.get_pixel(pixel.x, pixel.y))
+    for pixel in image_3:
+        canvas.set_pixel(image.width * 2 + pixel.x, pixel.y, image_3.get_pixel(pixel.x, pixel.y))
+    for pixel in image_4:
+        canvas.set_pixel(pixel.x, pixel.y + image.height, image_4.get_pixel(pixel.x, pixel.y))
+    for pixel in image_5:
+        canvas.set_pixel(image.width + pixel.x, pixel.y + image.height, image_5.get_pixel(pixel.x, pixel.y))
+    for pixel in image_6:
+        canvas.set_pixel(2 * image.width + pixel.x, pixel.y + image.height, image_6.get_pixel(pixel.x, pixel.y))
+
+    return canvas
 
 def main():
     """
