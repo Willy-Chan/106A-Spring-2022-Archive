@@ -10,13 +10,13 @@ def greater_than(threshold, num_list):
     and should return a list containing only those numbers from num_list that
     have a value strictly greater than threshold.
 
+    >>> greater_than(6, [20, 6, 12, -3, 14])
     [20, 12, 14]
     >>> greater_than(15, [16])
     [16]
     >>> greater_than(10, [1, 2, 3, 4])
     []
     >>> greater_than(0, [])
-    >>> greater_than(6, [20, 6, 12, -3, 14])
     []
     """
     new_list = []
