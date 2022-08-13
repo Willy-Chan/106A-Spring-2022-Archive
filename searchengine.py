@@ -60,10 +60,43 @@ def create_index(filenames, index, file_titles):
     >>> file_titles
     {'test1.txt': 'File 1 Title'}
     """
-    pass
-    """
-    You implement this function.  Don't forget to remove the 'pass' statement above.
-    """
+
+    # Create file title list
+    for filename in filenames:
+        with open(filename, 'r') as file:
+            first_line = next(file).strip().strip(string.punctuation)       #next() returns one line from the file in order, so this will give the first line
+
+            if filename not in file_titles.keys():          # if filename title not already included, add it in!
+                file_titles[filename] = first_line
+
+
+    # Create Index
+    for filename in filenames:      # Loop through each file
+
+        word_list = []    # Set an empty word list to append terms into
+
+        with open(filename, 'r') as file:           # Open the file
+
+            for line in file:
+
+                # Parse all the words in each file into a list
+
+                data_list = line.split()                    # Parses the line by putting ALL words into a list
+                for i in range(len(data_list)):
+                    data_list[i] = data_list[i].strip(string.punctuation)  # Strips punctuation from every word in the list
+
+                for elem in data_list:              # Append all elems from data_list into bigger word_list
+                    if elem not in word_list:       # Checks to make sure duplicates are not appended
+                        word_list.append(elem.lower())
+
+        # Assign the list (value) to each word (key)
+        for word in word_list:
+            if word not in index.keys():    # If key isn't in the dict yet, assign the new key:value pair
+                index[word] = [filename]
+            else:
+                if filename not in index[word]: # Check for duplicate filenames in the list! index[word] gives you the list of the relevant filenames, make sure that it doesn't repeat
+                    index[word] += [filename]   # If key IS in the dict, EXTEND the list
+
 
 
 def search(index, query):
@@ -72,7 +105,7 @@ def search(index, query):
         index:      a dictionary mapping from terms to file names (inverted index)
                     (term -> list of file names that contain that term)
 
-        query  :    a query (string), where any letters will be lowercase
+        query  :    a query (string), where any letters will be lowercase. you can just assume for the basic version of the program that the user will not enter any punctuation characters in their query.
 
     The function returns a list of the names of all the files that contain *all* of the
     terms in the query (using the index passed in).
@@ -100,10 +133,47 @@ def search(index, query):
     >>> search(index, 'apple ball nope')
     []
     """
-    pass
-    """
-    You implement this function.  Don't forget to remove the 'pass' statement above.
-    """
+
+    relevant_files = []     # List of the names of the files that contain all of the terms in the given query.
+
+    # Process and parse every word in the query
+    words = query.split()       # words = list containing all of the relevant words in the query
+    for i in range(len(words)):
+        words[i].strip().strip(string.punctuation) # Split and Strip the query (remove spaces and punctuation)
+
+
+    # Append the name of every file that contains *ALL* the words in the relevant_files list
+
+    for word in words:   # Loop through each word being searched
+        # If a searched word is not the index, there will be no relevant files
+        if word not in index:
+            relevant_files = []     # the relevant files list MUST be empty if a word is not in the index
+            break                   # regardless of the other words
+
+        # Append all the files relevant to the first word to the relevant_files list.
+        # Future words will be compared to this initially created list, which constantly updates and
+        # filters out files that do not contain every word searched.
+        elif word in index and relevant_files == []:
+
+            # Append every filename in the index list corresponding to the searched word to relevant_files
+            for elem in index[word]:
+                relevant_files.append(elem)
+
+        # Compare the relevant_files to the index list containing the 2nd/3rd/... word
+        elif word in index:
+
+            # Comparing the filename lists in relevant_files and index[word], remove any NON-duplicate elements
+
+            for filename in relevant_files:     # !!! - Use for-each loop here to avoid indexing errors
+                if filename not in index[word]:
+                    relevant_files.remove(filename) # .remove(value) takes in a value argument, and since we
+                                                    # guaranteed no filename duplicates, it will always remove the
+                                                    # correct filename from the list.
+
+
+    return relevant_files
+
+
 
 
 ##### YOU SHOULD NOT NEED TO MODIFY ANY CODE BELOW THIS LINE (UNLESS YOU'RE ADDING EXTENSIONS) #####
