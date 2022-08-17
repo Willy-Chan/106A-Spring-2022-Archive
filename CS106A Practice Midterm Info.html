@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<!-- saved from url=(0091)https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="./CS106A Practice Midterm Info_files/site.css" rel="stylesheet">
+    <!-- jQuery library -->
+    <script src="./CS106A Practice Midterm Info_files/jquery-3.4.1.min.js.download" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>  CS106A Practice Midterm Info</title>
+  </head>
+
+  <!-- fill to height of viewport, flex col, footer will be mt-auto -->
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-md navbar-dark" role="navigation">
+  <a class="navbar-brand" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/">🏠CS106A </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html#" aria-haspopup="true" aria-expanded="false"> Handouts </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/01-general-information.html">General Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/02-course-placement.html">Course Placement Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/03-honor-code.html">Honor Code</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/lair.html">LaIR Info</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/about_staff">Teaching Team</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/04-using-karel-with-pycharm.html">Using Karel with Pycharm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/05-assignment1.html">Assignment 1 Karel the Robot</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/06-submitting-assignments.html">Submitting Assignments</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html">Assignment 2 Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html">Assignment 3 Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/09-image-reference.html">Image Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html">Assignment 4</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/10-graphics-reference.html">Graphics Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bluebook-info.html">BlueBook Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html">Practice Midterm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm-solutions.html">Practice Midterm Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/12-assignment5.html">Assignment 5</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/midterm-solutions.html">Midterm Grades and Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/13-contest.html">Graphics/Image Contest</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/biasbars-handout.html">Assignment 6</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html">Assignment 7</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final.html">Final Exam Info and Practice</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html">Practice Final Solutions</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html#" aria-haspopup="true" aria-expanded="false"> Lectures </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+             
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/01-welcome/">  1.  3/28 Welcome! </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/02-control-flow/">  2.  3/30 Control Flow </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/03-decomposition/">  3.  4/1 Decomposition </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/04-intro-python/">  4.  4/4 Intro to Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/05-arithmetic-expressions/">  5.  4/6 Arithmetic Expressions </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/06-control-flow-revisited/">  6.  4/8 Control Flow Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/07-functions-revisited/">  7.  4/11 Functions Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/08-parameters/">  8.  4/13 Parameters </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/09-lists/">  9.  4/15 Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/10-images/">  10.  4/18 Images </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/11-listoflists/">  11.  4/20 Lists of Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/12-canvas/">  12.  4/22 Wrapping Up Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/13-more-graphics/">  13.  4/25 Canvas </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/14-strings/">  14.  4/27 Strings </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/15-files/">  15.  4/29 Files </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/16-dictionaries/">  16.  5/2 Dictionaries </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/17-parsing/">  17.  5/4 Nested Structures </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/18-nested-structures/">  18.  5/9 String Parsing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/19-tuples-sorting/">  19.  5/11 Tuples Sorting </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/20-classes-objects/">  20.  5/13 Classes and Objects </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/21-ethics/">  21.  5/16 Ethics </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/22-memory/">  22.  5/18 Memory </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/23-search-indexing/">  23.  5/20 Search and Indexing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/24-internet/">  24.  5/23 The Internet </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/25-after-106a/">  25.  5/25 Life After CS106A </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/26-advanced-python/">  26.  5/27 Advanced Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/27-wrap-up/">  27.  6/1 Wrap Up </a>
+                
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html#" aria-haspopup="true" aria-expanded="false"> Assignments </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSdN6415WaOi5C0bzlRysKuAEZJbAtN920JmrdeRz-EfXtaydg/viewform">Assignment 0</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/1-Karel">Assignment 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/2-KhansoleCompute">Assignment 2 - Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/3-ListImages">Assignment 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/4-Sand">Assignment 4 - Lists of Lists, Strings, Graphics, and Sand</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/5-WordGuess">Assignment 5 - Strings &amp; Word Guessing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/6-BiasBars">Assignment 6 - Dictionaries &amp; BiasBars</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/7-Bajillion">Assignment 7 - Bajillion</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/8-Contest">Graphics/Image Contest</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html#" aria-haspopup="true" aria-expanded="false"> Sections </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://cs198.stanford.edu/cs198/auth/default.aspx">Section Portal</a>
+            
+            
+             <div class="dropdown-divider"></div>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section1">Section 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2">Section 2 - Variables &amp; Control Flow</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3">Section 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section4">Section 4 - Lists of Lists &amp; Strings</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5">Section 5 - File Reading &amp; Nested Structures</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6">Section 6 - Dictionaries &amp; Drawing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7">Section 7 - Sorting, OOP, &amp; Memory</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8">Section 8 - Final Exam Review</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item"><a class="nav-link" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/schedule.html">🗓Schedule</a></li>
+        
+      
+    </ul>
+    <!---
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" id="search-text" name="query" placeholder="🔍 Search CS106B..." aria-label="Search" action="search">
+    </form>
+    --->
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    margin-bottom: 2rem;
+  }
+  .navbar-dark {
+    background-color: #444;
+  }
+ .nav-item > a {
+    text-transform: uppercase;
+    letter-spacing: .08rem;
+    font-size: small;
+    color: #bbb !important;
+  }
+  .nav-item > a:hover {
+    color: white !important;
+  }
+</style>
+    
+    <main class="main container-fluid" role="main"><div class="body-container container-fluid" data-spy="scroll" data-target="#toc">
+
+<h1 class="title">Practice Midterm Info</h1>
+
+<hr>
+
+<p class="attribution">
+ Written by Mehran Sahami
+</p>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-10" id="content" <=""><h1 id="practice-midterm-exam">Practice Midterm Exam</h1>
+
+<p><em><sup>Portions of this handout by Eric Roberts and Patrick Young</sup></em></p>
+
+<p>This handout is intended to give you practice solving problems that are
+comparable in difficulty to those which will appear on the midterm
+examination. But first we have some logistics:</p>
+
+<h3 id="exam-is-open-book-open-notes">Exam is open book, open notes</h3>
+
+<p>The examination is open-book and you may make use of any handouts,
+course notes/slides, your programs or other notes you've taken in the
+class. For the exam, all notes <strong>must be printed out or hand written</strong>. 
+You may not use any resources on your computer (or other devices 
+such as a tablet) during the exam (unless you have an academic accommodation to use such 
+devices during exams in which case please let the teaching staff know).</p>
+
+<h3 id="taking-the-exam-on-a-computer">Taking the exam on a computer</h3>
+
+<p>You will be taking the exam on a computer using special software that we
+provide for the exam. The software we provide basically acts as a simple
+text editor where you can write your answers. Notably, while using our
+software to take the exam you will <strong>not</strong> be allowed to
+access the internet, nor any other applications on your computer (including Pycharm). 
+While taking the exam, you should remain within the BlueBook application for the 
+entire duration of the exam. Our software will let the course staff know if you scroll
+away from the BlueBook application at any point during the exam.</p>
+
+<h3 id="bluebook">BlueBook</h3>
+
+<p>The software we use is called BlueBook. Please checkout our <a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bluebook-info.html">handout on BlueBook information to download the software and take this practice exam in BlueBook format</a>. <strong>We highly recommend taking this practice exam in BlueBook so that you can get a sense of timing and the software before the midterm</strong>. You can find the practice exam in the BlueBook Information handout.</p>
+
+<h3 id="coverage">Coverage</h3>
+
+<p>The midterm exam covers the material presented in class through today
+(April 27th), which means that you are responsible for the Karel
+material plus the Python material covered up through (and including
+strings). Data files (which will be covered in class on Friday) are not
+covered on the exam.</p>
+
+<h3 id="general-instructions">General instructions</h3>
+
+<p>Answer each of the questions included in the exam. Make sure to include
+any work that you wish to be considered for partial credit (even it is
+not compilable code).</p>
+
+<p>Each question is marked with the number of points assigned to that
+problem. The total number of points is 120. We intend for the number of
+points to be roughly comparable to the number of minutes you should
+spend on that problem.</p>
+
+<p>In all questions, you may include functions or definitions that have
+been developed in the course, either by writing the <strong>import</strong> line for
+the appropriate library or by giving the name of the function and the
+handout or date of the slides in which that function appears.</p>
+
+<p>Unless otherwise indicated as part of the instructions for a specific
+problem, comments will not be required on the exam. Uncommented code
+that gets the job done will be sufficient for full credit on the
+problem. On the other hand, comments may help you to get partial credit
+if they help us determine what you were trying to do.</p>
+
+<h2 id="exam">Exam</h2>
+
+<p><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bluebook-info.html">Take the practice exam on BlueBook</a></p>
+
+<h3 id="problem-1-karel-the-robot-20-points">Problem 1: Karel the Robot (20 points)</h3>
+
+<p>We want to write a Karel program which will create an inside border
+around the world. Each location that is part of the border should have
+<strong>one</strong> (and only one) beeper on it and the border should
+be inset by one square from the outer walls of the world like this:</p>
+
+<p><img src="./CS106A Practice Midterm Info_files/midterm-karel1.png" alt=""></p>
+
+<p>In solving this problem, you can count on the following facts about the
+world:</p>
+
+<ul>
+  <li>
+    <p>You may assume that the world is at least 3x3 squares. The correct
+solution for a 3x3 square world is to place a single beeper in the
+center square.</p>
+  </li>
+  <li>
+    <p>Karel starts off facing East at the corner of 1st Street and 1st
+Avenue with an infinite number beepers in its beeper bag.</p>
+  </li>
+  <li>
+    <p>We do not care about Karel's final location or heading.</p>
+  </li>
+  <li>
+    <p>You do not need to worry about efficiency.</p>
+  </li>
+  <li>
+    <p>You are limited to the instructions in the Karel course reader.
+Notably you cannot use variables except as as the index variable in
+<strong>for</strong> loops (such as the variable <strong>i</strong>) and you cannot refer to
+that variable otherwise.</p>
+  </li>
+</ul>
+
+<p>The starter code is below.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">karel.stanfordkarel</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="c1">#
+</span>
+
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">run_karel_program</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="problem-2-full-program-25-points">Problem 2: Full program (25 points)</h3>
+
+<p>For this problem, write a program that asks the user to enter integers
+until they enter a 0 as a sentinel to indicate the end of the input
+list. You program should then print out the largest and second-largest
+values from values the user entered. A sample run of the program might
+look like this (user input is in <em>blue italics</em>):</p>
+
+<pre>This program finds the two largest integers entered by the user. Enter values, one per line, using a 0
+to signal the end of the input.
+
+Enter value: <i><font color="#00008B">7</font></i>
+Enter value: <i><font color="#00008B">42</font></i>
+Enter value: <i><font color="#00008B">18</font></i>
+Enter value: <i><font color="#00008B">9</font></i>
+Enter value: <i><font color="#00008B">35</font></i>
+Enter value: <i><font color="#00008B">0</font></i>
+The largest value is 42
+The second largest is 35
+</pre>
+
+<p>To reduce the number of special cases, you may make the following
+assumptions:</p>
+
+<ul>
+  <li>
+    <p>The user must enter at least two values before the sentinel.</p>
+  </li>
+  <li>
+    <p>All values inputed by the user are positive integers.</p>
+  </li>
+  <li>
+    <p>If the largest value appears more than once, that value should be
+listed as both the largest and second-largest value, as shown in the
+following sample run:</p>
+  </li>
+</ul>
+
+<pre>This program finds the two largest integers entered by the user. Enter values, one per line, using a 0
+to signal the end of the input.
+
+Enter value: <i><font color="#00008B">1</font></i>
+Enter value: <i><font color="#00008B">8</font></i>
+Enter value: <i><font color="#00008B">6</font></i>
+Enter value: <i><font color="#00008B">8</font></i>
+Enter value: <i><font color="#00008B">0</font></i>
+The largest value is 8
+The second largest is 8
+</pre>
+
+<p>The starter code is provided below.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SENTINEL</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># the sentinel used to signal the end of the input
+</span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="c1"># 
+</span>
+
+
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="problem-3-lists-of-lists-25-points">Problem 3: Lists of lists (25 points)**</h3>
+
+<p>Say we have a 2-dimensional list (a list of lists) of integers, which
+we'll refer to as a variable named grid, that contains 0 in every
+element, except for one element, which contains a 1. Such a grid is
+shown below (first as a list of lists and then represented as a grid).
+Note the single 1 (which is bold-faced in the grid for clarity), which
+is in the second row, fifth column of the grid – that would be position
+grid[1][4].</p>
+
+<div style="width: 90%; text-align: center">
+  <img src="./CS106A Practice Midterm Info_files/midterm-image1.png" style="width: 45%">
+  <img src="./CS106A Practice Midterm Info_files/midterm-image2.png" style="width: 45%">
+</div>
+
+<p>We would like to create a diagonal line of 1's (going down and to the
+right) through the grid, which includes the initial 1 in the grid and
+extends to the edges (but, obviously does not go outside) of the grid.
+So, starting with the grid above, we would end up with the following
+final grid, showing both the list of lists and grid representations
+(again, the 1's in the grid are bold-faced for clarity):</p>
+
+<div style="width: 90%; text-align: center">
+  <img src="./CS106A Practice Midterm Info_files/midterm-image3.png" style="width: 45%">
+  <img src="./CS106A Practice Midterm Info_files/midterm-image4.png" style="width: 45%">
+</div>
+
+<p>The initial grid we are given can have <strong>any</strong> number of rows
+and columns (but it will be guaranteed to have at least one of each).
+You can assume that every element in the grid you are given, except for
+one, contains 0's and the remaining element has a 1. Your task in this
+problem is to write a function:</p>
+
+<p>def diagonal_line(grid)</p>
+
+<p>which is passed a 2-dimensional list representing the grid (as descibed
+above). When the function is done, the grid passed in should now contain
+a "diagonal" line of 1's that includes the 1 initially in the grid and
+all other elements in the grid should still be 0's. You do not need to
+write a complete program, just the diagonal_line function.</p>
+
+<p>Below, we give two additional examples of initial/final grids to help
+further clarify specific cases:</p>
+
+<div style="width: 90%; text-align: center">
+  <img src="./CS106A Practice Midterm Info_files/midterm-image5.png" style="width: 45%">
+  <img src="./CS106A Practice Midterm Info_files/midterm-image6.png" style="width: 45%">
+</div>
+
+<p>The starter code is provided below.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">diagonal_line</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="c1">#
+</span></code></pre></div></div>
+
+<h3 id="problem-4-images-30-points">Problem 4: Images (30 points)</h3>
+
+<p>As we talked about in class, an image is just a grid of pixels. There
+are many applications (such as techniques to blur an image) that require
+us to compute average values over subsections of such an image.
+Specifically, if we are given an image, we want to compute a <strong><em>new**
+image of the same size</em></strong> where each pixel in the new image
+has a red, green, and blue value that is the <strong>average of the respective
+red, green, and blue values in a 3 by 3 <em>neighborhood</em></strong> of
+pixels in the original image. For example, say we have the following
+image that is 5 by 4 pixels in size (annotated by row and column
+indexes), where we show the red, green, and blue values in each pixel in
+parentheses as (red value, green value, blue value):</p>
+
+<p><img src="./CS106A Practice Midterm Info_files/midterm-image7.png" alt=""></p>
+
+<p>We would want a function that returns a <strong>new</strong> image, where
+the color in every pixel (at location (row, column)) in the new image is
+the <em>average</em> of the colors in the nine pixels immediately around and
+including the pixel (at location (row, column)) in the original image.
+The average color is computed by setting the red value of the pixel to
+the average of the red values for the nine pixels around it, and
+similarly for the green and blue values.</p>
+
+<p>To be explicit, the color in pixel (at location (row, column)) in the
+new image should be the average of the colors in the sub-grid of the
+original image defined by the pixels with <strong>indexes</strong>
+shown below:</p>
+
+<p><img src="./CS106A Practice Midterm Info_files/midterm-image8.png" alt=""></p>
+
+<p>So, given the 5 by 4 pixel image above, in the resulting blurred image,
+the pixel at location (2, 1) would have red, green, blue values (30, 40,
+50). These values would have been computed as the average of the
+respective red, green, and blues values from the pixels in rows 1 to 3
+and columns 0 to 2 from the original image (this neighborhood is
+highlighted by the heavy outline in the example above). For example, the
+red value is computed by averaging the nine values 30, 60, 50, 20, 10,
+10, 70, 10, and 10, which is 30.</p>
+
+<p>Note that if computing the average value for a pixel would require the
+use of pixels that are <strong>off the edge</strong> of original image,
+then the average should just be computed with the neighboring pixels
+that are available on the image. For example, to compute the color for
+the pixel that is at location (0, 0), we would average only the four
+pixels at locations (0, 0), (0, 1), (1, 0), and (1, 1) from the original
+image (since there are no pixels at row or column with index -1 in the
+image). For example, computing the new pixel for location (0, 0) in the
+image above should have the red, green, blue values (30, 40, 20).</p>
+
+<p>The header for your function should be:</p>
+
+<p><strong>def create_blurred_image(img)</strong></p>
+
+<p>Your function should <strong>not</strong> change the the original image
+passed in. It should return a newly created (blurred) image. You may
+assume that the image passed to your method contains at least one pixel.
+You only need to write the create_blurred_image function, not a complete
+program. You can also write helper functions, if that helps you solve
+the problem. The starter code is provided below.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">create_blurred_image</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="c1">#
+</span></code></pre></div></div>
+
+<h3 id="problem-5-strings-20-points">Problem 5: Strings (20 points)</h3>
+
+<p>In the early part of the 20th century, there was considerable interest
+in both England and the United States in simplifying the rules used for
+spelling English words, which has always been a difficult proposition.
+One suggestion advanced as part of this movement was the removal of all
+doubled letters from words. If this were done, no one would have to
+remember that the name of the Stanford student union is spelled
+"Tresidder," even though the incorrect spelling "Tressider" occurs at
+least as often. If double letters were banned, everyone could agree on
+"Tresider."</p>
+
+<p>Write a function <strong>remove_doubled_letters</strong> that takes a string as its
+argument and returns a new string with all doubled letters in the string
+replaced by a single letter. For example, if you call</p>
+
+<p><strong>remove_doubled_letters('tresidder')</strong></p>
+
+<p>your function should return the string <strong>'tresider'</strong>. Similarly, if
+you call</p>
+
+<p><strong>remove_doubled_letters('bookkeeper')</strong></p>
+
+<p>your function should return <strong>'bokeper'</strong>.</p>
+
+<p>In writing your solution, you should keep in mind the following:</p>
+
+<ul>
+  <li>
+    <p>You do not need to write a complete program. All you need is the
+definition of the function <strong>remove_doubled_letters</strong> that returns the
+desired result.</p>
+  </li>
+  <li>
+    <p>You may assume that all letters in the string are lower case so that
+you don't have to worry about changes in capitalization.</p>
+  </li>
+  <li>
+    <p>You may assume that no letter appears more than twice in a row. (It is
+likely that your program will work even if this restriction were not
+included; we've included it explicitly only so that you don't even have
+to think about this case.)</p>
+  </li>
+</ul>
+
+<p>The starter code is provided below:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">remove_doubled_letters</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+
+
+
+
+
+
+
+
+
+
+<span class="c1">#
+</span></code></pre></div></div>
+</div>
+        <div class="col-xs-hidden col-md-2"><nav class="fixed-top-right toc" id="toc"><ol class="toc-list "><li class="toc-list-item is-active-li"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html#exam-is-open-book-open-notes" class="toc-link node-name--H3  is-active-link">Exam is open book, open notes</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html#taking-the-exam-on-a-computer" class="toc-link node-name--H3 ">Taking the exam on a computer</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html#bluebook" class="toc-link node-name--H3 ">BlueBook</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html#coverage" class="toc-link node-name--H3 ">Coverage</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html#general-instructions" class="toc-link node-name--H3 ">General instructions</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html#exam" class="toc-link node-name--H2 ">Exam</a><ol class="toc-list  is-collapsible is-collapsed"><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html#problem-1-karel-the-robot-20-points" class="toc-link node-name--H3 ">Problem 1: Karel the Robot (20 points)</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html#problem-2-full-program-25-points" class="toc-link node-name--H3 ">Problem 2: Full program (25 points)</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html#problem-3-lists-of-lists-25-points" class="toc-link node-name--H3 ">Problem 3: Lists of lists (25 points)**</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html#problem-4-images-30-points" class="toc-link node-name--H3 ">Problem 4: Images (30 points)</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html#problem-5-strings-20-points" class="toc-link node-name--H3 ">Problem 5: Strings (20 points)</a></li></ol></li></ol></nav></div>
+    </div>
+
+    <script src="./CS106A Practice Midterm Info_files/tocbot.min.js.download"></script>
+    <link rel="stylesheet" href="./CS106A Practice Midterm Info_files/tocbot.css">
+
+    <script>
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '#toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '#content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h2, h3, h4',
+      });
+    </script>
+
+
+
+</div>
+
+<style>
+    p.attribution {
+        font-style: italic;
+        font-size: 80%;
+        text-align: right;
+    }
+    .body-container {
+        margin: 0 10%;
+        max-width: 55em;
+        width: 80%;
+    }
+    a.toc-link {
+      color: #aaa !important;
+      font-size: 90%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .fixed-top-right {
+        position: fixed;
+        margin-top: 0;
+        margin-left: 0;
+    }
+</style>
+
+</main>
+    <style>
+#footer {
+    font-size: 70%;
+    color:green;
+    text-align: center;
+    font-style: italic;
+    padding: 5px;
+}
+</style>
+<div id="footer" class="mt-auto">
+    All course materials © Stanford University 2021 <br>
+    Website programming by Julie Zelenski • Styles adapted from Chris Piech •
+    This page last updated 2022-Apr-27
+</div>
+
+
+  
+
+  <!-- Bootstrap JavaScript -->
+  <script src="./CS106A Practice Midterm Info_files/bootstrap.min.js.download"></script>
+  <script src="./CS106A Practice Midterm Info_files/popper.min.js.download"></script>
+
+  <script src="./CS106A Practice Midterm Info_files/jquery.min.js.download"></script>
+
+
+</body></html>

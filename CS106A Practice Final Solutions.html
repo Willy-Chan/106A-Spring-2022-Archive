@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<!-- saved from url=(0094)https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="./CS106A Practice Final Solutions_files/site.css" rel="stylesheet">
+    <!-- jQuery library -->
+    <script src="./CS106A Practice Final Solutions_files/jquery-3.4.1.min.js.download" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>  CS106A Practice Final Solutions</title>
+  </head>
+
+  <!-- fill to height of viewport, flex col, footer will be mt-auto -->
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-md navbar-dark" role="navigation">
+  <a class="navbar-brand" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/">🏠CS106A </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html#" aria-haspopup="true" aria-expanded="false"> Handouts </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/01-general-information.html">General Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/02-course-placement.html">Course Placement Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/03-honor-code.html">Honor Code</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/lair.html">LaIR Info</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/about_staff">Teaching Team</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/04-using-karel-with-pycharm.html">Using Karel with Pycharm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/05-assignment1.html">Assignment 1 Karel the Robot</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/06-submitting-assignments.html">Submitting Assignments</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html">Assignment 2 Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html">Assignment 3 Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/09-image-reference.html">Image Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html">Assignment 4</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/10-graphics-reference.html">Graphics Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bluebook-info.html">BlueBook Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html">Practice Midterm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm-solutions.html">Practice Midterm Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/12-assignment5.html">Assignment 5</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/midterm-solutions.html">Midterm Grades and Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/13-contest.html">Graphics/Image Contest</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/biasbars-handout.html">Assignment 6</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html">Assignment 7</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final.html">Final Exam Info and Practice</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html">Practice Final Solutions</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html#" aria-haspopup="true" aria-expanded="false"> Lectures </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+             
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/01-welcome/">  1.  3/28 Welcome! </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/02-control-flow/">  2.  3/30 Control Flow </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/03-decomposition/">  3.  4/1 Decomposition </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/04-intro-python/">  4.  4/4 Intro to Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/05-arithmetic-expressions/">  5.  4/6 Arithmetic Expressions </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/06-control-flow-revisited/">  6.  4/8 Control Flow Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/07-functions-revisited/">  7.  4/11 Functions Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/08-parameters/">  8.  4/13 Parameters </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/09-lists/">  9.  4/15 Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/10-images/">  10.  4/18 Images </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/11-listoflists/">  11.  4/20 Lists of Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/12-canvas/">  12.  4/22 Wrapping Up Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/13-more-graphics/">  13.  4/25 Canvas </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/14-strings/">  14.  4/27 Strings </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/15-files/">  15.  4/29 Files </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/16-dictionaries/">  16.  5/2 Dictionaries </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/17-parsing/">  17.  5/4 Nested Structures </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/18-nested-structures/">  18.  5/9 String Parsing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/19-tuples-sorting/">  19.  5/11 Tuples Sorting </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/20-classes-objects/">  20.  5/13 Classes and Objects </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/21-ethics/">  21.  5/16 Ethics </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/22-memory/">  22.  5/18 Memory </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/23-search-indexing/">  23.  5/20 Search and Indexing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/24-internet/">  24.  5/23 The Internet </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/25-after-106a/">  25.  5/25 Life After CS106A </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/26-advanced-python/">  26.  5/27 Advanced Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/27-wrap-up/">  27.  6/1 Wrap Up </a>
+                
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html#" aria-haspopup="true" aria-expanded="false"> Assignments </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSdN6415WaOi5C0bzlRysKuAEZJbAtN920JmrdeRz-EfXtaydg/viewform">Assignment 0</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/1-Karel">Assignment 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/2-KhansoleCompute">Assignment 2 - Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/3-ListImages">Assignment 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/4-Sand">Assignment 4 - Lists of Lists, Strings, Graphics, and Sand</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/5-WordGuess">Assignment 5 - Strings &amp; Word Guessing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/6-BiasBars">Assignment 6 - Dictionaries &amp; BiasBars</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/7-Bajillion">Assignment 7 - Bajillion</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/8-Contest">Graphics/Image Contest</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html#" aria-haspopup="true" aria-expanded="false"> Sections </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://cs198.stanford.edu/cs198/auth/default.aspx">Section Portal</a>
+            
+            
+             <div class="dropdown-divider"></div>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section1">Section 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2">Section 2 - Variables &amp; Control Flow</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3">Section 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section4">Section 4 - Lists of Lists &amp; Strings</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5">Section 5 - File Reading &amp; Nested Structures</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6">Section 6 - Dictionaries &amp; Drawing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7">Section 7 - Sorting, OOP, &amp; Memory</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8">Section 8 - Final Exam Review</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item"><a class="nav-link" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/schedule.html">🗓Schedule</a></li>
+        
+      
+    </ul>
+    <!---
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" id="search-text" name="query" placeholder="🔍 Search CS106B..." aria-label="Search" action="search">
+    </form>
+    --->
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    margin-bottom: 2rem;
+  }
+  .navbar-dark {
+    background-color: #444;
+  }
+ .nav-item > a {
+    text-transform: uppercase;
+    letter-spacing: .08rem;
+    font-size: small;
+    color: #bbb !important;
+  }
+  .nav-item > a:hover {
+    color: white !important;
+  }
+</style>
+    
+    <main class="main container-fluid" role="main"><div class="body-container container-fluid" data-spy="scroll" data-target="#toc">
+
+<h1 class="title">Practice Final Solutions</h1>
+
+<hr>
+
+<p class="attribution">
+ Written by Mehran Sahami
+</p>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-10" id="content" <=""><h1 id="practice-final-exam-solutions">Practice Final Exam Solutions</h1>
+
+<h2 id="exam-solutions">Exam Solutions</h2>
+
+<h3 id="problem-1-lists-20-points">Problem 1 Lists (20 Points)</h3>
+
+<p>The company DataScrambler.com has hired you to write a function called interleave_lists, which has the following header: <strong>def interleave_lists(list1, list2)</strong>.</p>
+
+<p>The <strong>interleave_lists</strong> function is passed two lists of integers (list1 and list2), and should return a new list of integers that interleaves the elements (numbers) from list1 and list2.  The result of interleaving list1 and list2 is simply a list of integers that contains (in order) alternating elements (numbers) from list1 and list2 (starting with a number from list1).  If one of the lists passed in to the function is longer than the other, then any remaining numbers from the longer list which are not already included in the interleaved list are simply added (in order) to the end of the result.</p>
+
+<p>For the examples we give below, say we have the following three lists:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">first</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span> 
+
+<span class="n">second</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>   
+
+<span class="n">third</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">]</span>  
+</code></pre></div></div>
+
+<p>Calling:   interleave_lists(first, second)</p>
+
+<p>should return this list: [1, 10, 2, 20, 3, 30, 4, 40, 5, 6, 7]</p>
+
+<p>Note that the interleaved lists that is returned starts with the value 1 from the list first, then 10 from the list second, then 2 from the list first, then 20 from the list second, and so on.  Since the list first is longer than the list second, after the values 1, 2, 3 and 4 from the list first have been interleaved with the values 10, 20, 30 and 40 from the list second, the remaining elements of the lists first (5, 6, 7) are simply added to the end of the resulting interleaved list.</p>
+
+<p>Here are two additional examples of what should be returned from your interleave_list function: 
+Calling: interleave_lists(second, third)</p>
+
+<p>should return this list: [10, 100, 20, 30, 40]</p>
+
+<p>And calling: interleave_lists(third, first)</p>
+
+<p>should return this list: [100, 1, 2, 3, 4, 5, 6, 7]</p>
+
+<p>If one of the lists passed into your function is an “empty” list ([]), you should still perform an interleaving, but the empty list will contribute nothing to the result.  If you are passed two empty lists, your function should return an empty list.</p>
+
+<p>Write your interleave_lists function below.  Note that for this problem you don't need to write a complete program – you just need to implement the interleave_lists function.  Feel free to define any additional functions that you would like to help you solve this problem.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Starter code
+</span><span class="k">def</span> <span class="nf">interleave_lists</span><span class="p">(</span><span class="n">list1</span><span class="p">,</span> <span class="n">list2</span><span class="p">):</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Solution code
+</span><span class="k">def</span> <span class="nf">interleave_lists</span><span class="p">(</span><span class="n">list1</span><span class="p">,</span> <span class="n">list2</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Determine which list is shorter
+</span>    <span class="n">min_length</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">list2</span><span class="p">))</span>
+
+    <span class="c1"># Loop over the length of shorter list, appending elements from list1 and list2
+</span>    <span class="c1"># on to the result list in an interleaved pattern.
+</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">min_length</span><span class="p">):</span>
+        <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">list2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="c1"># Create the remainder by slicing the elements from the longer list that were
+</span>    <span class="c1"># not added to the result
+</span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">list2</span><span class="p">):</span>
+        <span class="n">remainder</span> <span class="o">=</span> <span class="n">list1</span><span class="p">[</span><span class="n">min_length</span><span class="p">:]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">remainder</span> <span class="o">=</span> <span class="n">list2</span><span class="p">[</span><span class="n">min_length</span><span class="p">:]</span>
+
+    <span class="c1"># Add the remaining elements from the longer list to the result
+</span>    <span class="n">result</span><span class="p">.</span><span class="n">extend</span><span class="p">(</span><span class="n">remainder</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div></div>
+
+<h3 id="problem-2-strings-20-points">Problem 2 Strings (20 Points)</h3>
+
+<p>Computers have gotten very good at correcting our writing mistakes.  One form of such correction is making sure that sentences we write are properly capitalized.  For example, given a string that contains some text, we want to make sure that the first letter of every sentence is capitalized and all other letters are lower case.</p>
+
+<p>For example, consider the string: <strong>'almost done with finals? yah!!!  ** so HAPPY. have a GoOd BrEaK!'</strong></p>
+
+<p>The properly capitalized version of this string would be: <strong>'Almost done with finals? Yah!!!  ** So happy. Have a good break!'</strong></p>
+
+<p>To implement this functionality, your job is to write a function fix_capitalization that takes a string name str as its argument and returns a new string which is the properly capitalized version of the original string passed in.</p>
+
+<p>The rules for proper capitalization are as follows:</p>
+
+<ul>
+  <li>The first letter of the string is capitalized (upper case).</li>
+  <li>The first letter after each end-of-sentence punctuation mark should be capitalized. For our purposes, we'll consider period ('.'), exclamation point ('!') and question mark ('?') as the only three characters that can be used as punctuation to end sentences, so you should not consider any other end-of-sentence punctuation.</li>
+  <li>All letters that are not capitalized (according to the rules above) should be lower case.</li>
+  <li>Characters which are not letters should remain unchanged.</li>
+</ul>
+
+<p>For example, if you call:</p>
+
+<p><strong>fix_capitalization("STANFORD ROCKS!!")</strong></p>
+
+<p>your function should return the string: <strong>"Stanford rocks!!"</strong>.</p>
+
+<p>Similarly, if  you call:</p>
+
+<p><strong>fix_capitalization("</strong>*almost done!! <strong>* that's AwESoME?!  yes, IT IS.")</strong></p>
+
+<p>your function should return: <strong>"</strong>*Almost done!! <strong>* That's awesome?!  Yes, it is."</strong></p>
+
+<p>As you can see above, we make the first letter at the beginning of the string or after a punctuation mark upper case even when there are (an arbitrary number of) intervening non-letter characters (such as "<strong><em>almost done!!" and "</em></strong> that's" in the second example above, which are properly capitalized as "<strong><em>Almost done!!" and "</em></strong> That's", respectively, regardless of the intervening non-letter characters).</p>
+
+<p>In writing your solution, you should keep in mind that you do not need to write a complete program.  All you need is the definition of the function fix_capitalization that returns the desired result.  You may write any additional functions that may help you solve this problem, but you are not required to decompose your solution.  Write your solution to this problem on the next page.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Starter code
+</span><span class="k">def</span> <span class="nf">fix_capitalization</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Solution code
+</span><span class="k">def</span> <span class="nf">fix_capitalization</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+    <span class="c1"># Start with an empty result string that we will build up.
+</span>    <span class="n">result</span> <span class="o">=</span> <span class="s">''</span>
+
+    <span class="c1"># next_cap keeps track of whether next letter in input string should
+</span>    <span class="c1"># be capitalized.  Note that the first letter must be capitalized.
+</span>    <span class="n">next_cap</span> <span class="o">=</span> <span class="bp">True</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">)):</span>
+        <span class="n">ch</span> <span class="o">=</span> <span class="nb">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="c1"># If we have a letter, check to see if it should be capitalized or not
+</span>        <span class="k">if</span> <span class="n">ch</span><span class="p">.</span><span class="n">isalpha</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">next_cap</span><span class="p">:</span>
+                <span class="n">ch</span> <span class="o">=</span> <span class="n">ch</span><span class="p">.</span><span class="n">upper</span><span class="p">()</span>
+                <span class="n">next_cap</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ch</span> <span class="o">=</span> <span class="n">ch</span><span class="p">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="c1"># If we didn't have letter, see if it's end-of-sentence punctuation
+</span>        <span class="c1"># mark (in which case we should capitalize the next letter).
+</span>        <span class="k">elif</span> <span class="n">ch</span> <span class="o">==</span> <span class="s">'.'</span> <span class="ow">or</span> <span class="n">ch</span> <span class="o">==</span> <span class="s">'!'</span> <span class="ow">or</span> <span class="n">ch</span> <span class="o">==</span> <span class="s">'?'</span><span class="p">:</span>
+            <span class="n">next_cap</span> <span class="o">=</span> <span class="bp">True</span>
+
+        <span class="c1"># Add the character to the result we are building up
+</span>        <span class="n">result</span> <span class="o">+=</span> <span class="n">ch</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div></div>
+
+<h3 id="problem-3-graphics-25-points">Problem 3 Graphics (25 Points)</h3>
+
+<p>To get more artistic with your programming, you decide to write a function called draw_sketch that is passed a graphics canvas and draws a simple line sketch “artwork” on that canvas.  Your function should first asking the user (on the console) for the “Number of lines in the drawing:”.  You can assume the user will always enter a positive integer value.  You should then create a drawing on the canvas which is produced by drawing lines with randomly determined starting and ending points, where the ending point of each line in the drawing becomes the starting point for the subsequent line, so all the lines in the drawing are connected.  The starting/ending points for each line can appear anywhere on the canvas, which has size (in pixels) specified by the constants CANVAS_WIDTH and CANVAS_HEIGHT.  Figure 1 below shows an example of an output of this program where the user asked for 5 lines in the drawing.</p>
+
+<p><img src="./CS106A Practice Final Solutions_files/graphics1.png" style="width: 90%"></p>
+
+<p>Note that there is also a colored circle (both the fill and outline of the circle are colored) centered at the end point of each line in the drawing.  This is to add more artistic flair to the drawing.  The colors used for the circles are determined by the constant COLORS, which is a list of color names (strings), as shown below.</p>
+
+<p><code class="language-python highlighter-rouge"><span class="n">COLORS</span> <span class="o">=</span> <span class="p">[</span><span class="s">'red'</span><span class="p">,</span> <span class="s">'orange'</span><span class="p">,</span> <span class="s">'yellow'</span><span class="p">,</span> <span class="s">'green'</span><span class="p">,</span> <span class="s">'blue'</span><span class="p">,</span> <span class="s">'violet'</span><span class="p">]</span></code></p>
+
+<p>The colors for the circles you draw should cycle through the COLORS list, starting with the color red for the starting point of the first line, then the color orange for the starting point of the second line (which is also the ending point of the first line), and so on.  After drawing a circle that is violet, the next circle drawn should be red again, since the colors are being cycled through.  Each colored circle should appear underneath the two lines that are connected at that point in the drawing, though it is fine if the circle appears in front of lines that came earlier in the drawing.  The radius (in pixels) of the circle is determined by the constant RADIUS.</p>
+
+<p>Two additional program runs are shown in Figure 2 and Figure 3 below, which have 8 and 12 lines, respectively, to show the cycling of colors in the circles.  Note that while the endpoints of all the lines should appear on the graphics canvas, it is fine if the circles drawn get clipped if they are too close to the edge of the canvas.</p>
+
+<p><img src="./CS106A Practice Final Solutions_files/graphics2.png" style="width: 90%"></p>
+
+<p>Write your function draw_sketch below.  Note that for this problem you can assume that there is a main function that has already created a canvas with the dimensions CANVAS_WIDTH and CANVAS_HEIGHT, and is passing that canvas to your draw_sketch function.  So, you just need to implement the draw_sketch function.  Feel free to define any additional functions that you would like to help you solve this problem.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Starter code
+</span><span class="kn">import</span> <span class="nn">tkinter</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">CANVAS_WIDTH</span> <span class="o">=</span> <span class="mi">500</span>      <span class="c1"># Width of drawing canvas in pixels
+</span><span class="n">CANVAS_HEIGHT</span> <span class="o">=</span> <span class="mi">300</span>     <span class="c1"># Height of drawing canvas in pixels
+</span><span class="n">COLORS</span> <span class="o">=</span> <span class="p">[</span><span class="s">'red'</span><span class="p">,</span> <span class="s">'orange'</span><span class="p">,</span> <span class="s">'yellow'</span><span class="p">,</span> <span class="s">'green'</span><span class="p">,</span> <span class="s">'blue'</span><span class="p">,</span> <span class="s">'violet'</span><span class="p">]</span>
+<span class="n">RADIUS</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">canvas</span> <span class="o">=</span> <span class="n">make_canvas</span><span class="p">(</span><span class="n">CANVAS_WIDTH</span><span class="p">,</span> <span class="n">CANVAS_HEIGHT</span><span class="p">)</span>   <span class="c1"># Assume make_canvas exists
+</span>    <span class="n">draw_sketch</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
+    <span class="n">tkinter</span><span class="p">.</span><span class="n">mainloop</span><span class="p">()</span>
+
+<span class="c1"># You should implement the draw_sketch function below
+</span><span class="k">def</span> <span class="nf">draw_sketch</span><span class="p">(</span><span class="n">canvas</span><span class="p">):</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Solution code
+</span><span class="k">def</span> <span class="nf">draw_sketch</span><span class="p">(</span><span class="n">canvas</span><span class="p">):</span>
+    <span class="n">num_colors</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">COLORS</span><span class="p">)</span>
+    <span class="n">num_lines</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">'Number of lines in drawing: '</span><span class="p">))</span>
+
+    <span class="c1"># Determine starting point for first line
+</span>    <span class="n">start_x</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">CANVAS_WIDTH</span><span class="p">)</span>
+    <span class="n">start_y</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">CANVAS_HEIGHT</span><span class="p">)</span>
+    <span class="n">centered_circle</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">start_x</span><span class="p">,</span> <span class="n">start_y</span><span class="p">,</span> <span class="n">COLORS</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># Draw the lines
+</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_lines</span><span class="p">):</span>
+        <span class="n">end_x</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">CANVAS_WIDTH</span><span class="p">)</span>
+        <span class="n">end_y</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">CANVAS_HEIGHT</span><span class="p">)</span>
+
+        <span class="c1"># Use i + 1 to determine color for circle since starting point
+</span>        <span class="c1"># of first line already used the first color
+</span>        <span class="n">centered_circle</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">end_x</span><span class="p">,</span> <span class="n">end_y</span><span class="p">,</span> <span class="n">COLORS</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">num_colors</span><span class="p">])</span>
+        <span class="n">canvas</span><span class="p">.</span><span class="n">create_line</span><span class="p">(</span><span class="n">start_x</span><span class="p">,</span> <span class="n">start_y</span><span class="p">,</span> <span class="n">end_x</span><span class="p">,</span> <span class="n">end_y</span><span class="p">)</span>
+
+        <span class="c1"># The ending point of this line becomes starting point of next line
+</span>        <span class="n">start_x</span> <span class="o">=</span> <span class="n">end_x</span>
+        <span class="n">start_y</span> <span class="o">=</span> <span class="n">end_y</span>
+
+<span class="c1"># Draws a circle centered at point (x, y) with the given color
+</span><span class="k">def</span> <span class="nf">centered_circle</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="n">canvas</span><span class="p">.</span><span class="n">create_oval</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">RADIUS</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="n">RADIUS</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">RADIUS</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">RADIUS</span><span class="p">,</span>
+                       <span class="n">outline</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="problem-4-file-processing-25-points">Problem 4 File Processing (25 Points)</h3>
+<p>You are given a text file containing information about a group of people’s best friends.  The file is structured so that each line contains the name of a particular person as well as the name of their best friend.  You can assume that people’s names are unique (e.g., anytime a name like “Pat” appears, it is always referring the same person named “Pat”).  And to keep things simple, you can also assume that each name is just a single token representing the first name of the person.  Also, each person has at most one best friend.  A sample data file might look as follows:</p>
+
+<p><strong>data.txt</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bob Alice
+Chelsea Bob
+Eduardo Don
+Alice Chelsea
+</code></pre></div></div>
+
+<p>The file above indicates that Bob’s best friend is Alice, Chelsea’s best friend is Bob, etc.  Note that not everyone is required to have a best friend (for example, Eduardo’s best friend is Don, but Don doesn’t have a best friend in the file).  And best friends are not necessarily reciprocal (Bob’s best friend is Alice, but Alice’s best friend is not Bob).</p>
+
+<p>You think it would be interesting to determine if there is a “best friend loop” in such data.  A “best friend loop” occurs when you start at some person, then find their best friend, then find that person’s best friend, etc. until you get back to the starting person.  For example, the data above contains a “best friend loop” since we could start with Bob, then link to Alice (Bob’s best friend), then link to Chelsea (Alice’s best friend), and then link back to Bob (Chelsea’s best friend).</p>
+
+<p>Your job is to write a function contains_loop that is passed the name of a file (string) containing the best friend data and determines if the data contains a “best friend loop”.  Your function should return True if the data in the file in contains at least one “best friend loop” and False otherwise (i.e., return False when there are no best friend loops).</p>
+
+<p><strong>Hint: consider reading the file into a dictionary (where the key is a person’s name and the value is the name of that person’s best friend) and use that dictionary to help you determine if a loop exists.</strong></p>
+
+<p>To provide another example, the file noloops.txt below does not contain any “best friend loops”, so your function should return False if the filename "noloops.txt" were passed to it.</p>
+
+<p><strong>noloops.txt</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Eric Fran
+Fran Helen
+Gary Helen
+</code></pre></div></div>
+
+<p>And, it is fine for someone to be their own best friend, which would constitute a “best friend loop”. This is shown in the file loveyourself.txt below (the “best friend loop” is simply starting with Pat and then linking back to Pat).  So, your function should return True in this case.</p>
+
+<p><strong>loveyourself.txt</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pat Pat
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Starter code
+</span><span class="k">def</span> <span class="nf">contains_loop</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Solution code
+</span><span class="k">def</span> <span class="nf">contains_loop</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="c1"># Use a dictionary to keep track of each person's best friend
+</span>    <span class="n">bf_dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># Read the file into a dictionary where names are keys, best friends are values
+</span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">file</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">names</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="n">bf_dict</span><span class="p">[</span><span class="n">names</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">names</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+
+    <span class="c1"># For each name in the bf_dict, see if we can find a loop starting at that name
+</span>    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">bf_dict</span><span class="p">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="c1"># Store path from a given person to determine if we loop back into it
+</span>        <span class="n">path</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Loop until we get to a dead-end (or find loop)
+</span>        <span class="k">while</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">bf_dict</span><span class="p">:</span>
+            <span class="n">path</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>     <span class="c1"># Add the current name to path of names
+</span>            <span class="n">name</span> <span class="o">=</span> <span class="n">bf_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>  <span class="c1"># Look up best friend as the next person in path
+</span>
+            <span class="c1"># If we reach a name we've seen before in this path, we found a loop
+</span>            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="c1"># Will only return false if we've found no loops after trying to
+</span>    <span class="c1"># find one starting from every name in the dictionary.
+</span>    <span class="k">return</span> <span class="bp">False</span>
+</code></pre></div></div>
+
+<h3 id="problem-5-using-data-structures-30-points">Problem 5 Using Data Structures (30 Points)</h3>
+<p>Realizing that the US National Debt is now over $30 trillion, you decide to create the notion of “Big Numbers”, allowing you to represent (and add) arbritrarily large positive integer values.  You are going to represent such a large number as a list of digits.  For example, the number 16,381,245 could be represented using a list where each entry of the list is a single digit, as follows:</p>
+
+<p><img src="./CS106A Practice Final Solutions_files/lists1.png"></p>
+
+<p>To allow you to more easily add such numbers, it would be useful to store the digits of the “Big Number” backwards, so that the ones digit is always in position 0, the tens digit is always in position 1, the hundreds digit is always in position 2, etc.  So, the list representing 16,381,245 would actually look as follows (with indexes shown below the list):</p>
+
+<p><img src="./CS106A Practice Final Solutions_files/lists2.png"></p>
+
+<p><u>The list should only have as many elements as the number of digits in the number it represents</u>.  So, if we had a variable (list) named bignum1 representing the number 9,564 and wanted to add to it another variable (list) named bignum2 representing 867, we should (like you did in first grade) add the ones digits (which are respectively both at index 0), then add the tens digits (at index 1), etc. to get the resulting sum 10,431, shown in the variable result below:</p>
+
+<p><img src="./CS106A Practice Final Solutions_files/lists3.png"></p>
+
+<p>Note that the resulting sum can have more digits than either of the original numbers added together.</p>
+
+<p>Your job is to implement a function named add_bignums that is passed two “Big Numbers” (i.e., lists of digits in backwards order, as discussed above) and returns a new list representing the “Big Number” (i.e. list of digits in backwards order) that represents the sum of the two numbers passed in, using the algorithm described above to add the numbers digit-by-digit, starting at the ones digit).  Your function should not modify the two lists that are passed into it.</p>
+
+<p>For example, say your function is called with lists (as defined above) representing the numbers 9,564 and 867 as “Big Numbers”, respectively:</p>
+
+<p><strong>add_bignums([4, 6, 5, 9], [7, 6, 8])</strong></p>
+
+<p>then your function should return the list:</p>
+
+<p><code class="language-python highlighter-rouge"><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span></code></p>
+
+<p>which would represent the value 10,431 as a “Big Number” (i.e., list of digits in backwards order).</p>
+
+<p>In writing your solution, you should keep in mind that you do not need to write a complete program.  All you need is the definition of the function add_bignums that returns the desired result.  You may write any additional functions that may help you solve this problem, but you are not required to decompose your solution.  Write your solution to this problem on the next page.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Starter code
+</span><span class="k">def</span> <span class="nf">add_bignums</span><span class="p">(</span><span class="n">bignum1</span><span class="p">,</span> <span class="n">bignum2</span><span class="p">):</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Solution code
+</span><span class="k">def</span> <span class="nf">add_bignums</span><span class="p">(</span><span class="n">bignum1</span><span class="p">,</span> <span class="n">bignum2</span><span class="p">):</span>
+    <span class="s">"""
+    Add two "bignumbers" together, and returns a new "bignumber" (list)
+    representing the sum.
+    """</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Keep track of "carry" when two digits added
+</span>    <span class="n">carry</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Determine which bignumber has more digits
+</span>    <span class="n">max_size</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bignum1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">bignum2</span><span class="p">))</span>
+
+    <span class="c1"># Loop through digits/columns of the bignumbers
+</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_size</span><span class="p">):</span>
+
+        <span class="c1"># Add digits in current column of bignumbers (including carry)
+</span>        <span class="nb">sum</span> <span class="o">=</span> <span class="n">safe_get_digit</span><span class="p">(</span><span class="n">bignum1</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="n">safe_get_digit</span><span class="p">(</span><span class="n">bignum2</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="n">carry</span>
+
+        <span class="c1"># Determine if there is a carry to the next column
+</span>        <span class="k">if</span> <span class="nb">sum</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">carry</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">-</span> <span class="mi">10</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">carry</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># Add new digit to end of list, since bignum is stored in reverse order
+</span>        <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+
+    <span class="c1"># Check for a carry on the last digit/column we added
+</span>    <span class="k">if</span> <span class="n">carry</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">carry</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="c1"># Returns digit at given index in bignum if it exists, returns 0 otherwise
+</span><span class="k">def</span> <span class="nf">safe_get_digit</span><span class="p">(</span><span class="n">bignum</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">bignum</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bignum</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h3 id="problem-6-full-program-30-points">Problem 6 Full Program (30 Points)</h3>
+<p>Interestingly, people tend to see patterns in data, even when the data may be random.  For example, say you are given a file that contains a series of positive integers, one per line.  You want to determine when chains appear.  A chain is a sequence of numbers that consecutively increase by one.  More concretely, say we had the following sequence of 10 numbers:</p>
+
+<p><strong>5, <u>3, 4, 5</u>, 1, <u>4, 5</u>, 3, 6</strong></p>
+
+<p>Here, we would have two "chains" in the data (the chains are underlined in the sequence above).  To reiterate, a chain is just a sequence of consecutive numbers where each subsequent number is greater than the previous number by one.</p>
+
+<p>We want to write a Python that reads a file of integers (the filename will be specified by the constant FILENAME), containing one integer per line and guaranteed to contain at least one number.  The program should print out the length of the longest chain that appears in the file.  For clarification, we show three different data files (data1.txt, data2.txt, and data3.txt) below.  We highlight the “chains” in each file (with red) to show the reason for the final result in each case.  The file will not have this highlighting – it just contains the integers.  Your program should just output the length of the longest chain in the file as shown below for each file.  If there are no chains found in the data, your program should report "No chains found."</p>
+
+<p><img src="./CS106A Practice Final Solutions_files/files1.png" style="width: 90%"></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Starter code
+</span><span class="n">FILENAME</span> <span class="o">=</span> <span class="s">'datafile.txt'</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+
+
+
+
+
+
+
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Solution code
+</span><span class="n">FILENAME</span> <span class="o">=</span> <span class="s">'datafile.txt'</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">prior_value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>    <span class="c1"># Initially, have no prior value
+</span>    <span class="n">max_chain</span> <span class="o">=</span> <span class="mi">0</span>       <span class="c1"># Keep track of maximum chain size found
+</span>    <span class="n">current_chain</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># Keep track of size of current chain we are in
+</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">FILENAME</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">file</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+            <span class="c1"># Check to see if we continue in a chain
+</span>            <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="p">(</span><span class="n">prior_value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="c1"># If so, increment current chain's length
+</span>                <span class="n">current_chain</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># If not, check to see if the chain we might have been in
+</span>                <span class="c1"># is longer than the maximum chain we found previously
+</span>                <span class="k">if</span> <span class="n">current_chain</span> <span class="o">&gt;</span> <span class="n">max_chain</span><span class="p">:</span>
+                    <span class="c1"># Maximum chain size is current_chain + 1 since we need to
+</span>                    <span class="c1"># account for the very first number in the chain, which was
+</span>                    <span class="c1"># not counted in the length of the current chain
+</span>                    <span class="n">max_chain</span> <span class="o">=</span> <span class="n">current_chain</span> <span class="o">+</span> <span class="mi">1</span>
+
+                <span class="c1"># Note: we are no longer in a chain, so reset current_chain to 0
+</span>                <span class="n">current_chain</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="c1"># Value we just read becomes our "prior" value
+</span>            <span class="n">prior_value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="c1"># After reading file, need to do final check to see if our current chain was
+</span>    <span class="c1"># longer than maximum (since we might have been in a chain when the file ended)
+</span>    <span class="k">if</span> <span class="n">current_chain</span> <span class="o">&gt;</span> <span class="n">max_chain</span><span class="p">:</span>
+        <span class="n">max_chain</span> <span class="o">=</span> <span class="n">current_chain</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="c1"># Print out length of longest chain, if we found one
+</span>    <span class="k">if</span> <span class="n">max_chain</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Longest chain: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">max_chain</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"No chains found"</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="problem-7-classes-30-points">Problem 7 Classes (30 Points)</h3>
+<p>We want to build a class in Python to handle a box office ticket management system that keeps track of tickets sold for shows at the Bing Concert Hall (referred to as just “Bing” here).  For the purposes of this problem, we will assume that Bing has 500 seats that are numbered 1 to 500.  Thus, seats are simply designated by integers from 1 to 500.  We want to design a class, where we can create an object that allows a user to:</p>
+
+<ul>
+  <li>Determine if there are still tickets available for sale from the box office.</li>
+  <li>Get (purchase) the next available ticket from the box office, if there are tickets available.</li>
+  <li>Return a previously purchased ticket to the box office (which would make it available for someone else to potentially get/buy in the future).</li>
+</ul>
+
+<p>With this idea in mind, we want to define a class called TicketSystem which has a constructor as well as three methods (“method” is just another name for a function that is in a class), defined as follows:</p>
+
+<ul>
+  <li>has_tickets() –  this method returns True if there are tickets still available for purchase, which means that either there are still unsold seats or there are tickets which have been returned and not yet sold again (or both).  If no tickets are available, the method returns False .</li>
+  <li>next_ticket() –  if there are tickets available, this method returns an integer indicating the seat designation of the next available ticket.  If no tickets are available, the method returns -1 since there are no valid available seats.</li>
+  <li>return_ticket(ticket) –  this method is passed a valid (previously purchased) ticket (i.e., integer designating a seat).  This ticket is considered returned to the box office and is once again available for sale (i.e., some future call to next_ticket could return this ticket).  This method does not need to do error checking on the ticket passed in – you can assume that the ticket will always be a valid number for a seat that was previously sold.</li>
+</ul>
+
+<p>Note that the box office chooses to sell tickets in a particular order, as follows:</p>
+
+<ul>
+  <li>If any tickets for seats have been returned, sell those tickets first in the order in which they were returned, before selling any other available seats.</li>
+  <li>If there are no previously sold tickets that have been returned to sell again, then sell seats in order by section number (first) and by seat number (second).  So, the first ticket sold would be 1, followed by 2, then 3, etc.  Thus, 500 would be the last ticket to be sold (not counting returned tickets).
+As an example, say we sell tickets 1, 2, 3, and 4.  Then, ticket 2 is returned, and then ticket 1 is returned.  The next ticket we will sell will be 2, followed by 1.  After that (assuming no other ticket has been returned), we would then sell ticket 5 next.</li>
+</ul>
+
+<p>We give you the outline of the class TicketSystem and the methods specified in the class below.  Your task is to write the implementation (body) of each of the methods in the class TicketSystem.  Write your answer below.  Note that you do not have to write a program that creates objects based on your class.  We just want you to define the methods in the class.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Starter Code 
+# Number of seats available in ticketing system
+</span><span class="n">NUM_SEATS</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="k">class</span> <span class="nc">TicketSystem</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+
+
+
+
+    <span class="k">def</span> <span class="nf">has_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+
+
+
+
+
+    <span class="k">def</span> <span class="nf">next_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+
+
+
+
+
+    <span class="k">def</span> <span class="nf">return_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ticket</span><span class="p">):</span>
+
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Solution Code 
+# Number of seats available in ticketing system
+</span><span class="n">NUM_SEATS</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="k">class</span> <span class="nc">TicketSystem</span><span class="p">:</span>
+
+    <span class="c1"># Constructor
+</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Keep track of next ticket (seat number)
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">next_seat</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="c1"># Keep track of returned tickets in a list
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">returned_tickets</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+    <span class="k">def</span> <span class="nf">has_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># We have tickets to sell if either there are returned tickets
+</span>        <span class="c1"># or we have not yet sold all the seats (tickets)
+</span>        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">returned_tickets</span> <span class="ow">or</span> <span class="bp">self</span><span class="p">.</span><span class="n">next_seat</span> <span class="o">&lt;=</span> <span class="n">NUM_SEATS</span>
+
+
+    <span class="k">def</span> <span class="nf">next_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># First check for returned tickets to sell
+</span>        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">returned_tickets</span><span class="p">:</span>
+            <span class="c1"># Sell the first returned ticket in the list
+</span>            <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">returned_tickets</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="p">.</span><span class="n">next_seat</span> <span class="o">&lt;=</span> <span class="n">NUM_SEATS</span><span class="p">:</span>
+            <span class="c1"># If we still have seats to sell, get the seat number for next ticket
+</span>            <span class="n">ticket</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">next_seat</span>
+            <span class="c1"># Update the next seat to be sold
+</span>            <span class="bp">self</span><span class="p">.</span><span class="n">next_seat</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="n">ticket</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># We should only get to this case if there are no returned tickets
+</span>            <span class="c1"># and no seats left to sell, in which case there are no tickets.
+</span>            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+
+
+    <span class="k">def</span> <span class="nf">return_ticket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ticket</span><span class="p">):</span>
+        <span class="c1"># Add the returned ticket to the list of returned tickets
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">returned_tickets</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">ticket</span><span class="p">)</span>
+</code></pre></div></div>
+
+</div>
+        <div class="col-xs-hidden col-md-2"><nav class="fixed-top-right toc" id="toc"><ol class="toc-list "><li class="toc-list-item is-active-li"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html#exam-solutions" class="toc-link node-name--H2  is-active-link">Exam Solutions</a><ol class="toc-list  is-collapsible"><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html#problem-1-lists-20-points" class="toc-link node-name--H3 ">Problem 1 Lists (20 Points)</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html#problem-2-strings-20-points" class="toc-link node-name--H3 ">Problem 2 Strings (20 Points)</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html#problem-3-graphics-25-points" class="toc-link node-name--H3 ">Problem 3 Graphics (25 Points)</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html#problem-4-file-processing-25-points" class="toc-link node-name--H3 ">Problem 4 File Processing (25 Points)</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html#problem-5-using-data-structures-30-points" class="toc-link node-name--H3 ">Problem 5 Using Data Structures (30 Points)</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html#problem-6-full-program-30-points" class="toc-link node-name--H3 ">Problem 6 Full Program (30 Points)</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html#problem-7-classes-30-points" class="toc-link node-name--H3 ">Problem 7 Classes (30 Points)</a></li></ol></li></ol></nav></div>
+    </div>
+
+    <script src="./CS106A Practice Final Solutions_files/tocbot.min.js.download"></script>
+    <link rel="stylesheet" href="./CS106A Practice Final Solutions_files/tocbot.css">
+
+    <script>
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '#toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '#content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h2, h3, h4',
+      });
+    </script>
+
+
+
+</div>
+
+<style>
+    p.attribution {
+        font-style: italic;
+        font-size: 80%;
+        text-align: right;
+    }
+    .body-container {
+        margin: 0 10%;
+        max-width: 55em;
+        width: 80%;
+    }
+    a.toc-link {
+      color: #aaa !important;
+      font-size: 90%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .fixed-top-right {
+        position: fixed;
+        margin-top: 0;
+        margin-left: 0;
+    }
+</style>
+
+</main>
+    <style>
+#footer {
+    font-size: 70%;
+    color:green;
+    text-align: center;
+    font-style: italic;
+    padding: 5px;
+}
+</style>
+<div id="footer" class="mt-auto">
+    All course materials © Stanford University 2021 <br>
+    Website programming by Julie Zelenski • Styles adapted from Chris Piech •
+    This page last updated 2022-May-27
+</div>
+
+
+  
+
+  <!-- Bootstrap JavaScript -->
+  <script src="./CS106A Practice Final Solutions_files/bootstrap.min.js.download"></script>
+  <script src="./CS106A Practice Final Solutions_files/popper.min.js.download"></script>
+
+  <script src="./CS106A Practice Final Solutions_files/jquery.min.js.download"></script>
+
+
+</body></html>
