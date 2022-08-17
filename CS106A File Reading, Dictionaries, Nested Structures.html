@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="./CS106A File Reading, Dictionaries, Nested Structures_files/site.css" rel="stylesheet">
+    <!-- jQuery library -->
+    <script src="./CS106A File Reading, Dictionaries, Nested Structures_files/jquery-3.4.1.min.js.download" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>  CS106A File Reading, Dictionaries, Nested Structures</title>
+  </head>
+
+  <!-- fill to height of viewport, flex col, footer will be mt-auto -->
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-md navbar-dark" role="navigation">
+  <a class="navbar-brand" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/">🏠CS106A </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5/#" aria-haspopup="true" aria-expanded="false"> Handouts </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/01-general-information.html">General Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/02-course-placement.html">Course Placement Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/03-honor-code.html">Honor Code</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/lair.html">LaIR Info</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/about_staff">Teaching Team</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/04-using-karel-with-pycharm.html">Using Karel with Pycharm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/05-assignment1.html">Assignment 1 Karel the Robot</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/06-submitting-assignments.html">Submitting Assignments</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html">Assignment 2 Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html">Assignment 3 Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/09-image-reference.html">Image Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html">Assignment 4</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/10-graphics-reference.html">Graphics Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bluebook-info.html">BlueBook Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html">Practice Midterm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm-solutions.html">Practice Midterm Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/12-assignment5.html">Assignment 5</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/midterm-solutions.html">Midterm Grades and Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/13-contest.html">Graphics/Image Contest</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/biasbars-handout.html">Assignment 6</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html">Assignment 7</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final.html">Final Exam Info and Practice</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html">Practice Final Solutions</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5/#" aria-haspopup="true" aria-expanded="false"> Lectures </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+             
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/01-welcome/">  1.  3/28 Welcome! </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/02-control-flow/">  2.  3/30 Control Flow </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/03-decomposition/">  3.  4/1 Decomposition </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/04-intro-python/">  4.  4/4 Intro to Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/05-arithmetic-expressions/">  5.  4/6 Arithmetic Expressions </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/06-control-flow-revisited/">  6.  4/8 Control Flow Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/07-functions-revisited/">  7.  4/11 Functions Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/08-parameters/">  8.  4/13 Parameters </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/09-lists/">  9.  4/15 Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/10-images/">  10.  4/18 Images </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/11-listoflists/">  11.  4/20 Lists of Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/12-canvas/">  12.  4/22 Wrapping Up Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/13-more-graphics/">  13.  4/25 Canvas </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/14-strings/">  14.  4/27 Strings </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/15-files/">  15.  4/29 Files </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/16-dictionaries/">  16.  5/2 Dictionaries </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/17-parsing/">  17.  5/4 Nested Structures </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/18-nested-structures/">  18.  5/9 String Parsing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/19-tuples-sorting/">  19.  5/11 Tuples Sorting </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/20-classes-objects/">  20.  5/13 Classes and Objects </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/21-ethics/">  21.  5/16 Ethics </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/22-memory/">  22.  5/18 Memory </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/23-search-indexing/">  23.  5/20 Search and Indexing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/24-internet/">  24.  5/23 The Internet </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/25-after-106a/">  25.  5/25 Life After CS106A </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/26-advanced-python/">  26.  5/27 Advanced Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/27-wrap-up/">  27.  6/1 Wrap Up </a>
+                
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5/#" aria-haspopup="true" aria-expanded="false"> Assignments </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSdN6415WaOi5C0bzlRysKuAEZJbAtN920JmrdeRz-EfXtaydg/viewform">Assignment 0</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/1-Karel">Assignment 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/2-KhansoleCompute">Assignment 2 - Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/3-ListImages">Assignment 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/4-Sand">Assignment 4 - Lists of Lists, Strings, Graphics, and Sand</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/5-WordGuess">Assignment 5 - Strings &amp; Word Guessing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/6-BiasBars">Assignment 6 - Dictionaries &amp; BiasBars</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/7-Bajillion">Assignment 7 - Bajillion</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/8-Contest">Graphics/Image Contest</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5/#" aria-haspopup="true" aria-expanded="false"> Sections </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://cs198.stanford.edu/cs198/auth/default.aspx">Section Portal</a>
+            
+            
+             <div class="dropdown-divider"></div>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section1">Section 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2">Section 2 - Variables &amp; Control Flow</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3">Section 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section4">Section 4 - Lists of Lists &amp; Strings</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5">Section 5 - File Reading &amp; Nested Structures</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6">Section 6 - Dictionaries &amp; Drawing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7">Section 7 - Sorting, OOP, &amp; Memory</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8">Section 8 - Final Exam Review</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item"><a class="nav-link" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/schedule.html">🗓Schedule</a></li>
+        
+      
+    </ul>
+    <!---
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" id="search-text" name="query" placeholder="🔍 Search CS106B..." aria-label="Search" action="search">
+    </form>
+    --->
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    margin-bottom: 2rem;
+  }
+  .navbar-dark {
+    background-color: #444;
+  }
+ .nav-item > a {
+    text-transform: uppercase;
+    letter-spacing: .08rem;
+    font-size: small;
+    color: #bbb !important;
+  }
+  .nav-item > a:hover {
+    color: white !important;
+  }
+</style>
+    
+    <main class="main container-fluid" role="main"><div class="body-container container-fluid" data-spy="scroll" data-target="#toc">
+
+<h1 class="title">Section 5. File Reading, Dictionaries, Nested Structures</h1>
+
+<hr>
+
+<p class="attribution">
+Juliette Woodrow, Brahm Capoor, Andrew Tierno, Peter Maldonado, Kara Eng, Tori Qiu and Parth Sarin
+</p>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-10" id="content" <=""><style>
+.node {
+	border-style: solid;
+	border-width: 3px;
+    font-size: 130%;
+    text-align: center;
+    padding: 10px;
+    width:10%;
+}
+</style>
+
+<p>Here is the online IDE for section this week <a href="https://edstem.org/us/courses/21537/lessons/32694/slides/191689">Online IDE</a></p>
+
+<h2 id="file-reading">File Reading</h2>
+
+<h3 id="smallest-unique-positive-integer">Smallest Unique Positive Integer</h3>
+<p>Implement the following function:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">find_smallest_int</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</code></pre></div></div>
+<p>That takes as a parameter a <strong>filename</strong> string representing a file with a single integer on each line, and returns the smallest unique positive integer in the file. An integer is positive if is greater than 0, and unique if it occurs exactly once in the file. For example, suppose <strong>filename.txt</strong> looks like this:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="mi">42</span>
+ <span class="mi">1</span>
+ <span class="mi">13</span>
+ <span class="mi">12</span>
+ <span class="mi">1</span>
+ <span class="o">-</span><span class="mi">8</span>
+ <span class="mi">20</span>
+</code></pre></div></div>
+<p>Calling <strong>find_smallest_int('filename.txt')</strong> would return <strong>12</strong>. You may assume that each line of the file contains exactly one integer, although it may not be positive and that there is at least one positive integer in the file.</p>
+
+<div class="showtime" when="2022-05-06T18:00:00-07:00"></div>
+<style>
+  div.solution { display: none; }
+  .solution pre { background-color: inherit; border: none; }
+</style>
+
+<script>
+    $(document).ready(function() {
+        var now = new Date();
+        var gate = new Date($("div.showtime").attr("when"));
+        if (now >= gate || window.location.href.endsWith("#warriors")) {$("div.solution").show()}
+ });
+</script>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5/#solution-collapse-1" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-1" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">find_smallest_int</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">nums_so_far</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">duplicates</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># if we've seen this number already
+</span>                <span class="k">if</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums_so_far</span><span class="p">:</span>
+                    <span class="c1"># record that it's a duplicate
+</span>                    <span class="n">duplicates</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+                <span class="c1"># note that we've seen this number
+</span>                <span class="n">nums_so_far</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    
+    <span class="n">uniques</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">nums_so_far</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">elem</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">duplicates</span><span class="p">:</span>
+            <span class="n">uniques</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">uniques</span><span class="p">)</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h2 id="warming-up-with-nested-dictionaries">Warming up with Nested Dictionaries</h2>
+
+<p>To get some practice with dictionaries and nesting collections, implement the following functions:</p>
+
+<ol>
+  <li>
+    <p><strong>def first_chars(strs)</strong> Given a list of strings, create and return a counts dictionary whose keys are the unique first characters of the strings in strs and whose values are the count of the words that start with that character. As an example, the following strs list would lead to the following counts dict.
+ <strong>strs = ['stanford', 'python', 'computer', 'science', 'democracy', 'day']</strong>
+ <strong>counts = {'s': 2, 'p': 1, 'c': 1, 'd': 2}</strong></p>
+  </li>
+  <li>
+    <p><strong>def first_list(strs)</strong> Given a list of strings, create and return a dictionary whose keys are the unique first characters of the strings and whose values are lists of words beginning with those characters, in the same order that they appear in strs.</p>
+  </li>
+</ol>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5/#solution-collapse-2" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-2" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">first_chars</span><span class="p">(</span><span class="n">strs</span><span class="p">):</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">strs</span><span class="p">:</span>
+        <span class="n">ch</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">ch</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
+            <span class="n">counts</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">counts</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">counts</span>
+
+        
+<span class="k">def</span> <span class="nf">first_list</span><span class="p">(</span><span class="n">strs</span><span class="p">):</span>
+    <span class="n">unique_firsts</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">strs</span><span class="p">:</span>
+        <span class="n">ch</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">ch</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">unique_firsts</span><span class="p">:</span>
+            <span class="n">unique_firsts</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">unique_firsts</span><span class="p">[</span><span class="n">ch</span><span class="p">].</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">unique_firsts</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h2 id="big-tweet-data">Big Tweet Data</h2>
+<p>In this program, you'll write a program that reads through a large collection of tweets and store the data to keep track of how hashtags occur in tweets. This is a great example of how Python can be used in data analysis tasks.</p>
+
+<h3 id="our-dataset">Our Dataset</h3>
+<p>For the purposes of this problem, each tweet is represented as a single line of text in a file. Each line consists of the poster's username (prefixed by a '@' symbol), followed by a colon and then the text of the tweet. Each character in this file can be a character from any language, or an emoji, although you don't need to do anything special to deal with these characters. One such file in the PyCharm project we provide is <strong>small-tweets.txt</strong>, which is reproduced here:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">BarackObama</span><span class="p">:</span> <span class="n">Missed</span> <span class="n">President</span> <span class="n">Obama</span><span class="s">'s final #SOTU last night? Check out his full remarks. https://t.co/7KHp3EHK8D
+@BarackObama: Fired up from the #SOTU? RSVP to hear @VP talk about the work ahead with @OFA supporters:
+https://t.co/EIe2g6hT0I https://t.co/jIGBqLTDHB
+@BarackObama: RT @WhiteHouse: The 3rd annual #BigBlockOfCheeseDay is today! Here'</span><span class="n">s</span> <span class="n">how</span> <span class="n">you</span> <span class="n">can</span> <span class="n">participate</span><span class="p">:</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="p">.</span><span class="n">co</span><span class="o">/</span><span class="n">DXxU8c7zOe</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="p">.</span><span class="n">co</span><span class="o">/</span><span class="n">diT4MJWQ</span><span class="err">…</span>
+<span class="o">@</span><span class="n">BarackObama</span><span class="p">:</span> <span class="n">Fired</span> <span class="n">up</span> <span class="ow">and</span> <span class="n">ready</span> <span class="n">to</span> <span class="n">go</span><span class="err">?</span> <span class="n">Join</span> <span class="n">the</span> <span class="n">movement</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="p">.</span><span class="n">co</span><span class="o">/</span><span class="n">stTSEUMkxN</span> <span class="c1">#SOTU
+</span><span class="o">@</span><span class="n">kanyewest</span><span class="p">:</span> <span class="n">Childish</span> <span class="n">Gambino</span> <span class="o">-</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">America</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="p">.</span><span class="n">co</span><span class="o">/</span><span class="n">sknjKSgj8c</span>
+<span class="o">@</span><span class="n">kanyewest</span><span class="p">:</span> <span class="err">😂😂😂🔥🔥🔥</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="p">.</span><span class="n">co</span><span class="o">/</span><span class="n">KmvxIwKkU6</span>
+<span class="o">@</span><span class="n">dog_rates</span><span class="p">:</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">Kylie</span><span class="p">.</span> <span class="n">She</span> <span class="n">loves</span> <span class="n">naps</span> <span class="ow">and</span> <span class="ow">is</span> <span class="n">approximately</span> <span class="n">two</span> <span class="n">bananas</span> <span class="nb">long</span><span class="p">.</span> <span class="mi">13</span><span class="o">/</span><span class="mi">10</span> <span class="n">would</span> <span class="n">snug</span> <span class="n">softly</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="p">.</span><span class="n">co</span><span class="o">/</span><span class="n">WX9ad5efbN</span>
+<span class="o">@</span><span class="n">GonzalezSarahA</span><span class="p">:</span> <span class="n">RT</span> <span class="o">@</span><span class="n">JacobSmithVT</span><span class="p">:</span> <span class="n">Just</span> <span class="n">spent</span> <span class="n">ten</span> <span class="n">minutes</span> <span class="n">clicking</span> <span class="n">around</span> <span class="n">this</span> <span class="n">cool</span> <span class="nb">map</span> <span class="c1">#education #vt #realestate
+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="p">.</span><span class="n">co</span><span class="o">/</span><span class="n">iqxXtruqrt</span>
+</code></pre></div></div>
+<p>We provide 3 such files for you in the PyCharm Project: <strong>small-tweets.txt</strong>, <strong>big-tweets.txt</strong> and
+<strong>huge-tweets.txt</strong>.</p>
+
+<h3 id="building-a-user_tags-dictionary">Building a <strong>user_tags</strong> Dictionary</h3>
+<p>Central to this program is a <strong>user_tags</strong> dictionary, in which each key is a Twitter user's name like <strong>'@BarackObama'</strong>. The value for each key in this dictionary is a second, nested dictionary which
+counts how frequently that particular user has used particular hashtags. For example, a very simple <strong>user_tags</strong> dictionary might be:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">**</span><span class="p">{</span><span class="s">'@BarackObama'</span><span class="p">:</span> <span class="p">{</span><span class="s">'#SCOTUS'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">'#Obamacare'</span><span class="p">:</span> <span class="mi">3</span><span class="p">}}</span><span class="o">**</span>
+</code></pre></div></div>
+
+<p>We'll explore this dictionary in some more detail as we go through this problem, but as a matter of nomenclature, we'll call the inner dictionary the 'counts' dictionary. Our high-level strategy is to <strong>change</strong> the above dict for each tweet we read, so it accumulates all the counts as we go through the tweets.</p>
+
+<h4 id="warmup-questions">Warmup questions</h4>
+<p>Given the dictionary above, what updates we would make to it in each of
+the following cases?</p>
+
+<ol>
+  <li>We encounter a new tweet that reads <strong>'@BarackObama: #Obamacare signups now!'</strong>.</li>
+  <li>We encounter a new tweet that reads <strong>'@kanyewest: 😂😂😂🔥🔥🔥 https://t.co/KmvxIwKkU6'</strong>.</li>
+</ol>
+
+<h4 id="implementing-add_tweet">Implementing <strong>add_tweet</strong></h4>
+<p>The <strong>add_tweet</strong> function is the core of this whole program, and is responsible for performing the update to a <strong>user_tags</strong> dictionary described above. The tests shown below represent a sequence of tweets, expressed as a series of Doctests. For each call, you can see the dictionary that is passed in, and the dictionary that is returned on the next line. The first test passes in the empty dictionary (<strong>{}</strong>) and gets back a dictionary with 1 user and 2 tags. The 2nd test then takes that returned dictionary as its input, and so on. Each call adds more data to the <strong>user_tags</strong> dictionary.</p>
+
+<p>We've provided you with two functions entitled <strong>parse_tags</strong> and <strong>parse_user</strong>, both of which take as a parameter the tweet in question and return a list of tags in the tweet and the username that posted the tweet, respectively.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">add_tweet</span><span class="p">(</span><span class="n">user_tags</span><span class="p">,</span> <span class="n">tweet</span><span class="p">):</span>
+    <span class="s">"""
+    Given a user_tags dict and a tweet, parse out the user and tags,
+    and add those counts to the user_tags dict which is returned.
+    If no user exists in the tweet, return the user_tags dict unchanged.
+    Note: call the parse_tags(tweet) and parse_user(tweet) functions to pull
+    the parts out of the tweet.
+    &gt;&gt;&gt; add_tweet({}, '@alice: #apple #banana')
+    {'@alice': {'#apple': 1, '#banana': 1}}
+    &gt;&gt;&gt; add_tweet({'@alice': {'#apple': 1, '#banana': 1}}, '@alice: #banana')
+    {'@alice': {'#apple': 1, '#banana': 2}}
+    &gt;&gt;&gt; add_tweet({'@alice': {'#apple': 1, '#banana': 2}}, '@bob: #apple')
+    {'@alice': {'#apple': 1, '#banana': 2}, '@bob': {'#apple': 1}}
+    """</span>
+</code></pre></div></div>
+
+<h4 id="implementing-parse_tweets">Implementing <strong>parse_tweets</strong></h4>
+<p>Use <strong>add_tweet</strong> in a loop to build up and return a <strong>user_tags</strong> dict. This should look mostly like other file-reading functions you've written, and your job is to make sure you understand how to follow the pattern of creating and updating a dictionary suggested by the <strong>add_tweet</strong> function. Restated, the responsibility of <strong>add_tweet</strong> is to update a dictionary, and <strong>parse_tweets</strong> must create and maintain that dictionary as it is updated.</p>
+
+<h3 id="running-your-program">Running your program</h3>
+<p>We provide a <strong>main</strong> function that calls the <strong>parse_tweets</strong> function you implemented in a variety of ways. To use it, run the program from the terminal. Run with just 1 argument (a data filename), it reads in all the data from that file and prints out a summary of each user and all their tweets and counts:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">python3</span> <span class="n">tweets</span><span class="p">.</span><span class="n">py</span> <span class="n">small</span><span class="o">-</span><span class="n">tweets</span><span class="p">.</span><span class="n">txt</span>
+<span class="o">@</span><span class="n">BarackObama</span>
+ <span class="c1">#BigBlockOfCheeseDay -&gt; 1
+</span> <span class="c1">#SOTU -&gt; 3
+</span><span class="o">@</span><span class="n">GonzalezSarahA</span>
+ <span class="c1">#education -&gt; 1
+</span> <span class="c1">#vt -&gt; 1
+</span> <span class="c1">#realestate -&gt; 1
+</span></code></pre></div></div>
+<p>When run with the <strong>'-users'</strong> argument, <strong>main</strong> prints out all the usernames:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">python3</span> <span class="n">tweets</span><span class="p">.</span><span class="n">py</span> <span class="o">-</span><span class="n">users</span> <span class="n">small</span><span class="o">-</span><span class="n">tweets</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">users</span>
+<span class="o">@</span><span class="n">BarackObama</span>
+<span class="o">@</span><span class="n">kanyewest</span>
+<span class="o">@</span><span class="n">dog_rates</span>
+<span class="o">@</span><span class="n">GonzalezSarahA</span>
+</code></pre></div></div>
+<p>When run with the <strong>'-user'</strong> argument followed by a username, the program prints out the data for just that user.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">python3</span> <span class="n">tweets</span><span class="p">.</span><span class="n">py</span> <span class="o">-</span><span class="n">user</span> <span class="o">@</span><span class="n">BarackObama</span> <span class="n">small</span><span class="o">-</span><span class="n">tweets</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">user</span><span class="p">:</span> <span class="o">@</span><span class="n">BarackObama</span>
+ <span class="c1">#BigBlockOfCheeseDay -&gt; 1
+</span> <span class="c1">#SOTU -&gt; 3
+</span></code></pre></div></div>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5/#solution-collapse-3" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-3" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">add_tweet</span><span class="p">(</span><span class="n">user_tags</span><span class="p">,</span> <span class="n">tweet</span><span class="p">):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">parse_user</span><span class="p">(</span><span class="n">tweet</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">user</span> <span class="o">==</span> <span class="s">''</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">user_tags</span>
+
+    <span class="c1"># if user is not in there, put them in with empty counts
+</span>    <span class="k">if</span> <span class="n">user</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">user_tags</span><span class="p">:</span>
+        <span class="n">user_tags</span><span class="p">[</span><span class="n">user</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># counts is the nested tag -&gt; count dict
+</span>    <span class="c1"># go through all the tags and modify it
+</span>    <span class="n">counts</span> <span class="o">=</span> <span class="n">user_tags</span><span class="p">[</span><span class="n">user</span><span class="p">]</span>
+    <span class="n">parsed_tags</span> <span class="o">=</span> <span class="n">parse_tags</span><span class="p">(</span><span class="n">tweet</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">parsed_tags</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">tag</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
+            <span class="n">counts</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">counts</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">user_tags</span>
+
+<span class="k">def</span> <span class="nf">parse_tweets</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">user_tags</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="c1"># here we specify encoding 'utf-8' which is how this text file is encoded
+</span>    <span class="c1"># python technically does this by default, but it's better to be explicit
+</span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">add_tweet</span><span class="p">(</span><span class="n">user_tags</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">user_tags</span>
+
+<span class="k">def</span> <span class="nf">user_total</span><span class="p">(</span><span class="n">user_tags</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+    <span class="s">"""
+    Optional. Given a user_tags dict and a user, figure out the total count
+    of all their tags and return that number.
+    If the user is not in the user_tags, return 0.
+    """</span>
+    <span class="k">if</span> <span class="n">user</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">user_tags</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">user_tags</span><span class="p">[</span><span class="n">user</span><span class="p">]</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">counts</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">total</span>
+
+<span class="k">def</span> <span class="nf">flat_counts</span><span class="p">(</span><span class="n">user_tags</span><span class="p">):</span>
+    <span class="s">"""
+    Given a user_tags dicts, sum up the tag counts across all users,
+    return a "flat" counts dict with a key for each tag,
+    and its value is the sum of that tag's count across users.
+    """</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">user_tags</span><span class="p">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">tags</span> <span class="o">=</span> <span class="n">user_tags</span><span class="p">[</span><span class="n">user</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">tags</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">tag</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
+                <span class="n">counts</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">counts</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">+=</span> <span class="n">tags</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">counts</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+</div>
+        <div class="col-xs-hidden col-md-2"><nav class="fixed-top-right toc" id="toc"><ol class="toc-list "><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5/#file-reading" class="toc-link node-name--H2 ">File Reading</a><ol class="toc-list  is-collapsible is-collapsed"><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5/#smallest-unique-positive-integer" class="toc-link node-name--H3 ">Smallest Unique Positive Integer</a></li></ol></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5/#warming-up-with-nested-dictionaries" class="toc-link node-name--H2 ">Warming up with Nested Dictionaries</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5/#big-tweet-data" class="toc-link node-name--H2 ">Big Tweet Data</a><ol class="toc-list  is-collapsible"><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5/#our-dataset" class="toc-link node-name--H3 ">Our Dataset</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5/#building-a-user_tags-dictionary" class="toc-link node-name--H3 ">Building a user_tags Dictionary</a><ol class="toc-list  is-collapsible"><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5/#warmup-questions" class="toc-link node-name--H4 ">Warmup questions</a></li><li class="toc-list-item is-active-li"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5/#implementing-add_tweet" class="toc-link node-name--H4  is-active-link">Implementing add_tweet</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5/#implementing-parse_tweets" class="toc-link node-name--H4 ">Implementing parse_tweets</a></li></ol></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5/#running-your-program" class="toc-link node-name--H3 ">Running your program</a></li></ol></li></ol></nav></div>
+    </div>
+
+    <script src="./CS106A File Reading, Dictionaries, Nested Structures_files/tocbot.min.js.download"></script>
+    <link rel="stylesheet" href="./CS106A File Reading, Dictionaries, Nested Structures_files/tocbot.css">
+
+    <script>
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '#toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '#content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h2, h3, h4',
+      });
+    </script>
+
+
+
+</div>
+
+<style>
+    p.attribution {
+        font-style: italic;
+        font-size: 80%;
+        text-align: right;
+    }
+    .body-container {
+        margin: 0 10%;
+        max-width: 55em;
+        width: 80%;
+    }
+    a.toc-link {
+      color: #aaa !important;
+      font-size: 90%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .fixed-top-right {
+        position: fixed;
+        margin-top: 0;
+        margin-left: 0;
+    }
+</style>
+
+</main>
+    <style>
+#footer {
+    font-size: 70%;
+    color:green;
+    text-align: center;
+    font-style: italic;
+    padding: 5px;
+}
+</style>
+<div id="footer" class="mt-auto">
+    All course materials © Stanford University 2021 <br>
+    Website programming by Julie Zelenski • Styles adapted from Chris Piech •
+    This page last updated 2022-May-04
+</div>
+
+
+  
+
+  <!-- Bootstrap JavaScript -->
+  <script src="./CS106A File Reading, Dictionaries, Nested Structures_files/bootstrap.min.js.download"></script>
+  <script src="./CS106A File Reading, Dictionaries, Nested Structures_files/popper.min.js.download"></script>
+
+  <script src="./CS106A File Reading, Dictionaries, Nested Structures_files/jquery.min.js.download"></script>
+
+
+</body></html>

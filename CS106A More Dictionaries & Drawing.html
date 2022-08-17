@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="./CS106A More Dictionaries &amp; Drawing_files/site.css" rel="stylesheet">
+    <!-- jQuery library -->
+    <script src="./CS106A More Dictionaries &amp; Drawing_files/jquery-3.4.1.min.js.download" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>  CS106A More Dictionaries &amp; Drawing</title>
+  </head>
+
+  <!-- fill to height of viewport, flex col, footer will be mt-auto -->
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-md navbar-dark" role="navigation">
+  <a class="navbar-brand" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/">🏠CS106A </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6/#" aria-haspopup="true" aria-expanded="false"> Handouts </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/01-general-information.html">General Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/02-course-placement.html">Course Placement Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/03-honor-code.html">Honor Code</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/lair.html">LaIR Info</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/about_staff">Teaching Team</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/04-using-karel-with-pycharm.html">Using Karel with Pycharm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/05-assignment1.html">Assignment 1 Karel the Robot</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/06-submitting-assignments.html">Submitting Assignments</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html">Assignment 2 Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html">Assignment 3 Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/09-image-reference.html">Image Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html">Assignment 4</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/10-graphics-reference.html">Graphics Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bluebook-info.html">BlueBook Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html">Practice Midterm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm-solutions.html">Practice Midterm Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/12-assignment5.html">Assignment 5</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/midterm-solutions.html">Midterm Grades and Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/13-contest.html">Graphics/Image Contest</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/biasbars-handout.html">Assignment 6</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html">Assignment 7</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final.html">Final Exam Info and Practice</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html">Practice Final Solutions</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6/#" aria-haspopup="true" aria-expanded="false"> Lectures </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+             
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/01-welcome/">  1.  3/28 Welcome! </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/02-control-flow/">  2.  3/30 Control Flow </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/03-decomposition/">  3.  4/1 Decomposition </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/04-intro-python/">  4.  4/4 Intro to Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/05-arithmetic-expressions/">  5.  4/6 Arithmetic Expressions </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/06-control-flow-revisited/">  6.  4/8 Control Flow Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/07-functions-revisited/">  7.  4/11 Functions Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/08-parameters/">  8.  4/13 Parameters </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/09-lists/">  9.  4/15 Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/10-images/">  10.  4/18 Images </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/11-listoflists/">  11.  4/20 Lists of Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/12-canvas/">  12.  4/22 Wrapping Up Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/13-more-graphics/">  13.  4/25 Canvas </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/14-strings/">  14.  4/27 Strings </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/15-files/">  15.  4/29 Files </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/16-dictionaries/">  16.  5/2 Dictionaries </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/17-parsing/">  17.  5/4 Nested Structures </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/18-nested-structures/">  18.  5/9 String Parsing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/19-tuples-sorting/">  19.  5/11 Tuples Sorting </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/20-classes-objects/">  20.  5/13 Classes and Objects </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/21-ethics/">  21.  5/16 Ethics </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/22-memory/">  22.  5/18 Memory </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/23-search-indexing/">  23.  5/20 Search and Indexing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/24-internet/">  24.  5/23 The Internet </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/25-after-106a/">  25.  5/25 Life After CS106A </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/26-advanced-python/">  26.  5/27 Advanced Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/27-wrap-up/">  27.  6/1 Wrap Up </a>
+                
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6/#" aria-haspopup="true" aria-expanded="false"> Assignments </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSdN6415WaOi5C0bzlRysKuAEZJbAtN920JmrdeRz-EfXtaydg/viewform">Assignment 0</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/1-Karel">Assignment 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/2-KhansoleCompute">Assignment 2 - Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/3-ListImages">Assignment 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/4-Sand">Assignment 4 - Lists of Lists, Strings, Graphics, and Sand</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/5-WordGuess">Assignment 5 - Strings &amp; Word Guessing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/6-BiasBars">Assignment 6 - Dictionaries &amp; BiasBars</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/7-Bajillion">Assignment 7 - Bajillion</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/8-Contest">Graphics/Image Contest</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6/#" aria-haspopup="true" aria-expanded="false"> Sections </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://cs198.stanford.edu/cs198/auth/default.aspx">Section Portal</a>
+            
+            
+             <div class="dropdown-divider"></div>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section1">Section 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2">Section 2 - Variables &amp; Control Flow</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3">Section 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section4">Section 4 - Lists of Lists &amp; Strings</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5">Section 5 - File Reading &amp; Nested Structures</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6">Section 6 - Dictionaries &amp; Drawing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7">Section 7 - Sorting, OOP, &amp; Memory</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8">Section 8 - Final Exam Review</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item"><a class="nav-link" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/schedule.html">🗓Schedule</a></li>
+        
+      
+    </ul>
+    <!---
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" id="search-text" name="query" placeholder="🔍 Search CS106B..." aria-label="Search" action="search">
+    </form>
+    --->
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    margin-bottom: 2rem;
+  }
+  .navbar-dark {
+    background-color: #444;
+  }
+ .nav-item > a {
+    text-transform: uppercase;
+    letter-spacing: .08rem;
+    font-size: small;
+    color: #bbb !important;
+  }
+  .nav-item > a:hover {
+    color: white !important;
+  }
+</style>
+    
+    <main class="main container-fluid" role="main"><div class="body-container container-fluid" data-spy="scroll" data-target="#toc">
+
+<h1 class="title">Section 6. More Dictionaries &amp; Drawing</h1>
+
+<hr>
+
+<p class="attribution">
+Section materials curated by Juliette Woodrow, drawing upon materials from previous quarters.
+</p>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-10" id="content" <=""><style>
+.node {
+	border-style: solid;
+	border-width: 3px;
+    font-size: 130%;
+    text-align: center;
+    padding: 10px;
+    width:10%;
+}
+</style>
+
+<p>This week in section you are going to get more practice with dictionaries and drawing!</p>
+
+<p><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6/Section6.zip">Pycharm Project</a></p>
+
+<h2 id="dictionaries">Dictionaries</h2>
+
+<h3 id="recipes">Recipes</h3>
+<p>Inspired by an unhealthy amount of Netflix and quarantine cooking, Parth
+and Peter are opening up a bakery. To try and keep costs low, they want
+to automate as much of their inventory tracking as possible.</p>
+
+<p>Thanks to 106A, they think they can use dictionaries to help.</p>
+
+<p>All of the ingredients they have available will be stored in a <code class="language-python highlighter-rouge"><span class="n">pantry</span></code>
+dictionary, whose keys are ingredients and values are weights (Of course
+they're using the metric system), like so:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pantry</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'flour'</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
+    <span class="s">'sugar'</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+    <span class="s">'salt'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s">'chocolate'</span><span class="p">:</span> <span class="mi">150</span>
+<span class="p">}</span>
+      
+</code></pre></div></div>
+
+<p>Each <code class="language-python highlighter-rouge"><span class="n">recipe</span></code> is also stored in a dictionary, like the following
+uninspiring concoction:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">recipe</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'flour'</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+  <span class="s">'salt'</span><span class="p">:</span> <span class="mf">2.5</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>(As you can tell from the recipe above, it doesn't look like their
+bakery is going to do very well, but that's not important right now.)</p>
+
+<p>Recipes and the pantry are first stored as files, where each key value
+pair is on a different line, separated by <code class="language-python highlighter-rouge"><span class="s">':: '</span></code>. The pantry list and
+recipe above would look like:</p>
+
+<p><strong>pantry.txt</strong></p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flour:: 400
+sugar:: 300
+salt:: 10
+chocolate:: 150     
+</code></pre></div></div>
+
+<p><strong>recipe.txt</strong></p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flour:: 200
+salt:: 2.5    
+</code></pre></div></div>
+
+<p>Our goal is to write a few functions to help Parth and Peter run their
+bakery. Begin by implementing the following function:</p>
+
+<pre><code class="language-lang-python">def read_dict_from_file(filename):
+    """
+    Takes in the name of a file containing a recipe or 
+    pantry list and reads it into a dictionary.
+    
+    An example doctest using the file above:
+    &gt;&gt;&gt; read_dict_from_file('recipe.txt')
+    {'flour': 200, 'salt': 2.5}
+    """
+</code></pre>
+
+<p>Once you've developed the infrastructure to construct recipe and pantry
+list dictionaries, implement the following functions:</p>
+
+<pre><code class="language-lang-python">def can_make(recipe, pantry):
+    """
+    Given the contents of the pantry, returns a boolean indicating 
+    whether or not it is possible to follow the recipe. Note that 
+    the parameters to this function are dictionaries, and not 
+    filenames. The pantry should not be modified in this function
+    """
+    pass
+
+def make_recipe(recipe, pantry):
+    """
+    Given a recipe and a pantry with enough ingredients to make the recipe, 
+    modify the contents of the pantry to remove as many quantities as the 
+    recipe requires. You may modify the pantry in place, but return the modified 
+    pantry in order to test the output using doctests. 
+
+    # using the recipe and pantry defined above
+    &gt;&gt;&gt; make_recipe(recipe, pantry)
+    {'flour': 200, 'sugar': 300, 'salt': 7.5, 'chocolate': 150}
+    """
+    pass
+</code></pre>
+
+<p>Note that <code class="language-python highlighter-rouge"><span class="n">make_recipe</span></code> assumes the pantry is sufficient for the recipe
+but this is not necessarily always the case; thus, every call to
+<code class="language-python highlighter-rouge"><span class="n">make_recipe</span></code> will need to be guarded by a call to <code class="language-python highlighter-rouge"><span class="n">can_make_recipe</span></code>.</p>
+
+<p>Finally, implement a <code class="language-python highlighter-rouge"><span class="n">main</span></code> function, which first reads in a pantry file
+from a user and then continuously asks for recipe filenames from the
+user and either prints an error message if the pantry does not have
+sufficient ingredients, or removes the ingredients from the pantry if it
+does exist, printing the pantry afterwards.</p>
+
+<p>A sample run of the program is below, which repeatedly tries to make the
+recipe above in the vain hope that someone will actually want to eat it.
+Note that your program should be able to accept any valid recipe
+filename, though.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python3 pantry_manager.py 
+Enter pantry filename: pantry.txt
+What recipe should we bake next (Press enter to quit.)? recipe.txt
+You can make that recipe! Your pantry now looks like this:
+{'flour': 200, 'sugar': 300, 'salt': 7.5, 'chocolate': 150}
+
+What recipe should we bake next (Press enter to quit.)? recipe.txt
+You can make that recipe! Your pantry now looks like this:
+{'flour': 0, 'sugar': 300, 'salt': 5, 'chocolate': 150}
+
+What recipe should we bake next (Press enter to quit.)? recipe.txt
+You can't make that recipe. 
+
+What recipe should we bake next (Press enter to quit.)? User presses enter immediately
+</code></pre></div></div>
+
+<div class="showtime" when="2022-05-13T18:00:00-07:00"></div>
+<style>
+  div.solution { display: none; }
+  .solution pre { background-color: inherit; border: none; }
+</style>
+
+<script>
+    $(document).ready(function() {
+        var now = new Date();
+        var gate = new Date($("div.showtime").attr("when"));
+        if (now >= gate || window.location.href.endsWith("#mothersday")) {$("div.solution").show()}
+ });
+</script>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6/#solution-collapse-1" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-1" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">read_dict_from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="s">"""
+    Takes in the name of a file containing a recipe or
+    pantry list and reads it into a dictionary.
+​
+    An example doctest using the file above:
+    &gt;&gt;&gt; read_dict_from_file('recipe.txt')
+    {'flour': 200, 'salt': 2.5}
+    """</span>
+    <span class="c1"># Create an empty dictionary
+</span>    <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="err">​</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="c1"># For each line in the file
+</span>        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="c1"># Split this line into a list at '::'
+</span>            <span class="n">key_val</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">":: "</span><span class="p">)</span>
+            <span class="c1"># Add key:value pair of ingredient:weight to our dictionary
+</span>            <span class="n">d</span><span class="p">[</span><span class="n">key_val</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">key_val</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="err">​</span>
+    <span class="k">return</span> <span class="n">d</span>
+<span class="err">​</span>
+<span class="err">​</span>
+<span class="k">def</span> <span class="nf">can_make</span><span class="p">(</span><span class="n">recipe</span><span class="p">,</span> <span class="n">pantry</span><span class="p">):</span>
+    <span class="s">"""
+    Given the contents of the pantry, returns a boolean indicating
+    whether or not it is possible to follow the recipe. Note that
+    the parameters to this function are dictionaries, and not
+    filenames. The pantry should not be modified in this function
+    """</span>
+    <span class="c1"># For each key in the recipe dictionary
+</span>    <span class="k">for</span> <span class="n">ingredient</span> <span class="ow">in</span> <span class="n">recipe</span><span class="p">:</span>
+        <span class="c1"># Check if amount of ingredient in pantry is less than amount needed for recipe
+</span>        <span class="k">if</span> <span class="n">pantry</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">ingredient</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">recipe</span><span class="p">[</span><span class="n">ingredient</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="c1"># Return True after checking every ingredient
+</span>    <span class="k">return</span> <span class="bp">True</span>
+<span class="err">​</span>
+<span class="err">​</span>
+<span class="k">def</span> <span class="nf">make_recipe</span><span class="p">(</span><span class="n">recipe</span><span class="p">,</span> <span class="n">pantry</span><span class="p">):</span>
+    <span class="s">"""
+    Given a recipe and a pantry with enough ingredients to make the recipe,
+    modify the contents of the pantry to remove as many quantities as the
+    recipe requires. You may modify the pantry in place, but return the modified
+    pantry in order to test the output using doctests.
+​
+    # using the recipe and pantry defined above
+    &gt;&gt;&gt; make_recipe(recipe, pantry)
+    {'flour': 200, 'sugar': 300, 'salt': 7.5, 'chocolate': 150}
+    """</span>
+    <span class="c1"># For each value in recipe dictionary
+</span>    <span class="k">for</span> <span class="n">ingredient</span> <span class="ow">in</span> <span class="n">recipe</span><span class="p">:</span>
+        <span class="c1"># Subtract the needed amount from this ingredient in pantry
+</span>        <span class="n">pantry</span><span class="p">[</span><span class="n">ingredient</span><span class="p">]</span> <span class="o">-=</span> <span class="n">recipe</span><span class="p">[</span><span class="n">ingredient</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">pantry</span>
+<span class="err">​</span>
+<span class="err">​</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">pantry</span> <span class="o">=</span> <span class="n">read_dict_from_file</span><span class="p">(</span><span class="n">PANTRY_FILENAME</span><span class="p">)</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">recipe_filename</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span>
+            <span class="s">"What recipe should we bake next (Press enter to quit.)? "</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">recipe_filename</span> <span class="o">==</span> <span class="s">""</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">recipe</span> <span class="o">=</span> <span class="n">read_dict_from_file</span><span class="p">(</span><span class="n">recipe_filename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">can_make</span><span class="p">(</span><span class="n">recipe</span><span class="p">,</span> <span class="n">pantry</span><span class="p">):</span>
+          <span class="n">make_recipe</span><span class="p">(</span><span class="n">recipe</span><span class="p">,</span> <span class="n">pantry</span><span class="p">)</span>
+          <span class="k">print</span><span class="p">(</span><span class="s">"You can make that recipe! Your pantry now looks like this:"</span><span class="p">)</span>
+          <span class="k">print</span><span class="p">(</span><span class="n">pantry</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+          <span class="k">print</span><span class="p">(</span><span class="s">"You can't make that recipe."</span><span class="p">)</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h3 id="cryptography">Cryptography</h3>
+
+<p>Cryptography is the study of techniques for communicating messages
+secretly. Imagine that Alice and Bob want to send messages to each
+other, but Eve can snoop on the messages they're sending and read them.
+Alice wants to figure out way to "encrypt" her messages so that if Eve
+reads the message, she won't be able to understand it, but Bob will be
+able to "decrypt" the message. We're going to write a program to help
+Alice and Bob do this.</p>
+
+<p>Alice decides that she'll replace every letter in her original message
+with a different letter. She's defined a variable in the program called
+<code class="language-python highlighter-rouge"><span class="n">ENCRYPTION_DICT</span></code> that keeps track of these associations:</p>
+
+<pre><code class="language-lang-python">      
+ENCRYPTION_DICT = {
+ 'A': 'T',
+ 'B': 'H',
+ 'C': 'E',
+ 'D': 'Q',
+ 'E': 'U',
+ 'F': 'I',
+ 'G': 'C',
+ 'H': 'K',
+ ...
+} 
+</code></pre>
+
+<p>Alice and Bob exchanged this dictionary, so they both know that this is the strategy, but Eve doesn't know that! Note that in order to avoid ambiguity, the values in this dictionary are
+unique (that is, each letter is a value in the dictionary exactly once).</p>
+
+<h4 id="encryption">Encryption</h4>
+
+<p>To start us off, implement the following function:</p>
+
+<pre><code class="language-lang-python">def encrypt(plaintext):
+    """
+    Takes in plaintext as an input and returns 'ciphertext': the result 
+    of substituting each letter in the plaintext by its corresponding 
+    encrypted character in ENCRYPTION_DICT. 
+
+    The plaintext comprises entirely of uppercase letters and non-alphabetic 
+    characters like punctuation. Non-alphabetic characters needn't be encrypted, 
+    but rather should appear in the plaintext in their original form. 
+
+    &gt;&gt;&gt; encrypt("HEY, HOW'S IT GOING?")
+    "KUD, KXZ'S BV CXBFC?"
+    &gt;&gt;&gt; encrypt("I LOVE CS 106A!")
+    'B WXLU ES 106T!'
+    &gt;&gt;&gt; encrypt("UNICORNS ARE THE MOST BEAUTIFUL ANIMALS IN EXISTENCE")
+    'AFBEXPFS TPU VKU NXSV HUTAVBIAW TFBNTWS BF UYBSVUFEU'
+    """
+</code></pre>
+
+<h4 id="decryption">Decryption</h4>
+
+<p>Now that Bob has received Alice's encrypted message, he needs to
+"decrypt" it, or convert it back to the original message. To help him
+do so, implement the following function:</p>
+
+<pre><code class="language-lang-python">def decrypt(ciphertext):
+    """
+    Uses ENCRYPTION_DICT to decrypt each of the alphabetic characters of
+    ciphertext.
+
+    &gt;&gt;&gt; decrypt("KUD, KXZ'S BV CXBFC?")
+    "HEY, HOW'S IT GOING?"
+    &gt;&gt;&gt; decrypt('B WXLU ES 106T!')
+    'I LOVE CS 106A!'
+    &gt;&gt;&gt; decrypt('AFBEXPFS TPU VKU NXSV HUTAVBIAW TFBNTWS BF UYBSVUFEU')
+    'UNICORNS ARE THE MOST BEAUTIFUL ANIMALS IN EXISTENCE'
+    """
+</code></pre>
+
+<p>Note that in order to successfully decrypt a message, you need the
+'reverse' of <code class="language-python highlighter-rouge"><span class="n">ENCRYPTION_DICT</span></code>: rather than associating plaintext
+characters with their encrypted counterparts, we need to go the other
+way.</p>
+
+<p>We suggest writing a function <code class="language-python highlighter-rouge"><span class="n">reverse_encryption_dict</span></code> to decompose out
+this problem. In class, we saw an example of this wherein a reversed
+dictionary associated keys with lists of values, because multiple keys
+can share the same value. Note that this doesn't apply to the case of
+<code class="language-python highlighter-rouge"><span class="n">ENCRYPTION_DICT</span></code>, because each character is guaranteed to have a unique
+character. How does this affect how you implement
+<code class="language-python highlighter-rouge"><span class="n">reverse_encryption_dict</span></code>?</p>
+
+<p>This is an interesting encryption scheme (known formally as a
+<em>substitution cipher</em>), but unfortunately isn't very secure. What
+issues do you see with it?</p>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6/#solution-collapse-2" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-2" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">encrypt</span><span class="p">(</span><span class="n">plaintext</span><span class="p">):</span>
+    <span class="s">"""
+    Takes in plaintext as an input and returns 'ciphertext': the result
+    of substituting each letter in the plaintext by its corresponding
+    encrypted character in ENCRYPTION_DICT.
+​
+    The plaintext comprises entirely of uppercase letters and non-alphabetic
+    characters like punctuation. Non-alphabetic characters needn't be encrypted,
+    but rather should appear in the plaintext in their original form.
+    """</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="s">""</span>
+<span class="err">​</span>
+    <span class="c1"># For each character in the unencrypted message
+</span>    <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">plaintext</span><span class="p">:</span>
+        <span class="c1"># If this is a character we have an encryption for, add the encryption
+</span>        <span class="k">if</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">ENCRYPTION_DICT</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">+=</span> <span class="n">ENCRYPTION_DICT</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span>
+        <span class="c1"># Otherwise, add the character in its original form
+</span>        <span class="k">else</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">+=</span> <span class="n">ch</span>
+<span class="err">​</span>
+    <span class="k">return</span> <span class="n">output</span>
+<span class="err">​</span>
+<span class="err">​</span>
+<span class="k">def</span> <span class="nf">reverse_encryption_dict</span><span class="p">():</span>
+    <span class="s">"""
+    This helper function returns a dictionary that is the reverse of
+    ENCRYPTION_DICT (keys and values are swapped).
+    """</span>
+    <span class="c1"># Create a new dictionary
+</span>    <span class="n">decryption_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="err">​</span>
+    <span class="c1"># For each plaintext character key in the encryption dictionary
+</span>    <span class="k">for</span> <span class="n">plaintext_char</span> <span class="ow">in</span> <span class="n">ENCRYPTION_DICT</span><span class="p">:</span>
+        <span class="c1"># Get the encrypted character value for this key
+</span>        <span class="n">encrypted_char</span> <span class="o">=</span> <span class="n">ENCRYPTION_DICT</span><span class="p">[</span><span class="n">plaintext_char</span><span class="p">]</span>
+        <span class="c1"># In the new dict, add the plaintext character as the value of our encrypted key
+</span>        <span class="n">decryption_dict</span><span class="p">[</span><span class="n">encrypted_char</span><span class="p">]</span> <span class="o">=</span> <span class="n">plaintext_char</span>
+<span class="err">​</span>
+    <span class="k">return</span> <span class="n">decryption_dict</span>
+<span class="err">​</span>
+<span class="err">​</span>
+<span class="k">def</span> <span class="nf">decrypt</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">):</span>
+    <span class="s">"""
+    Uses ENCRYPTION_DICT to decrypt each of the alphabetic characters of
+    ciphertext.
+    """</span>
+    <span class="n">decryption_dict</span> <span class="o">=</span> <span class="n">reverse_encryption_dict</span><span class="p">()</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="s">""</span>
+<span class="err">​</span>
+    <span class="c1"># For each character in the encrypted word
+</span>    <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">ciphertext</span><span class="p">:</span>
+        <span class="c1"># If this character can be decrypted, add its decryption to output string
+</span>        <span class="k">if</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">decryption_dict</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">+=</span> <span class="n">decryption_dict</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span>
+        <span class="c1"># Otherwise, add the original character to the output string
+</span>        <span class="k">else</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">+=</span> <span class="n">ch</span>
+<span class="err">​</span>
+    <span class="k">return</span> <span class="n">output</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h2 id="visualizing-big-tweets">Visualizing Big Tweets</h2>
+<p>In last week's section, you implemented a program that constructs what we refer to as a user tags dictionary. This dictionary maps twitter handles to dictionaries which map hashtags to frequencies of usage. For example, suppose we have the following user tags dictionary:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s">'@kanyewest'</span><span class="p">:</span> <span class="p">{</span><span class="s">'yeezy'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s">'chicago'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'pablo'</span><span class="p">:</span> <span class="mi">30</span><span class="p">}}</span>
+</code></pre></div></div>
+<p>This dictionary illustrates the unlikely scenario in which @kanyewest is the only user of twitter (since that is the only key in the outer dictionary) and that he has tweeted about yeezy, chicago and pablo 50, 20 and 30 times respectively.</p>
+
+<p>Our goal is to implement a program to visualize this data for us, by showing the relative usage of each hashtag by a user. For the dictionary associated with @kanyewest, this visualization would look like this:</p>
+
+<p><img src="./CS106A More Dictionaries &amp; Drawing_files/image1.png" alt=""></p>
+
+<p>In order to produce this visualization, you should implement the following function:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">visualize_trends</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">user_tags</span><span class="p">,</span> <span class="n">user_name</span><span class="p">):</span>
+    <span class="s">"""
+    Draws a visualization of the top 10 hashtags used 
+    by the user whose handle is user_name. 
+    """</span>
+</code></pre></div></div>
+
+<p>As you write this function, keep in mind the following details:</p>
+
+<ul>
+  <li>You need not worry about producing a user_tags dictionary. The starter code loads this dictionary in from a file and passes it into your function.</li>
+  <li>In order to keep the bars a reasonable width, you need only plot the ten most frequently used hashtags (or fewer, if the user doesn't use many hashtags). We've provided a function get_top_tags, which accepts as a parameter a single user's hashtag frequency dictionary, and returns a frequency dictionary of just the TOP_N most used hashtags, where TOP_N is a constant defined to be equal to 10.</li>
+  <li>All the bars should be equal width.</li>
+  <li>All the bars should have a height that is proportional to their hashtag's usage. For example, in the example above, 20% of @kanyewest's tweets used the chicago hashtag, and so the bar for chicago is 20% the height of the canvas. Restated, the height of all the bars combined should equal CANVAS_HEIGHT.</li>
+</ul>
+
+<p>The design and decomposition of this function is up to you, but we suggest the following milestones:</p>
+
+<ol>
+  <li>Implement a function that-given the dimensions and coordinates of a bar, as well as the corresponding hasthag string-draws a bar and label at the top of the bar. We've provided some constants in the starter code that will be helpful here.</li>
+  <li>Once you have the functionality to draw a single bar working, produce a dictionary of just the top ten hashtags for the user using the get_top_tags function. For each hashtag, plot a bar with the correct position and size.</li>
+</ol>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6/#solution-collapse-3" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-3" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CANVAS_WIDTH</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">CANVAS_HEIGHT</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">TEXT_TOP_OFFSET</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">TEXT_SIDE_OFFSET</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="k">def</span> <span class="nf">draw_bar</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">tag_label</span><span class="p">,</span> <span class="n">left_x</span><span class="p">,</span> <span class="n">top_y</span><span class="p">,</span> <span class="n">right_x</span><span class="p">,</span> <span class="n">bottom_y</span><span class="p">):</span>
+    <span class="s">"""
+    Given top-left and bottom-right coordinates for a bar and a label, 
+    draw the bar
+    """</span> 
+    <span class="n">canvas</span><span class="p">.</span><span class="n">create_rectangle</span><span class="p">(</span><span class="n">left_x</span><span class="p">,</span> <span class="n">top_y</span><span class="p">,</span> <span class="n">right_x</span><span class="p">,</span> <span class="n">bottom_y</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s">"light blue"</span><span class="p">,</span> <span class="n">outline</span><span class="o">=</span><span class="s">"blue"</span><span class="p">)</span>
+    <span class="n">canvas</span><span class="p">.</span><span class="n">create_text</span><span class="p">(</span><span class="n">left_x</span> <span class="o">+</span> <span class="n">TEXT_SIDE_OFFSET</span><span class="p">,</span> <span class="n">top_y</span><span class="o">+</span> <span class="n">TEXT_TOP_OFFSET</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="s">'w'</span><span class="p">,</span>
+        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s">'Calibri'</span><span class="p">,</span> <span class="s">'10'</span><span class="p">),</span>
+        <span class="n">fill</span><span class="o">=</span><span class="s">'Blue'</span><span class="p">,</span>
+        <span class="n">text</span><span class="o">=</span><span class="n">tag_label</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">visualize_trends</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">user_tags</span><span class="p">,</span> <span class="n">user_name</span><span class="p">):</span> 
+    <span class="k">if</span> <span class="n">user_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">user_tags</span><span class="p">:</span>
+        <span class="k">return</span> 
+    
+    <span class="n">tags</span> <span class="o">=</span> <span class="n">get_top_tags</span><span class="p">(</span><span class="n">user_tags</span><span class="p">[</span><span class="n">username</span><span class="p">])</span> 
+    
+    <span class="n">totalNum</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">tags</span><span class="p">.</span><span class="n">values</span><span class="p">())</span> <span class="c1">#grab the total number of hashtags they used 
+</span>    <span class="n">tags_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tags</span><span class="p">.</span><span class="n">keys</span><span class="p">())</span> <span class="c1">#to grab all the tags we need and store in a list
+</span>    <span class="n">space</span> <span class="o">=</span> <span class="n">CANVAS_WIDTH</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">tags_list</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tags_list</span><span class="p">)):</span> 
+        <span class="n">tag</span> <span class="o">=</span> <span class="n">tags_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">tags</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="n">CANVAS_HEIGHT</span> <span class="o">*</span> <span class="p">(</span><span class="n">count</span><span class="o">/</span> <span class="n">totalNum</span><span class="p">)</span>
+        <span class="n">x1</span> <span class="o">=</span> <span class="n">space</span> <span class="o">*</span><span class="n">i</span>
+        <span class="n">y1</span> <span class="o">=</span> <span class="n">CANVAS_HEIGHT</span> <span class="o">-</span> <span class="n">height</span>
+        <span class="n">x2</span> <span class="o">=</span> <span class="n">space</span><span class="o">*</span><span class="n">i</span> <span class="o">+</span> <span class="n">space</span> 
+        <span class="n">y2</span> <span class="o">=</span> <span class="n">CANVAS_HEIGHT</span> <span class="o">-</span><span class="mi">1</span> 
+        <span class="n">tag_label</span> <span class="o">=</span> <span class="n">tag</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+
+
+        <span class="n">draw_bar</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">tag_label</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+</div>
+        <div class="col-xs-hidden col-md-2"><nav class="fixed-top-right toc" id="toc"><ol class="toc-list "><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6/#dictionaries" class="toc-link node-name--H2 ">Dictionaries</a><ol class="toc-list  is-collapsible is-collapsed"><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6/#recipes" class="toc-link node-name--H3 ">Recipes</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6/#cryptography" class="toc-link node-name--H3 ">Cryptography</a><ol class="toc-list  is-collapsible is-collapsed"><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6/#encryption" class="toc-link node-name--H4 ">Encryption</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6/#decryption" class="toc-link node-name--H4 ">Decryption</a></li></ol></li></ol></li><li class="toc-list-item is-active-li"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6/#visualizing-big-tweets" class="toc-link node-name--H2  is-active-link">Visualizing Big Tweets</a></li></ol></nav></div>
+    </div>
+
+    <script src="./CS106A More Dictionaries &amp; Drawing_files/tocbot.min.js.download"></script>
+    <link rel="stylesheet" href="./CS106A More Dictionaries &amp; Drawing_files/tocbot.css">
+
+    <script>
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '#toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '#content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h2, h3, h4',
+      });
+    </script>
+
+
+
+</div>
+
+<style>
+    p.attribution {
+        font-style: italic;
+        font-size: 80%;
+        text-align: right;
+    }
+    .body-container {
+        margin: 0 10%;
+        max-width: 55em;
+        width: 80%;
+    }
+    a.toc-link {
+      color: #aaa !important;
+      font-size: 90%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .fixed-top-right {
+        position: fixed;
+        margin-top: 0;
+        margin-left: 0;
+    }
+</style>
+
+</main>
+    <style>
+#footer {
+    font-size: 70%;
+    color:green;
+    text-align: center;
+    font-style: italic;
+    padding: 5px;
+}
+</style>
+<div id="footer" class="mt-auto">
+    All course materials © Stanford University 2021 <br>
+    Website programming by Julie Zelenski • Styles adapted from Chris Piech •
+    This page last updated 2022-May-13
+</div>
+
+
+  
+
+  <!-- Bootstrap JavaScript -->
+  <script src="./CS106A More Dictionaries &amp; Drawing_files/bootstrap.min.js.download"></script>
+  <script src="./CS106A More Dictionaries &amp; Drawing_files/popper.min.js.download"></script>
+
+  <script src="./CS106A More Dictionaries &amp; Drawing_files/jquery.min.js.download"></script>
+
+
+</body></html>

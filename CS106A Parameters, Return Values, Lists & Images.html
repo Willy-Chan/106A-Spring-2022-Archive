@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="./CS106A Parameters, Return Values, Lists &amp; Images_files/site.css" rel="stylesheet">
+    <!-- jQuery library -->
+    <script src="./CS106A Parameters, Return Values, Lists &amp; Images_files/jquery-3.4.1.min.js.download" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>  CS106A Parameters, Return Values, Lists &amp; Images</title>
+  </head>
+
+  <!-- fill to height of viewport, flex col, footer will be mt-auto -->
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-md navbar-dark" role="navigation">
+  <a class="navbar-brand" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/">🏠CS106A </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#" aria-haspopup="true" aria-expanded="false"> Handouts </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/01-general-information.html">General Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/02-course-placement.html">Course Placement Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/03-honor-code.html">Honor Code</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/lair.html">LaIR Info</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/about_staff">Teaching Team</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/04-using-karel-with-pycharm.html">Using Karel with Pycharm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/05-assignment1.html">Assignment 1 Karel the Robot</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/06-submitting-assignments.html">Submitting Assignments</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html">Assignment 2 Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html">Assignment 3 Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/09-image-reference.html">Image Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html">Assignment 4</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/10-graphics-reference.html">Graphics Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bluebook-info.html">BlueBook Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html">Practice Midterm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm-solutions.html">Practice Midterm Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/12-assignment5.html">Assignment 5</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/midterm-solutions.html">Midterm Grades and Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/13-contest.html">Graphics/Image Contest</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/biasbars-handout.html">Assignment 6</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html">Assignment 7</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final.html">Final Exam Info and Practice</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html">Practice Final Solutions</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#" aria-haspopup="true" aria-expanded="false"> Lectures </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+             
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/01-welcome/">  1.  3/28 Welcome! </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/02-control-flow/">  2.  3/30 Control Flow </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/03-decomposition/">  3.  4/1 Decomposition </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/04-intro-python/">  4.  4/4 Intro to Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/05-arithmetic-expressions/">  5.  4/6 Arithmetic Expressions </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/06-control-flow-revisited/">  6.  4/8 Control Flow Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/07-functions-revisited/">  7.  4/11 Functions Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/08-parameters/">  8.  4/13 Parameters </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/09-lists/">  9.  4/15 Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/10-images/">  10.  4/18 Images </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/11-listoflists/">  11.  4/20 Lists of Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/12-canvas/">  12.  4/22 Wrapping Up Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/13-more-graphics/">  13.  4/25 Canvas </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/14-strings/">  14.  4/27 Strings </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/15-files/">  15.  4/29 Files </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/16-dictionaries/">  16.  5/2 Dictionaries </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/17-parsing/">  17.  5/4 Nested Structures </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/18-nested-structures/">  18.  5/9 String Parsing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/19-tuples-sorting/">  19.  5/11 Tuples Sorting </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/20-classes-objects/">  20.  5/13 Classes and Objects </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/21-ethics/">  21.  5/16 Ethics </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/22-memory/">  22.  5/18 Memory </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/23-search-indexing/">  23.  5/20 Search and Indexing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/24-internet/">  24.  5/23 The Internet </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/25-after-106a/">  25.  5/25 Life After CS106A </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/26-advanced-python/">  26.  5/27 Advanced Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/27-wrap-up/">  27.  6/1 Wrap Up </a>
+                
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#" aria-haspopup="true" aria-expanded="false"> Assignments </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSdN6415WaOi5C0bzlRysKuAEZJbAtN920JmrdeRz-EfXtaydg/viewform">Assignment 0</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/1-Karel">Assignment 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/2-KhansoleCompute">Assignment 2 - Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/3-ListImages">Assignment 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/4-Sand">Assignment 4 - Lists of Lists, Strings, Graphics, and Sand</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/5-WordGuess">Assignment 5 - Strings &amp; Word Guessing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/6-BiasBars">Assignment 6 - Dictionaries &amp; BiasBars</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/7-Bajillion">Assignment 7 - Bajillion</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/8-Contest">Graphics/Image Contest</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#" aria-haspopup="true" aria-expanded="false"> Sections </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://cs198.stanford.edu/cs198/auth/default.aspx">Section Portal</a>
+            
+            
+             <div class="dropdown-divider"></div>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section1">Section 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2">Section 2 - Variables &amp; Control Flow</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3">Section 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section4">Section 4 - Lists of Lists &amp; Strings</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5">Section 5 - File Reading &amp; Nested Structures</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6">Section 6 - Dictionaries &amp; Drawing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7">Section 7 - Sorting, OOP, &amp; Memory</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8">Section 8 - Final Exam Review</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item"><a class="nav-link" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/schedule.html">🗓Schedule</a></li>
+        
+      
+    </ul>
+    <!---
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" id="search-text" name="query" placeholder="🔍 Search CS106B..." aria-label="Search" action="search">
+    </form>
+    --->
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    margin-bottom: 2rem;
+  }
+  .navbar-dark {
+    background-color: #444;
+  }
+ .nav-item > a {
+    text-transform: uppercase;
+    letter-spacing: .08rem;
+    font-size: small;
+    color: #bbb !important;
+  }
+  .nav-item > a:hover {
+    color: white !important;
+  }
+</style>
+    
+    <main class="main container-fluid" role="main"><div class="body-container container-fluid" data-spy="scroll" data-target="#toc">
+
+<h1 class="title">Section 3. Parameters, Return Values, Lists &amp; Images</h1>
+
+<hr>
+
+<p class="attribution">
+Brahm Capoor, Juliette Woodrow, Parth Sarin, Kara Eng, Tori Qiu and Peter Maldonado
+</p>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-10" id="content" <=""><style>
+.node {
+	border-style: solid;
+	border-width: 3px;
+    font-size: 130%;
+    text-align: center;
+    padding: 10px;
+    width:10%;
+}
+</style>
+
+<p>This week in section, your goal is to practice and gain familiarity with
+the principles of parameters and return values, experiment with lists, and work on
+some interesting image problems using the <strong>SimpleImage</strong> library. We'll also explore some interesting applications of doctests in the debugging process.</p>
+
+<p>Here is the starter code:</p>
+
+<p><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/Section3Starter.zip">Pycharm Project</a></p>
+
+<h2 id="parameters">Parameters</h2>
+
+<h3 id="checking-ranges">Checking Ranges</h3>
+<p>Implement the following function which takes in 3 integers as parameters</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">in_range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span>
+	<span class="s">"""
+	Returns True if n is between low and high, inclusive. 
+	high is guaranteed to be greater than low.
+	"""</span>
+</code></pre></div></div>
+<p>Next, complete the program by writing a <strong>main</strong> function which reads in three integers from the user and calls <strong>in_range</strong> to determine whether or not the second number is in between the first and third. Here are a few sample runs of the program (user input is
+<em>italicized</em>):</p>
+
+<pre>Enter first number: *42*
+Enter second number: *8*
+Enter third number: *50*
+8 is not in between 42 and 50
+
+Enter first number: *8*
+Enter second number: *42*
+Enter third number: *50*
+42 is in between 8 and 50
+
+Enter first number: *50*
+Enter second number: *42*
+Enter third number: *8*
+42 is in between 50 and 8
+</pre>
+
+<div class="showtime" when="2022-04-22T18:00:00-07:00"></div>
+<style>
+  div.solution { display: none; }
+  .solution pre { background-color: inherit; border: none; }
+</style>
+
+<script>
+    $(document).ready(function() {
+        var now = new Date();
+        var gate = new Date($("div.showtime").attr("when"));
+        if (now >= gate || window.location.href.endsWith("#darthkarel")) {$("div.solution").show()}
+ });
+</script>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#solution-collapse-1" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-1" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">in_range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">):</span>
+    <span class="s">"""
+    Returns True if n is between low and high, inclusive.
+    high is guaranteed to be greater than low.
+    """</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="n">low</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="c1"># we don't need an else statement here because
+</span>    <span class="c1"># returning True would have ended the function
+</span>    <span class="c1"># early
+</span>    <span class="k">return</span> <span class="bp">False</span>
+
+
+<span class="k">def</span> <span class="nf">in_range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">):</span>
+    <span class="s">"""
+    A clever alternative solution that leverages the fact that 
+    we're computing a boolean expression anyway
+    """</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="n">low</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">high</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">num_1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter first number: "</span><span class="p">))</span>
+    <span class="n">num_2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter second number: "</span><span class="p">))</span>
+    <span class="n">num_3</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter third number: "</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">in_range</span><span class="p">(</span><span class="n">num_2</span><span class="p">,</span> <span class="n">num_1</span><span class="p">,</span> <span class="n">num_3</span><span class="p">)</span> <span class="ow">or</span> <span class="n">in_range</span><span class="p">(</span><span class="n">num_2</span><span class="p">,</span> <span class="n">num_3</span><span class="p">,</span> <span class="n">num_1</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">num_2</span><span class="p">)</span> <span class="o">+</span> <span class="s">" is in between "</span> <span class="o">+</span>
+              <span class="nb">str</span><span class="p">(</span><span class="n">num_1</span><span class="p">)</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_3</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">num_2</span><span class="p">)</span> <span class="o">+</span> <span class="s">" is not in between "</span> <span class="o">+</span>
+              <span class="nb">str</span><span class="p">(</span><span class="n">num_1</span><span class="p">)</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_3</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h3 id="fizzbuzz">FizzBuzz</h3>
+<p>In the game Fizz Buzz, players take turns counting up from one. If a player’s turn lands on a number that’s divisible by 3, she should say “fizz” instead of the number, and if it lands on a number that’s divisible by 5, she should say “buzz” instead of the number. If the number is both a multiple of 3 and of 5, she should say "fizzbuzz" instead of the number. A spectator sport, it is not.</p>
+
+<p>What it is, however, is an interesting problem in control flow and parameter usage. Write a function called <strong>fizzbuzz</strong> which accepts as a parameter an integer called <strong>n</strong>. The function should count up until and including <strong>n</strong>, fizzing and buzzing the correct numbers along the way. Once it's done, the function should return how many numbers were fizzed or buzzed along the way.</p>
+
+<p>Next, complete your program by writing a <strong>main</strong> function that
+reads in an integer from the user and plays fizzbuzz until it counts to
+the number then prints out the count of the numbers that were fizzed, buzzed, or fizzbuzzed. Here's a sample run of the program (user input is <em>italicized</em>):</p>
+
+<pre>Number to count to: *17*
+1
+2
+Fizz
+4
+Buzz
+Fizz
+7
+8
+Fizz
+Buzz
+11
+Fizz
+13
+14
+Fizzbuzz
+16
+17
+7 numbers were fizzed, buzzed, or fizzbuzzed
+</pre>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#solution-collapse-2" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-2" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fizzbuzz</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">15</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"Fizzbuzz"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"Buzz"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">count</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Number to count to: "</span><span class="p">))</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">+</span> <span class="s">" numbers were fizzed or buzzed"</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h2 id="lists">Lists</h2>
+
+<h3 id="interesting-list">Interesting List</h3>
+<p>Implement the following function:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">make_interesting_list</span><span class="p">(</span><span class="n">num_list</span><span class="p">):</span> 
+  <span class="s">"""
+  Accepts a list of integers and returns a new list based on the given list. 
+  The new list should have each of the values in num_list as follows: 
+  if the integer in num_list is less than zero, the new list should not have 
+  this value; if the integer in num_list is greater than or equal to zero and 
+  odd, the new list should have this integer value with 10 added to it; if 
+  the integer in num_list is greater than or equal to zero and even, the new 
+  list should have this integer value unchanged; 
+  &gt;&gt;&gt; num_list = [-2, 33, 14, 6, -13, 9, 2]
+  &gt;&gt;&gt; make_interesting_list(num_list)
+  [43, 14, 6, 19, 2]
+  """</span>
+</code></pre></div></div>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#solution-collapse-3" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-3" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">make_interesting_list</span><span class="p">(</span><span class="n">num_list</span><span class="p">):</span> 
+  <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span> 
+  <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">num_list</span><span class="p">:</span> 
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span> 
+      <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="c1"># Check if value is odd 
+</span>        <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span> 
+      <span class="k">else</span><span class="p">:</span> 
+        <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> 
+  <span class="k">return</span> <span class="n">result</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h3 id="collapse-list">Collapse List</h3>
+<p>Implement the following function:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">collapse</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+    <span class="s">"""
+    Accepts a list of integers as a parameter and returns a new 
+    list containing the result of replacing each pair of integers 
+    with the sum of that pair.
+
+    If the list stores an odd number of elements, the final element 
+    is not collapsed
+
+    &gt;&gt;&gt; nums = [7, 2, 8, 9, 4, 13, 7, 1, 9, 10]
+    &gt;&gt;&gt; collapse(nums)
+    [9, 17, 17, 8, 19]
+    &gt;&gt;&gt; nums = [1, 2, 3, 4, 5]
+    &gt;&gt;&gt; collapse(nums)
+    [3, 7, 5]
+    """</span>
+</code></pre></div></div>
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#solution-collapse-4" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-4" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">collapse</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">):</span>
+    <span class="c1"># since we're going pairs at a time, we only need
+</span>    <span class="c1"># to go as many as times as half the number of elements
+</span>    <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+  <span class="k">return</span> <span class="n">result</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h3 id="rotate">Rotate</h3>
+<p>Implement the following function:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">rotate_list_right</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="s">"""
+    returns a 'rotate' version of the list that rotates numbers 
+    to the right n times. Each element in numbers is shifted
+    forward n places, and the last n elements are moved to 
+    the start of the list.
+
+    Your function should not change the list that is passed as a 
+    parameter.
+
+    &gt;&gt;&gt; rotate_list_right([1, 2, 3, 4, 5], 2)
+    [4, 5, 1, 2, 3]
+    """</span>
+</code></pre></div></div>
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#solution-collapse-5" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-5" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">rotate_list_right</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+    <span class="s">"""
+    returns a 'rotate' version of the list that rotates numbers 
+    to the right n times. Each element in numbers is shifted
+    forward n places, and the last n elements are moved to 
+    the start of the list.
+
+    Your function should not change the list that is passed as a 
+    parameter.
+
+    &gt;&gt;&gt; rotate_list_right([1, 2, 3, 4, 5], 2)
+    [4, 5, 1, 2, 3]
+    """</span>
+    <span class="n">output_list</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="o">-</span> <span class="n">num</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)):</span>
+      <span class="n">output_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="o">-</span> <span class="n">num</span><span class="p">):</span>
+      <span class="n">output_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">output_list</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h2 id="images">Images</h2>
+<p>Implement the following functions to familiarize yourself with the various ways you can work with images. Each function takes in a string <strong>filename</strong>, which can then be converted into a <strong>SimpleImage</strong>. Each function should end by displaying the image, which can be done by calling the <strong>.show()</strong> function on
+an image.</p>
+
+<h3 id="double-left">Double Left</h3>
+<p>Implement the following function:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">double_left</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+  <span class="s">"""
+  Takes the left half of image, and copies it on top of the right half.
+  """</span>
+</code></pre></div></div>
+<p>Here is an example of the output of the function called on an image of Karel:
+<img src="./CS106A Parameters, Return Values, Lists &amp; Images_files/double_left.png" alt="Double Left"></p>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#solution-collapse-6" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-6" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">double_left</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="s">"""
+    Takes the left half of image, and copies it on top of the right half.
+    """</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">SimpleImage</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">mid_x</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">width</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image</span><span class="p">.</span><span class="n">height</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mid_x</span><span class="p">):</span>
+            <span class="n">pixel</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="n">pixel_right</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">mid_x</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="n">pixel_right</span><span class="p">.</span><span class="n">red</span> <span class="o">=</span> <span class="n">pixel</span><span class="p">.</span><span class="n">red</span>
+            <span class="n">pixel_right</span><span class="p">.</span><span class="n">green</span> <span class="o">=</span> <span class="n">pixel</span><span class="p">.</span><span class="n">green</span>
+            <span class="n">pixel_right</span><span class="p">.</span><span class="n">blue</span> <span class="o">=</span> <span class="n">pixel</span><span class="p">.</span><span class="n">blue</span>
+    <span class="n">image</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h3 id="squeeze-width">Squeeze Width</h3>
+<p>Implement the following function:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">squeeze_width</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+  <span class="s">"""
+  A funhouse mirror effect governed by the int parameter n. 
+  Create a new image with the same height as the original, but
+  with a width that is n times smaller than the original's. 
+  Copy the original image such that it is squeezed horizontally.
+
+  For example, if n = 4, the pixels in the output image with an 
+  x coordinate of 0 would be copies of the input pixels with
+  an x coordinate of 0 * 4 = 0, while pixels in the output 
+  image with an x coordinate of 1 would be copies of the input
+  pixels with an x coordinate of 1 * 4 = 4, and so on.
+  """</span>
+</code></pre></div></div>
+<p>Here is an example run of what should happen:
+<img src="./CS106A Parameters, Return Values, Lists &amp; Images_files/squeeze_width.png" alt=""></p>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#solution-collapse-7" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-7" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">squeeze_width</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">SimpleImage</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">SimpleImage</span><span class="p">.</span><span class="n">blank</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="n">image</span><span class="p">.</span><span class="n">width</span> <span class="o">//</span> <span class="n">n</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">image</span><span class="p">.</span><span class="n">height</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">out</span><span class="p">.</span><span class="n">height</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">out</span><span class="p">.</span><span class="n">width</span><span class="p">):</span>
+            <span class="n">pixel_out</span> <span class="o">=</span> <span class="n">out</span><span class="p">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="n">pixel</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">n</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+            <span class="n">pixel_out</span><span class="p">.</span><span class="n">red</span> <span class="o">=</span> <span class="n">pixel</span><span class="p">.</span><span class="n">red</span>
+            <span class="n">pixel_out</span><span class="p">.</span><span class="n">green</span> <span class="o">=</span> <span class="n">pixel</span><span class="p">.</span><span class="n">green</span>
+            <span class="n">pixel_out</span><span class="p">.</span><span class="n">blue</span> <span class="o">=</span> <span class="n">pixel</span><span class="p">.</span><span class="n">blue</span>
+    <span class="n">out</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h3 id="crop-image">Crop Image</h3>
+<p>Implement the following function:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">crop_image</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="s">"""
+    crops the image to fit inside of a frame by shaving 
+    n pixels from each side of the image. 
+
+    You may assume that n is less than half the width of 
+    the image. 
+    """</span>
+</code></pre></div></div>
+<p>Here is an example of the output of the function called on an image of Karel:
+<img src="./CS106A Parameters, Return Values, Lists &amp; Images_files/crop_image.png" alt=""></p>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#solution-collapse-8" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-8" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">crop_image</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="s">"""
+    Takes the left half of image, and copies it on top of the right half.
+    """</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">SimpleImage</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">SimpleImage</span><span class="p">.</span><span class="n">blank</span><span class="p">(</span><span class="n">image</span><span class="p">.</span><span class="n">width</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n</span><span class="p">,</span> <span class="n">image</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">out</span><span class="p">.</span><span class="n">height</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">out</span><span class="p">.</span><span class="n">width</span><span class="p">):</span>
+            <span class="n">input_pixel</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">n</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span>
+            <span class="n">out</span><span class="p">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">input_pixel</span><span class="p">)</span>
+
+    <span class="n">out</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h2 id="debugging-with-doctests">Debugging with Doctests</h2>
+<p>In this problem, we'll work through using doctests to help us debug a program. Suppose we're trying to write a function which given two integers, calculates the Greatest Common Divisor of both numbers. The Greatest Common Divisor of two numbers is the largest number that is a factor in both of them. In <strong>greatest_common_divisor.py</strong>, we've provided the following buggy implementation of a function called
+<strong>greatest_common_divisor</strong>:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">greatest_common_divisor</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="s">"""
+    Return the greatest common divisor of a and b.
+
+    &gt;&gt;&gt; greatest_common_divisor(4, 16)
+    4
+    &gt;&gt;&gt; greatest_common_divisor(16, 4)
+    4
+    &gt;&gt;&gt; greatest_common_divisor(9, 24)
+    3
+    """</span>
+
+    <span class="n">lower</span> <span class="o">=</span> <span class="n">a</span>
+
+    <span class="n">gcd</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">lower</span><span class="p">):</span>
+      <span class="k">if</span> <span class="n">a</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">gcd</span> <span class="o">=</span> <span class="n">i</span>
+</code></pre></div></div>
+
+<p>At first glance, this looks like a reasonable way of solving the problem, but it turns out there are several issues. By running the doctests for the function, try identifying what the bugs are and correcting them. You might wish to add more doctests to more exhaustively test your function.</p>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#solution-collapse-9" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-9" style="">
+   
+<p>Here is a a fixed version of the program :)</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">greatest_common_divisor</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="s">"""
+    Return the greatest common divisor of a and b.
+
+    &gt;&gt;&gt; greatest_common_divisor(4, 16)
+    4
+    &gt;&gt;&gt; greatest_common_divisor(16, 4)
+    4
+    &gt;&gt;&gt; greatest_common_divisor(9, 24)
+    3
+    """</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span>
+        <span class="n">lower</span> <span class="o">=</span> <span class="n">a</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">lower</span> <span class="o">=</span> <span class="n">b</span>
+
+    <span class="n">gcd</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">lower</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">gcd</span> <span class="o">=</span> <span class="n">i</span>
+    
+    <span class="k">return</span> <span class="n">gcd</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+</div>
+        <div class="col-xs-hidden col-md-2"><nav class="fixed-top-right toc" id="toc"><ol class="toc-list "><li class="toc-list-item is-active-li"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#parameters" class="toc-link node-name--H2  is-active-link">Parameters</a><ol class="toc-list  is-collapsible"><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#checking-ranges" class="toc-link node-name--H3 ">Checking Ranges</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#fizzbuzz" class="toc-link node-name--H3 ">FizzBuzz</a></li></ol></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#lists" class="toc-link node-name--H2 ">Lists</a><ol class="toc-list  is-collapsible is-collapsed"><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#interesting-list" class="toc-link node-name--H3 ">Interesting List</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#collapse-list" class="toc-link node-name--H3 ">Collapse List</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#rotate" class="toc-link node-name--H3 ">Rotate</a></li></ol></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#images" class="toc-link node-name--H2 ">Images</a><ol class="toc-list  is-collapsible is-collapsed"><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#double-left" class="toc-link node-name--H3 ">Double Left</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#squeeze-width" class="toc-link node-name--H3 ">Squeeze Width</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#crop-image" class="toc-link node-name--H3 ">Crop Image</a></li></ol></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3/#debugging-with-doctests" class="toc-link node-name--H2 ">Debugging with Doctests</a></li></ol></nav></div>
+    </div>
+
+    <script src="./CS106A Parameters, Return Values, Lists &amp; Images_files/tocbot.min.js.download"></script>
+    <link rel="stylesheet" href="./CS106A Parameters, Return Values, Lists &amp; Images_files/tocbot.css">
+
+    <script>
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '#toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '#content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h2, h3, h4',
+      });
+    </script>
+
+
+
+</div>
+
+<style>
+    p.attribution {
+        font-style: italic;
+        font-size: 80%;
+        text-align: right;
+    }
+    .body-container {
+        margin: 0 10%;
+        max-width: 55em;
+        width: 80%;
+    }
+    a.toc-link {
+      color: #aaa !important;
+      font-size: 90%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .fixed-top-right {
+        position: fixed;
+        margin-top: 0;
+        margin-left: 0;
+    }
+</style>
+
+</main>
+    <style>
+#footer {
+    font-size: 70%;
+    color:green;
+    text-align: center;
+    font-style: italic;
+    padding: 5px;
+}
+</style>
+<div id="footer" class="mt-auto">
+    All course materials © Stanford University 2021 <br>
+    Website programming by Julie Zelenski • Styles adapted from Chris Piech •
+    This page last updated 2022-Apr-18
+</div>
+
+
+  
+
+  <!-- Bootstrap JavaScript -->
+  <script src="./CS106A Parameters, Return Values, Lists &amp; Images_files/bootstrap.min.js.download"></script>
+  <script src="./CS106A Parameters, Return Values, Lists &amp; Images_files/popper.min.js.download"></script>
+
+  <script src="./CS106A Parameters, Return Values, Lists &amp; Images_files/jquery.min.js.download"></script>
+
+
+</body></html>

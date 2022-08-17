@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="./CS106A Final Reivew_files/site.css" rel="stylesheet">
+    <!-- jQuery library -->
+    <script src="./CS106A Final Reivew_files/jquery-3.4.1.min.js.download" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>  CS106A Final Reivew</title>
+  </head>
+
+  <!-- fill to height of viewport, flex col, footer will be mt-auto -->
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-md navbar-dark" role="navigation">
+  <a class="navbar-brand" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/">🏠CS106A </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8/#" aria-haspopup="true" aria-expanded="false"> Handouts </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/01-general-information.html">General Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/02-course-placement.html">Course Placement Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/03-honor-code.html">Honor Code</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/lair.html">LaIR Info</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/about_staff">Teaching Team</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/04-using-karel-with-pycharm.html">Using Karel with Pycharm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/05-assignment1.html">Assignment 1 Karel the Robot</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/06-submitting-assignments.html">Submitting Assignments</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html">Assignment 2 Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html">Assignment 3 Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/09-image-reference.html">Image Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html">Assignment 4</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/10-graphics-reference.html">Graphics Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bluebook-info.html">BlueBook Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html">Practice Midterm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm-solutions.html">Practice Midterm Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/12-assignment5.html">Assignment 5</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/midterm-solutions.html">Midterm Grades and Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/13-contest.html">Graphics/Image Contest</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/biasbars-handout.html">Assignment 6</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html">Assignment 7</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final.html">Final Exam Info and Practice</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html">Practice Final Solutions</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8/#" aria-haspopup="true" aria-expanded="false"> Lectures </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+             
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/01-welcome/">  1.  3/28 Welcome! </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/02-control-flow/">  2.  3/30 Control Flow </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/03-decomposition/">  3.  4/1 Decomposition </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/04-intro-python/">  4.  4/4 Intro to Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/05-arithmetic-expressions/">  5.  4/6 Arithmetic Expressions </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/06-control-flow-revisited/">  6.  4/8 Control Flow Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/07-functions-revisited/">  7.  4/11 Functions Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/08-parameters/">  8.  4/13 Parameters </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/09-lists/">  9.  4/15 Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/10-images/">  10.  4/18 Images </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/11-listoflists/">  11.  4/20 Lists of Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/12-canvas/">  12.  4/22 Wrapping Up Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/13-more-graphics/">  13.  4/25 Canvas </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/14-strings/">  14.  4/27 Strings </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/15-files/">  15.  4/29 Files </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/16-dictionaries/">  16.  5/2 Dictionaries </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/17-parsing/">  17.  5/4 Nested Structures </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/18-nested-structures/">  18.  5/9 String Parsing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/19-tuples-sorting/">  19.  5/11 Tuples Sorting </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/20-classes-objects/">  20.  5/13 Classes and Objects </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/21-ethics/">  21.  5/16 Ethics </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/22-memory/">  22.  5/18 Memory </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/23-search-indexing/">  23.  5/20 Search and Indexing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/24-internet/">  24.  5/23 The Internet </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/25-after-106a/">  25.  5/25 Life After CS106A </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/26-advanced-python/">  26.  5/27 Advanced Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/27-wrap-up/">  27.  6/1 Wrap Up </a>
+                
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8/#" aria-haspopup="true" aria-expanded="false"> Assignments </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSdN6415WaOi5C0bzlRysKuAEZJbAtN920JmrdeRz-EfXtaydg/viewform">Assignment 0</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/1-Karel">Assignment 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/2-KhansoleCompute">Assignment 2 - Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/3-ListImages">Assignment 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/4-Sand">Assignment 4 - Lists of Lists, Strings, Graphics, and Sand</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/5-WordGuess">Assignment 5 - Strings &amp; Word Guessing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/6-BiasBars">Assignment 6 - Dictionaries &amp; BiasBars</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/7-Bajillion">Assignment 7 - Bajillion</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/8-Contest">Graphics/Image Contest</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8/#" aria-haspopup="true" aria-expanded="false"> Sections </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://cs198.stanford.edu/cs198/auth/default.aspx">Section Portal</a>
+            
+            
+             <div class="dropdown-divider"></div>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section1">Section 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2">Section 2 - Variables &amp; Control Flow</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3">Section 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section4">Section 4 - Lists of Lists &amp; Strings</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5">Section 5 - File Reading &amp; Nested Structures</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6">Section 6 - Dictionaries &amp; Drawing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7">Section 7 - Sorting, OOP, &amp; Memory</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8">Section 8 - Final Exam Review</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item"><a class="nav-link" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/schedule.html">🗓Schedule</a></li>
+        
+      
+    </ul>
+    <!---
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" id="search-text" name="query" placeholder="🔍 Search CS106B..." aria-label="Search" action="search">
+    </form>
+    --->
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    margin-bottom: 2rem;
+  }
+  .navbar-dark {
+    background-color: #444;
+  }
+ .nav-item > a {
+    text-transform: uppercase;
+    letter-spacing: .08rem;
+    font-size: small;
+    color: #bbb !important;
+  }
+  .nav-item > a:hover {
+    color: white !important;
+  }
+</style>
+    
+    <main class="main container-fluid" role="main"><div class="body-container container-fluid" data-spy="scroll" data-target="#toc">
+
+<h1 class="title">Section 8. Final Reivew</h1>
+
+<hr>
+
+<p class="attribution">
+ Written by Juliette Woodrow
+</p>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-10" id="content" <=""><style>
+.node {
+	border-style: solid;
+	border-width: 3px;
+    font-size: 130%;
+    text-align: center;
+    padding: 10px;
+    width:10%;
+}
+</style>
+
+<p>This week in section we are going to do a few problems to help you prepare for the final exam. This handout is not comprehensive of what will be on the final. Please see the practice final and watch lecture to hear more exam info.</p>
+
+<h2 id="images">Images</h2>
+<h3 id="fuse-images">Fuse Images</h3>
+<p>Implement the function called <code class="language-python highlighter-rouge"><span class="n">fuse_images</span><span class="p">(</span><span class="n">image1</span><span class="p">,</span> <span class="n">image2</span><span class="p">,</span> <span class="n">dist_btn_rectangles</span><span class="p">)</span></code> as described below.</p>
+
+<p>Fuse images takes as parameters two different images, image1 and image2 of the same size and fuses them together such that a rectangular cutout of image2 is placed over image1. It will be placed over image one kind of like a frame. We call it a rectangular cut out rather than a rectangle because we only want the outside of a rectangle. The size of the rectangular cut out is determined by the third parameter dist_btn_rectangles.</p>
+
+<p>Consider the images below:</p>
+
+<p><img src="./CS106A Final Reivew_files/obama.jpeg" alt=""></p>
+
+<p><img src="./CS106A Final Reivew_files/megamind.png" alt=""></p>
+
+<p>Here a rectangular cut out with size, dist_btn_rectangles on all sides, of megamind.jpg is placed 
+on top of obama.jpg.</p>
+
+<p><img src="./CS106A Final Reivew_files/merged2.png" alt=""></p>
+
+<p>You are guaranteed that dist_btn_rectangles will always be small enough such that the modifications described above can be completed without error. In the below drawing, x represents the dist_btn_rectangles parameter.</p>
+
+<p><img src="./CS106A Final Reivew_files/merged2-1.jpg" alt=""></p>
+
+<p>Notice that you are not making a new image. You are modifying image1. To break down solving this, we recommend writing nested loops to copy over each side of the rectangular cut out. We <em>highly</em> recommend drawing out a picture to get the math right for the for loop ranges.</p>
+
+<div class="showtime" when="2022-05-27T18:00:00-07:00"></div>
+<style>
+  div.solution { display: none; }
+  .solution pre { background-color: inherit; border: none; }
+</style>
+
+<script>
+    $(document).ready(function() {
+        var now = new Date();
+        var gate = new Date($("div.showtime").attr("when"));
+        if (now >= gate || window.location.href.endsWith("#week9vibes")) {$("div.solution").show()}
+ });
+</script>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8/#solution-collapse-1" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-1" style="">
+   
+<p><strong>Solution 1</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fuse_images</span><span class="p">(</span><span class="n">image1</span><span class="p">,</span> <span class="n">image2</span><span class="p">,</span> <span class="n">dist_btn_rectangles</span><span class="p">):</span> 
+    <span class="c1"># Copy rectangle on the left side 
+</span>    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dist_btn_rectangles</span><span class="p">,</span> <span class="n">image1</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="n">dist_btn_rectangles</span><span class="p">):</span> 
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dist_btn_rectangles</span><span class="p">,</span> <span class="n">dist_btn_rectangles</span> <span class="o">*</span> <span class="mi">2</span><span class="p">):</span> 
+            <span class="n">new_pixel</span> <span class="o">=</span> <span class="n">image2</span><span class="p">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> 
+            <span class="n">image1</span><span class="p">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">new_pixel</span><span class="p">)</span> 
+ 
+    <span class="c1"># Copy rectangle on the right side
+</span>    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dist_btn_rectangles</span><span class="p">,</span> <span class="n">image1</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="n">dist_btn_rectangles</span><span class="p">):</span> 
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image1</span><span class="p">.</span><span class="n">width</span> <span class="o">-</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">dist_btn_rectangles</span><span class="p">),</span> <span class="n">image1</span><span class="p">.</span><span class="n">width</span> <span class="o">-</span> <span class="n">dist_btn_rectangles</span><span class="p">):</span>
+            <span class="n">new_pixel</span> <span class="o">=</span> <span class="n">image2</span><span class="p">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> 
+            <span class="n">image1</span><span class="p">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">new_pixel</span><span class="p">)</span> <span class="n">x</span> <span class="o">=</span> <span class="n">dist_btn_rectangles</span>
+
+    <span class="c1"># Copy rectangle at the top side
+</span>    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dist_btn_rectangles</span><span class="p">,</span> <span class="n">dist_btn_rectangles</span> <span class="o">*</span> <span class="mi">2</span><span class="p">):</span> 
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dist_btn_rectangles</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">image1</span><span class="p">.</span><span class="n">width</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dist_btn_rectangles</span><span class="p">):</span> 
+            <span class="n">new_pixel</span> <span class="o">=</span> <span class="n">image2</span><span class="p">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> 
+            <span class="n">image1</span><span class="p">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">new_pixel</span><span class="p">)</span> 
+ 
+    <span class="c1"># Copy rectangle on the bottom side
+</span>    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image1</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">dist_btn_rectangles</span><span class="p">),</span> <span class="n">image1</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="n">dist_btn_rectangles</span><span class="p">):</span> 
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dist_btn_rectangles</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">image1</span><span class="p">.</span><span class="n">width</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dist_btn_rectangles</span><span class="p">):</span> 
+            <span class="n">new_pixel</span> <span class="o">=</span> <span class="n">image2</span><span class="p">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> 
+            <span class="n">image1</span><span class="p">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">new_pixel</span>
+
+    <span class="n">image1</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Solution 2</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fuse_images</span><span class="p">(</span><span class="n">image1</span><span class="p">,</span> <span class="n">image2</span><span class="p">,</span> <span class="n">dist_btn_rectangles</span><span class="p">):</span>
+   <span class="c1"># Copy rectangle on the left and right side
+</span>    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dist_btn_rectangles</span><span class="p">,</span> <span class="n">image1</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="n">dist_btn_rectangles</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dist_btn_rectangles</span><span class="p">,</span> <span class="n">dist_btn_rectangles</span> <span class="o">*</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="n">new_pixel</span> <span class="o">=</span> <span class="n">image2</span><span class="p">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="n">image1</span><span class="p">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">new_pixel</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image1</span><span class="p">.</span><span class="n">width</span> <span class="o">-</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">dist_btn_rectangles</span><span class="p">),</span> <span class="n">image1</span><span class="p">.</span><span class="n">width</span> <span class="o">-</span> <span class="n">dist_btn_rectangles</span><span class="p">):</span>
+            <span class="n">new_pixel</span> <span class="o">=</span> <span class="n">image2</span><span class="p">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="n">image1</span><span class="p">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">new_pixel</span><span class="p">)</span>
+
+    <span class="c1"># Copy rectangle on the right and left side
+</span>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dist_btn_rectangles</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">image1</span><span class="p">.</span><span class="n">width</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dist_btn_rectangles</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dist_btn_rectangles</span><span class="p">,</span> <span class="n">dist_btn_rectangles</span> <span class="o">*</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="n">new_pixel</span> <span class="o">=</span> <span class="n">image2</span><span class="p">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="n">image1</span><span class="p">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">new_pixel</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image1</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">dist_btn_rectangles</span><span class="p">),</span> <span class="n">image1</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="n">dist_btn_rectangles</span><span class="p">):</span>
+            <span class="n">new_pixel</span> <span class="o">=</span> <span class="n">image2</span><span class="p">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="n">image1</span><span class="p">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">new_pixel</span><span class="p">)</span>
+
+    <span class="n">image1</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Solution 3</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fuse_images</span><span class="p">(</span><span class="n">image1</span><span class="p">,</span> <span class="n">image2</span><span class="p">,</span> <span class="n">dist_btn</span><span class="p">):</span>
+	
+	<span class="c1"># copies over image 1 so that when we modify we don't lose the inside 
+</span>    <span class="n">image3</span> <span class="o">=</span> <span class="n">SimpleImage</span><span class="p">.</span><span class="n">blank</span><span class="p">(</span><span class="n">image1</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">image1</span><span class="p">.</span><span class="n">height</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image1</span><span class="p">.</span><span class="n">height</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image2</span><span class="p">.</span><span class="n">width</span><span class="p">):</span>
+            <span class="n">pix</span> <span class="o">=</span> <span class="n">image1</span><span class="p">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="n">image3</span><span class="p">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">pix</span><span class="p">)</span>
+
+    <span class="c1"># copies over the rectangle of image2 onto image1
+</span>    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dist_btn</span><span class="p">,</span> <span class="n">image1</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="n">dist_btn</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dist_btn</span><span class="p">,</span> <span class="n">image1</span><span class="p">.</span><span class="n">width</span> <span class="o">-</span> <span class="n">dist_btn</span><span class="p">):</span>
+            <span class="n">pix</span> <span class="o">=</span> <span class="n">image2</span><span class="p">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="n">image1</span><span class="p">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">pix</span><span class="p">)</span>
+
+    <span class="c1"># copies back the middle of the rectangle cut out from image3 onto image1
+</span>    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">dist_btn</span><span class="p">,</span> <span class="n">image1</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">dist_btn</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">dist_btn</span><span class="p">,</span> <span class="n">image1</span><span class="p">.</span><span class="n">width</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dist_btn</span><span class="p">):</span>
+            <span class="n">pix</span> <span class="o">=</span> <span class="n">image3</span><span class="p">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="n">image1</span><span class="p">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">pix</span><span class="p">)</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h2 id="lists-of-lists">Lists of Lists</h2>
+
+<h3 id="groceries">Groceries</h3>
+<p>You’ve decided to optimize your weekly grocery trip by representing shopping lists for each store you visit as a grocery grid - a list of grocery lists! To support each business equally, you decide to buy one of each type of item, for example a fruit, a vegetable, and a carbohydrate, at each store. So your lists might look like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Trader Joe’s: Banana, Kale, Baguette
+H-Mart: Mango, Broccoli, Buns
+Munger Market: Apple, Salad mix, Cookie
+</code></pre></div></div>
+<p>Once you’ve stored them in a grid, you’ve got the following:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">grid</span> <span class="o">=</span> <span class="p">[[</span><span class="s">'Trader Joe'</span><span class="n">s</span><span class="s">', '</span><span class="n">Banana</span><span class="s">', '</span><span class="n">Kale</span><span class="s">', '</span><span class="n">Baguette</span><span class="s">'],
+        ['</span><span class="n">H</span><span class="o">-</span><span class="n">Mart</span><span class="s">', '</span><span class="n">Mango</span><span class="s">', '</span><span class="n">Broccoli</span><span class="s">', '</span><span class="n">Buns</span><span class="s">'],
+        ['</span><span class="n">Munger</span> <span class="n">Market</span><span class="s">', '</span><span class="n">Apple</span><span class="s">', '</span><span class="n">Salad</span> <span class="n">mix</span><span class="s">', '</span><span class="n">Cookie</span><span class="s">']]
+</span></code></pre></div></div>
+
+<p>Now, to check your inventory at home, you want to be able to use your grid and return a list of all the items of a single type you’ve bought for the week. We represent types by the index in each grocery list where that type appears. In this problem, fruit would be index 1, vegetables index 2, and carbs index 3. We ignore index 0, which holds the store names. Note that our grid could have any number of lists with any number of item types; this is just an example.</p>
+
+<p>Write a function <code class="language-python highlighter-rouge"><span class="n">get_groceries</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span></code> that takes in the item type index and a grid as shown above and returns the list of all items you bought of this type. For example, if you wanted all the vegetables you got this week, you’d call <code class="language-python highlighter-rouge"><span class="n">get_groceries</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span></code> which would return: <code class="language-python highlighter-rouge"><span class="p">[</span><span class="s">'Kale'</span><span class="p">,</span> <span class="s">'Broccoli'</span><span class="p">,</span> <span class="s">'Salad mix'</span><span class="p">]</span></code>.</p>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8/#solution-collapse-2" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-2" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_groceries</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">grid</span><span class="p">):</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">num_lists</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_lists</span><span class="p">):</span>
+        <span class="n">grocery_list</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">grocery_list</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="n">lst</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lst</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h2 id="dictionaries">Dictionaries</h2>
+
+<h3 id="animal-counts">Animal Counts</h3>
+
+<p>Let’s say we had everyone in class vote on their favorite animals by entering an animal name into an online poll. The results were then put into a file so that each line of the file is an animal name and the number of votes it received. Here some some of the results:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Dog: 34
+Bird: 20
+cat: 14
+Elephant: 7
+dog: 5
+CAT: 2
+</code></pre></div></div>
+<p>What we want to do is to read in the data from this file into a dictionary where the key is the animal name (string) and the value is the number of votes this animal got (integer).</p>
+
+<p>Unfortunately, the polling mechanism didn’t take into account that some people would capitalize the names of animals differently. Notice that above, “Dog” and “dog” each get their own score, but really we’d like to sum all the votes for each animal name in a case-insensitive way, so that we see that 39 people have “dog” as their favorite animal.</p>
+
+<p>Your task is to do just this; write a helper function <code class="language-python highlighter-rouge"><span class="n">get_animal_counts</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span></code> that takes in a filename and returns a dictionary with the duplicate counts (for keys with the same characters but different capitalization) combined. The new keys should be all lowercase. Calling our helper function with the file above would return:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s">'dog'</span><span class="p">:</span> <span class="mi">39</span><span class="p">,</span> <span class="s">'bird'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'cat'</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="s">'elephant'</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
+</code></pre></div></div>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8/#solution-collapse-3" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-3" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_animal_counts</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">counts_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">':'</span><span class="p">)</span> <span class="c1"># split into list by colon
+</span>            <span class="n">animal_name</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">lower</span><span class="p">()</span> <span class="c1"># case-insensitive
+</span>            <span class="n">count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">animal_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">counts_dict</span><span class="p">:</span> <span class="c1"># initialize
+</span>                <span class="n">counts_dict</span><span class="p">[</span><span class="n">animal_name</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">counts_dict</span><span class="p">[</span><span class="n">animal_name</span><span class="p">]</span> <span class="o">+=</span> <span class="n">count</span> <span class="c1"># update
+</span>    <span class="k">return</span> <span class="n">counts_dict</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h3 id="finding-grandchildren">Finding Grandchildren</h3>
+
+<p>Implement a function <code class="language-python highlighter-rouge"><span class="n">find_grandchildren</span><span class="p">(</span><span class="n">parents_to_children</span><span class="p">)</span></code>, which given a dictionary parents whose keys are strings representing parent names and whose values are lists of those parent's children's names, produces and return s a dictionary mapping from people's names to those lists of those people's grandchildren's names.</p>
+
+<p>For example, given this dictionary:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">parents_to_children</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Khaled'</span><span class="p">:</span> <span class="p">[</span><span class="s">'Chibundu'</span><span class="p">,</span> <span class="s">'Jesmyn'</span><span class="p">],</span>
+  <span class="s">'Daniel'</span><span class="p">:</span> <span class="p">[</span><span class="s">'Khaled'</span><span class="p">,</span> <span class="s">'Eve'</span><span class="p">],</span>
+  <span class="s">'Jesmyn'</span><span class="p">:</span> <span class="p">[</span><span class="s">'Frank'</span><span class="p">],</span>
+  <span class="s">'Eve'</span><span class="p">:</span> <span class="p">[</span><span class="s">'Grace'</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Daniel's grandchildren are Chibundu, Jesmyn and Grace, since those are the children of his children. Additionally, Khaled is Frank's grandparent, since Frank's parent is Khaled's child. Therefore, calling <code class="language-python highlighter-rouge"><span class="n">find_grandchildren</span><span class="p">(</span><span class="n">parents_to_children</span><span class="p">)</span></code> returns this dictionary:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="s">'Khaled'</span><span class="p">:</span> <span class="p">[</span><span class="s">'Frank'</span><span class="p">],</span>
+  <span class="s">'Daniel'</span><span class="p">:</span> <span class="p">[</span><span class="s">'Chibundu'</span><span class="p">,</span> <span class="s">'Jesmyn'</span><span class="p">,</span> <span class="s">'Grace'</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Note that the people who aren't grandparents don't show up as keys in the new dictionary.</p>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8/#solution-collapse-4" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-4" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SAMPLE_INPUT</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Khaled'</span><span class="p">:</span> <span class="p">[</span><span class="s">'Chibundu'</span><span class="p">,</span> <span class="s">'Jesmyn'</span><span class="p">],</span>
+    <span class="s">'Daniel'</span><span class="p">:</span> <span class="p">[</span><span class="s">'Khaled'</span><span class="p">,</span> <span class="s">'Eve'</span><span class="p">],</span>
+    <span class="s">'Jesmyn'</span><span class="p">:</span> <span class="p">[</span><span class="s">'Frank'</span><span class="p">],</span>
+    <span class="s">'Eve'</span><span class="p">:</span> <span class="p">[</span><span class="s">'Grace'</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="err">​</span>
+<span class="err">​</span>
+<span class="k">def</span> <span class="nf">add_grandchildren</span><span class="p">(</span><span class="n">grandparents_dictionary</span><span class="p">,</span> <span class="n">grandparent</span><span class="p">,</span> <span class="n">new_grandchildren</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">grandparent</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">grandparents_dictionary</span><span class="p">:</span>
+        <span class="c1"># if we haven't seen this grandparent before, add them to the dictionary
+</span>        <span class="n">grandparents_dictionary</span><span class="p">[</span><span class="n">grandparent</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="err">​</span>
+    <span class="c1"># add the new grandchildren to the grandparent's list of 
+</span>    <span class="c1"># grandchildren
+</span>    <span class="n">current_grandchildren</span> <span class="o">=</span> <span class="n">grandparents_dictionary</span><span class="p">[</span><span class="n">grandparent</span><span class="p">]</span>
+    <span class="n">current_grandchildren</span> <span class="o">+=</span> <span class="n">new_grandchildren</span>
+<span class="err">​</span>
+<span class="err">​</span>
+<span class="k">def</span> <span class="nf">find_grandchildren</span><span class="p">(</span><span class="n">parents_dictionary</span><span class="p">):</span>
+    <span class="s">"""
+    &gt;&gt;&gt; find_grandchildren(SAMPLE_INPUT)
+    {'Khaled': ['Frank'], 'Daniel': ['Chibundu', 'Jesmyn', 'Grace']}
+    """</span>
+    <span class="n">grandparents_dictionary</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">parent</span> <span class="ow">in</span> <span class="n">parents_dictionary</span><span class="p">:</span>
+        <span class="n">children</span> <span class="o">=</span> <span class="n">parents_dictionary</span><span class="p">[</span><span class="n">parent</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">children</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">parents_dictionary</span><span class="p">:</span> <span class="c1"># check if the child is a parent themselves
+</span>                <span class="n">grandchildren</span> <span class="o">=</span> <span class="n">parents_dictionary</span><span class="p">[</span><span class="n">child</span><span class="p">]</span>
+                <span class="n">add_grandchildren</span><span class="p">(</span><span class="n">grandparents_dictionary</span><span class="p">,</span>
+                                  <span class="n">parent</span><span class="p">,</span> <span class="n">grandchildren</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">grandparents_dictionary</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h2 id="classes-and-oop">Classes and OOP</h2>
+
+<h3 id="meme-generator">Meme Generator</h3>
+<p>Our goal is to implement the MemeGenerator class in memegenerator.py for use in the following program:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># import the MemeGenerator class from memegenerator.py
+</span><span class="kn">from</span> <span class="nn">memegenerator</span> <span class="kn">import</span> <span class="n">MemeGenerator</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># initalize the meme generator with an image
+</span>    <span class="n">meme_gen</span> <span class="o">=</span> <span class="n">MemeGenerator</span><span class="p">(</span><span class="s">'one-does-not.png'</span><span class="p">)</span>
+
+    <span class="c1"># add text to the top and bottom of the meme
+</span>    <span class="n">meme_gen</span><span class="p">.</span><span class="n">add_text</span><span class="p">(</span><span class="s">'ONE DOES NOT SIMPLY'</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="n">meme_gen</span><span class="p">.</span><span class="n">add_text</span><span class="p">(</span><span class="s">'MAKE A MEME GENERATOR IN PYTHON'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">220</span><span class="p">)</span>
+
+    <span class="c1"># generate the meme!
+</span>    <span class="n">meme_gen</span><span class="p">.</span><span class="n">render</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div></div>
+<p>(Feel free to change this program to generate different memes!) When we run memegen_test.py, we generate this variation of a classic meme:</p>
+
+<p><img src="./CS106A Final Reivew_files/python_meme.png" alt=""></p>
+
+<p>Boromir raising his hand. Top text says 'One does not simply' and bottom text says 'Make a meme generator in Python'
+Implement the following methods in the MemeGenerator class:</p>
+
+<ul>
+  <li><code class="language-python highlighter-rouge"><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span></code>: the constructor which initializes the meme's image, and accepts as a parameter the filename of the image.</li>
+  <li><code class="language-python highlighter-rouge"><span class="n">set_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span></code>: updates the meme's image.</li>
+  <li><code class="language-python highlighter-rouge"><span class="n">add_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></code>: records the string text to be placed at position (x, y) on the meme.</li>
+</ul>
+
+<p>Note: <code class="language-python highlighter-rouge"><span class="n">SimpleImage</span></code> supports a <code class="language-python highlighter-rouge"><span class="n">create_text</span></code> method that you can use by calling <code class="language-python highlighter-rouge"><span class="n">img</span><span class="p">.</span><span class="n">create_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">font_filename</span><span class="p">)</span></code>. The text is the text that you want to draw onto the image, x and y are the coordinates of the top-left corner of the text, and font_filename is the filename that contains the font you want to draw the text in (usually this ends with .ttf). Optionally, you can also add a size parameter and a color parameter if you want to change the size of the text or the color of the text. You might do that by calling <code class="language-python highlighter-rouge"><span class="n">img</span><span class="p">.</span><span class="n">create_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">font_filename</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'white'</span><span class="p">)</span></code> to create 10pt white text.</p>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8/#solution-collapse-5" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-5" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">simpleimage</span> <span class="kn">import</span> <span class="n">SimpleImage</span>
+
+<span class="n">FONT_FILE</span> <span class="o">=</span> <span class="s">'impact.ttf'</span>
+<span class="n">SIZE</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">COLOR</span> <span class="o">=</span> <span class="s">'white'</span>
+
+<span class="k">class</span> <span class="nc">MemeGenerator</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">texts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">image_filename</span> <span class="o">=</span> <span class="n">filename</span>
+
+    <span class="k">def</span> <span class="nf">set_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">image_filename</span> <span class="o">=</span> <span class="n">filename</span>
+
+    <span class="k">def</span> <span class="nf">add_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">texts</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">text</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">SimpleImage</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">image_filename</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">text</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">.</span><span class="n">texts</span><span class="p">:</span>
+            <span class="n">img</span><span class="p">.</span><span class="n">create_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">FONT_FILE</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLOR</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">SIZE</span><span class="p">)</span>
+        <span class="n">img</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+</div>
+        <div class="col-xs-hidden col-md-2"><nav class="fixed-top-right toc" id="toc"><ol class="toc-list "><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8/#images" class="toc-link node-name--H2 ">Images</a><ol class="toc-list  is-collapsible is-collapsed"><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8/#fuse-images" class="toc-link node-name--H3 ">Fuse Images</a></li></ol></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8/#lists-of-lists" class="toc-link node-name--H2 ">Lists of Lists</a><ol class="toc-list  is-collapsible is-collapsed"><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8/#groceries" class="toc-link node-name--H3 ">Groceries</a></li></ol></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8/#dictionaries" class="toc-link node-name--H2 ">Dictionaries</a><ol class="toc-list  is-collapsible is-collapsed"><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8/#animal-counts" class="toc-link node-name--H3 ">Animal Counts</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8/#finding-grandchildren" class="toc-link node-name--H3 ">Finding Grandchildren</a></li></ol></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8/#classes-and-oop" class="toc-link node-name--H2 ">Classes and OOP</a><ol class="toc-list  is-collapsible"><li class="toc-list-item is-active-li"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8/#meme-generator" class="toc-link node-name--H3  is-active-link">Meme Generator</a></li></ol></li></ol></nav></div>
+    </div>
+
+    <script src="./CS106A Final Reivew_files/tocbot.min.js.download"></script>
+    <link rel="stylesheet" href="./CS106A Final Reivew_files/tocbot.css">
+
+    <script>
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '#toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '#content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h2, h3, h4',
+      });
+    </script>
+
+
+
+</div>
+
+<style>
+    p.attribution {
+        font-style: italic;
+        font-size: 80%;
+        text-align: right;
+    }
+    .body-container {
+        margin: 0 10%;
+        max-width: 55em;
+        width: 80%;
+    }
+    a.toc-link {
+      color: #aaa !important;
+      font-size: 90%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .fixed-top-right {
+        position: fixed;
+        margin-top: 0;
+        margin-left: 0;
+    }
+</style>
+
+</main>
+    <style>
+#footer {
+    font-size: 70%;
+    color:green;
+    text-align: center;
+    font-style: italic;
+    padding: 5px;
+}
+</style>
+<div id="footer" class="mt-auto">
+    All course materials © Stanford University 2021 <br>
+    Website programming by Julie Zelenski • Styles adapted from Chris Piech •
+    This page last updated 2022-May-24
+</div>
+
+
+  
+
+  <!-- Bootstrap JavaScript -->
+  <script src="./CS106A Final Reivew_files/bootstrap.min.js.download"></script>
+  <script src="./CS106A Final Reivew_files/popper.min.js.download"></script>
+
+  <script src="./CS106A Final Reivew_files/jquery.min.js.download"></script>
+
+
+</body></html>

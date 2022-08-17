@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="./CS106A Sorting, Tuples, OOP, &amp; Memory_files/site.css" rel="stylesheet">
+    <!-- jQuery library -->
+    <script src="./CS106A Sorting, Tuples, OOP, &amp; Memory_files/jquery-3.4.1.min.js.download" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>  CS106A Sorting, Tuples, OOP, &amp; Memory</title>
+  </head>
+
+  <!-- fill to height of viewport, flex col, footer will be mt-auto -->
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-md navbar-dark" role="navigation">
+  <a class="navbar-brand" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/">🏠CS106A </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#" aria-haspopup="true" aria-expanded="false"> Handouts </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/01-general-information.html">General Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/02-course-placement.html">Course Placement Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/03-honor-code.html">Honor Code</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/lair.html">LaIR Info</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/about_staff">Teaching Team</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/04-using-karel-with-pycharm.html">Using Karel with Pycharm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/05-assignment1.html">Assignment 1 Karel the Robot</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/06-submitting-assignments.html">Submitting Assignments</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html">Assignment 2 Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html">Assignment 3 Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/09-image-reference.html">Image Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html">Assignment 4</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/10-graphics-reference.html">Graphics Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bluebook-info.html">BlueBook Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html">Practice Midterm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm-solutions.html">Practice Midterm Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/12-assignment5.html">Assignment 5</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/midterm-solutions.html">Midterm Grades and Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/13-contest.html">Graphics/Image Contest</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/biasbars-handout.html">Assignment 6</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html">Assignment 7</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final.html">Final Exam Info and Practice</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html">Practice Final Solutions</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#" aria-haspopup="true" aria-expanded="false"> Lectures </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+             
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/01-welcome/">  1.  3/28 Welcome! </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/02-control-flow/">  2.  3/30 Control Flow </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/03-decomposition/">  3.  4/1 Decomposition </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/04-intro-python/">  4.  4/4 Intro to Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/05-arithmetic-expressions/">  5.  4/6 Arithmetic Expressions </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/06-control-flow-revisited/">  6.  4/8 Control Flow Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/07-functions-revisited/">  7.  4/11 Functions Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/08-parameters/">  8.  4/13 Parameters </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/09-lists/">  9.  4/15 Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/10-images/">  10.  4/18 Images </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/11-listoflists/">  11.  4/20 Lists of Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/12-canvas/">  12.  4/22 Wrapping Up Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/13-more-graphics/">  13.  4/25 Canvas </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/14-strings/">  14.  4/27 Strings </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/15-files/">  15.  4/29 Files </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/16-dictionaries/">  16.  5/2 Dictionaries </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/17-parsing/">  17.  5/4 Nested Structures </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/18-nested-structures/">  18.  5/9 String Parsing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/19-tuples-sorting/">  19.  5/11 Tuples Sorting </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/20-classes-objects/">  20.  5/13 Classes and Objects </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/21-ethics/">  21.  5/16 Ethics </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/22-memory/">  22.  5/18 Memory </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/23-search-indexing/">  23.  5/20 Search and Indexing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/24-internet/">  24.  5/23 The Internet </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/25-after-106a/">  25.  5/25 Life After CS106A </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/26-advanced-python/">  26.  5/27 Advanced Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/27-wrap-up/">  27.  6/1 Wrap Up </a>
+                
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#" aria-haspopup="true" aria-expanded="false"> Assignments </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSdN6415WaOi5C0bzlRysKuAEZJbAtN920JmrdeRz-EfXtaydg/viewform">Assignment 0</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/1-Karel">Assignment 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/2-KhansoleCompute">Assignment 2 - Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/3-ListImages">Assignment 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/4-Sand">Assignment 4 - Lists of Lists, Strings, Graphics, and Sand</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/5-WordGuess">Assignment 5 - Strings &amp; Word Guessing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/6-BiasBars">Assignment 6 - Dictionaries &amp; BiasBars</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/7-Bajillion">Assignment 7 - Bajillion</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/8-Contest">Graphics/Image Contest</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#" aria-haspopup="true" aria-expanded="false"> Sections </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://cs198.stanford.edu/cs198/auth/default.aspx">Section Portal</a>
+            
+            
+             <div class="dropdown-divider"></div>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section1">Section 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2">Section 2 - Variables &amp; Control Flow</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3">Section 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section4">Section 4 - Lists of Lists &amp; Strings</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5">Section 5 - File Reading &amp; Nested Structures</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6">Section 6 - Dictionaries &amp; Drawing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7">Section 7 - Sorting, OOP, &amp; Memory</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8">Section 8 - Final Exam Review</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item"><a class="nav-link" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/schedule.html">🗓Schedule</a></li>
+        
+      
+    </ul>
+    <!---
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" id="search-text" name="query" placeholder="🔍 Search CS106B..." aria-label="Search" action="search">
+    </form>
+    --->
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    margin-bottom: 2rem;
+  }
+  .navbar-dark {
+    background-color: #444;
+  }
+ .nav-item > a {
+    text-transform: uppercase;
+    letter-spacing: .08rem;
+    font-size: small;
+    color: #bbb !important;
+  }
+  .nav-item > a:hover {
+    color: white !important;
+  }
+</style>
+    
+    <main class="main container-fluid" role="main"><div class="body-container container-fluid" data-spy="scroll" data-target="#toc">
+
+<h1 class="title">Section 7. Sorting, Tuples, OOP, &amp; Memory</h1>
+
+<hr>
+
+<p class="attribution">
+ Written by Juliette Woodrow
+</p>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-10" id="content" <=""><style>
+.node {
+	border-style: solid;
+	border-width: 3px;
+    font-size: 130%;
+    text-align: center;
+    padding: 10px;
+    width:10%;
+}
+</style>
+
+<p>This week in section you are going to get practice with tuples, sorting, object oriented programming, and memory.</p>
+
+<!-- [Pycharm Project]() -->
+
+<h2 id="tuples-and-sorting">Tuples and Sorting</h2>
+
+<p>Below are some problems to practice workign with tuples and sorting.</p>
+
+<ul>
+  <li>Given a list of numbers, sort the numbers based on their absolute value. As an example, if you are trying to sort the following list, <code class="language-python highlighter-rouge"><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span></code> your function would return <code class="language-python highlighter-rouge"><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span></code>. Reminder that you can find the absolute value of a number by calling the built in <code class="language-python highlighter-rouge"><span class="nb">abs</span></code> function as follows:
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">&gt;</span><span class="o">&gt;&gt;</span> x <span class="o">=</span> <span class="nt">-7</span>
+<span class="gp">&gt;</span><span class="o">&gt;&gt;</span> abs<span class="o">(</span>x<span class="o">)</span>
+<span class="go">7
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<div class="showtime" when="2022-05-20T18:00:00-07:00"></div>
+<style>
+  div.solution { display: none; }
+  .solution pre { background-color: inherit; border: none; }
+</style>
+
+<script>
+    $(document).ready(function() {
+        var now = new Date();
+        var gate = new Date($("div.showtime").attr("when"));
+        if (now >= gate || window.location.href.endsWith("#bay2breakers")) {$("div.solution").show()}
+ });
+</script>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#solution-collapse-1" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-1" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sort_by_abs</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+<span class="nb">sorted</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">sort_by_abs</span><span class="p">)</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<ul>
+  <li>Given a list of numbers, sort the numbers based on the absolute value of their difference with pi. You can use 3.14 as an approximation of pi. As an example, if we use the same list as above, <code class="language-python highlighter-rouge"><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span></code>, your function would return <code class="language-python highlighter-rouge"><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span></code></li>
+</ul>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#solution-collapse-2" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-2" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PI</span> <span class="o">=</span> <span class="mf">3.14</span>
+
+<span class="k">def</span> <span class="nf">sort_by_abs_pi</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">PI</span> <span class="o">-</span> <span class="n">num</span><span class="p">)</span>
+
+<span class="nb">sorted</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">sort_by_abs_pi</span><span class="p">)</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<ul>
+  <li>Given a list of strings, sort the list case insensitively. As an example, if you have the following list of strings, <code class="language-python highlighter-rouge"><span class="p">[</span><span class="s">'Mehran'</span><span class="p">,</span> <span class="s">'juliette'</span><span class="p">,</span> <span class="s">'KaTiE'</span><span class="p">,</span> <span class="s">'CS106A'</span><span class="p">,</span> <span class="s">'pYtHoN'</span><span class="p">]</span></code> your function would return <code class="language-python highlighter-rouge"><span class="p">[</span><span class="s">'CS106A'</span><span class="p">,</span> <span class="s">'juliette'</span><span class="p">,</span> <span class="s">'KaTiE'</span><span class="p">,</span> <span class="s">'Mehran'</span><span class="p">,</span> <span class="s">'pYtHoN'</span><span class="p">]</span></code>.</li>
+</ul>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#solution-collapse-3" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-3" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sort_without_case</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">.</span><span class="n">lower</span><span class="p">()</span>
+
+<span class="nb">sorted</span><span class="p">(</span><span class="n">strs</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">sort_without_case</span><span class="p">)</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<ul>
+  <li>Given a list of tuples representing addresses in the form (street_num, city, state, zipcode), sort the list of addresses based on the numeric value of the zipcode.</li>
+</ul>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#solution-collapse-4" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-4" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sort_by_zipcode</span><span class="p">(</span><span class="n">tup</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tup</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="nb">sorted</span><span class="p">(</span><span class="n">addresses</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">sort_by_zipcode</span><span class="p">)</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<ul>
+  <li>Given a list of tuples representing address in the same form as above, sort the list of addresses based on the absolute value of the difference of the zipcode and Stanford's Zipcode (which is 94305).</li>
+</ul>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#solution-collapse-5" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-5" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">STANFORD_ZIPCODE</span> <span class="o">=</span> <span class="mi">94305</span>
+
+<span class="k">def</span> <span class="nf">sort_by_zipcode_stanford</span><span class="p">(</span><span class="n">tup</span><span class="p">):</span>
+    <span class="n">curr_zipcode</span> <span class="o">=</span> <span class="n">tup</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">STANFORD_ZIPCODE</span> <span class="o">-</span> <span class="n">curr_zipcode</span><span class="p">)</span>
+
+<span class="nb">sorted</span><span class="p">(</span><span class="n">addresses</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">sort_by_zipcode_stanford</span><span class="p">)</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<ul>
+  <li>Given a file with information on a single student, write a function that reads in a file and returns a tuple in the form (name, number_id, email, expected_grad_year, num_units). The file will be in the format as follows:</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Juliette Woodrow
+75000000
+jwoodrow@stanford.edu
+2022
+243
+</code></pre></div></div>
+
+<p>If you read in the above file, your function should return <code class="language-python highlighter-rouge"><span class="p">(</span><span class="s">'Juliette Woodrow'</span><span class="p">,</span> <span class="mi">75000000</span><span class="p">,</span> <span class="s">'jwoodrow@stanford.edu'</span><span class="p">,</span> <span class="mi">2022</span><span class="p">,</span> <span class="mi">243</span><span class="p">)</span></code>. Notice that the numerical values are stored in the tuple as integers.</p>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#solution-collapse-6" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-6" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">extract_student_info</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">student_info_lst</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">readlines</span><span class="p">()</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">student_info_lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">num_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">student_info_lst</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">email</span> <span class="o">=</span> <span class="n">student_info_lst</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">expected_grad_year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">student_info_lst</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+        <span class="n">num_units</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">student_info_lst</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">num_id</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">expected_grad_year</span><span class="p">,</span> <span class="n">num_units</span><span class="p">)</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<ul>
+  <li>Given a list of tuples representing students in the form (name, number_id, email, expected_grad_year, num_units), write a function that sorts these tuples by their expected_grad_year in descending order.</li>
+</ul>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#solution-collapse-7" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-7" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sort_by_grad_year</span><span class="p">(</span><span class="n">tup</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tup</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="nb">sorted</span><span class="p">(</span><span class="n">student_info_lst</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">sort_by_grad_year</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h2 id="object-oriented-programming">Object Oriented Programming</h2>
+<p>In this problem you are going to the blueprint for a Circle object in the circle.py file for use in the following program. The design of the circle class is up to you, but running the program below should give the output below.</p>
+
+<p><strong>circle_test.py</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># import the Circle class from circle.py
+</span><span class="kn">from</span> <span class="nn">circle</span> <span class="kn">import</span> <span class="n">Circle</span> 
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># construct circle with radius 5
+</span>    <span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span> <span class="p">(</span><span class="mi">5</span><span class="p">)</span> 
+    
+    <span class="c1"># print the area of the circle
+</span>    <span class="k">print</span><span class="p">(</span><span class="s">"The area of the circle is "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">circle</span><span class="p">.</span><span class="n">get_area</span><span class="p">()))</span>
+
+    <span class="c1"># print the circumference of the circle
+</span>    <span class="k">print</span><span class="p">(</span><span class="s">"The circumference of the circle is "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">circle</span><span class="p">.</span><span class="n">get_circumference</span><span class="p">()))</span>
+  
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>After running the above program, the output should be:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">The</span> <span class="n">area</span> <span class="n">of</span> <span class="n">the</span> <span class="n">circle</span> <span class="ow">is</span> <span class="mf">78.53981633974483</span>
+<span class="n">The</span> <span class="n">circumference</span> <span class="n">of</span> <span class="n">the</span> <span class="n">circle</span> <span class="ow">is</span> <span class="mf">31.41592653589793</span>
+</code></pre></div></div>
+
+<p>As a reminder, a circle with radius r has area πr2 and circumference 2πr. The value of π is stored in the constant math.pi, which you can access by importing the <strong>math</strong> module.</p>
+
+<p>You are in charge of the blueprint for the circle class. As you think of how to design the circle class, consider what information should we store in the cirlce class? What methods need to exist?</p>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#solution-collapse-8" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-8" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># File: Circle.py
+</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">class</span> <span class="nc">Circle</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span>
+        <span class="s">"""
+        Creates a Circle object and initializes the radius.
+        """</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>   <span class="c1"># instance variable to keep track of the radius
+</span>
+    <span class="k">def</span> <span class="nf">get_area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""
+        Returns the area of this circle.
+        """</span>
+        <span class="n">area</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">area</span>
+
+    <span class="k">def</span> <span class="nf">get_circumference</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""
+        Returns the circumference of this circle
+        """</span>
+        <span class="n">circumference</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="p">.</span><span class="n">radius</span> <span class="o">*</span> <span class="mi">2</span>
+        <span class="k">return</span> <span class="n">circumference</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h2 id="memory">Memory</h2>
+<p>First-time programmers bump into a need for a deeper understanding of what is actually going on under the hood when observing that in some for loops, and in some helper functions, changes to variables sometimes persist and sometimes do not! Lets first look at a few programs to build up this mystery:</p>
+
+<ul>
+  <li>What will this print?
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+  <span class="c1"># does this change impact x?
+</span>  <span class="n">y</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#solution-collapse-9" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-9" style="">
+   
+<p>Output: [1, 2, 3, 4]
+Notice how the change to y does impact the value of x</p>
+
+</div>
+</div>
+<hr>
+
+<ul>
+  <li>Now lets swap the third line for a different way of changing the variable y:
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+  <span class="c1"># does this change impact x?
+</span>  <span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#solution-collapse-10" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-10" style="">
+   
+<p>Output: [1, 2, 3]
+Notice how the change to y does not impact the value of x. Why is this different than example 1?</p>
+
+</div>
+</div>
+<hr>
+
+<p>That single line change led to a very different result. How come one way of changing y affected x, but the other way did not? When students don't understand the difference between these two types of changes it makes it very hard to predict what for loops or functions with parameters will do.</p>
+
+<p>Here are more examples of the same phenomena in other contexts. Our goal is to get you to the point where you can predict the output for each of these examples. When you are ready, <a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/mutation.html">check out this handout to start mastering the different ways of changing variables</a>.</p>
+
+<p>For each of these, predict the output.</p>
+<h3 id="for-each-loop">For Each Loop</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">original_list</span><span class="p">:</span>
+        <span class="c1"># will this change impact my_list?
+</span>        <span class="n">value</span> <span class="o">+=</span> <span class="mi">5</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#solution-collapse-11" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-11" style="">
+   
+<p>Output: [1, 2, 3]
+Here the change to value in the for loop body does not affect my_list</p>
+
+</div>
+</div>
+<hr>
+
+<h3 id="for-index-loop">For Index Loop</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">my_list</span><span class="p">)):</span>
+        <span class="c1"># will this change impact my_list?
+</span>        <span class="n">my_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">5</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#solution-collapse-12" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-12" style="">
+   
+<p>Output: [6, 7, 8]
+Here the change to value in the for loop body does affect my_list</p>
+
+</div>
+</div>
+<hr>
+
+<h3 id="for-loop-mixed">For Loop Mixed</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">my_list</span><span class="p">)):</span>
+        <span class="c1"># will this change impact my_list?
+</span>        <span class="n">value</span> <span class="o">=</span> <span class="n">my_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">value</span> <span class="o">+=</span> <span class="mi">5</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#solution-collapse-13" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-13" style="">
+   
+<p>Output: [1, 2, 3]
+Here the change to value in the for loop body does not affect my_list</p>
+
+</div>
+</div>
+<hr>
+
+<h3 id="for-loop-over-pixels">For Loop Over Pixels</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">my_image</span> <span class="o">=</span> <span class="n">SimpleImage</span><span class="p">(</span><span class="s">"dog.png"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">pixel</span> <span class="ow">in</span> <span class="n">my_image</span><span class="p">:</span>
+        <span class="c1"># will this change impact my_image?
+</span>        <span class="n">pixel</span><span class="p">.</span><span class="n">red</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">my_image</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#solution-collapse-14" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-14" style="">
+   
+<p>Yes! Each pixel in the image has its red channel set to zero. The image is changed.</p>
+
+</div>
+</div>
+<hr>
+
+<h3 id="parameters-number">Parameters Number</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">add_five</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">add_five</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1"># will this change impact the x in main?
+</span>    <span class="n">x</span> <span class="o">+=</span> <span class="mi">5</span>
+</code></pre></div></div>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#solution-collapse-15" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-15" style="">
+   
+<p>Output: 0
+Integers are immutable, so the change to x in add_five does not change the value of x in the main function.</p>
+
+</div>
+</div>
+<hr>
+
+<h3 id="parameters-list-append">Parameters List Append</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="n">add_five</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">add_five</span><span class="p">(</span><span class="n">some_list</span><span class="p">):</span>
+    <span class="c1"># will this change impact the x in main?
+</span>    <span class="n">some_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#solution-collapse-16" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-16" style="">
+   
+<p>Output: [1, 2, 3, 5]
+Yes, this will impact x in main.</p>
+
+</div>
+</div>
+<hr>
+
+<h3 id="parameters-list-assign">Parameters List Assign</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="n">add_five</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">add_five</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1"># will this change impact the x in main?
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#solution-collapse-17" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-17" style="">
+   
+<p>Output: [1, 2, 3]
+No, this will not impact the x in main becaue it is reassigning the variable x rather than modifying its contents.</p>
+
+</div>
+</div>
+<hr>
+
+</div>
+        <div class="col-xs-hidden col-md-2"><nav class="fixed-top-right toc" id="toc"><ol class="toc-list "><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#tuples-and-sorting" class="toc-link node-name--H2 ">Tuples and Sorting</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#object-oriented-programming" class="toc-link node-name--H2 ">Object Oriented Programming</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#memory" class="toc-link node-name--H2 ">Memory</a><ol class="toc-list  is-collapsible"><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#for-each-loop" class="toc-link node-name--H3 ">For Each Loop</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#for-index-loop" class="toc-link node-name--H3 ">For Index Loop</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#for-loop-mixed" class="toc-link node-name--H3 ">For Loop Mixed</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#for-loop-over-pixels" class="toc-link node-name--H3 ">For Loop Over Pixels</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#parameters-number" class="toc-link node-name--H3 ">Parameters Number</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#parameters-list-append" class="toc-link node-name--H3 ">Parameters List Append</a></li><li class="toc-list-item is-active-li"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7/#parameters-list-assign" class="toc-link node-name--H3  is-active-link">Parameters List Assign</a></li></ol></li></ol></nav></div>
+    </div>
+
+    <script src="./CS106A Sorting, Tuples, OOP, &amp; Memory_files/tocbot.min.js.download"></script>
+    <link rel="stylesheet" href="./CS106A Sorting, Tuples, OOP, &amp; Memory_files/tocbot.css">
+
+    <script>
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '#toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '#content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h2, h3, h4',
+      });
+    </script>
+
+
+
+</div>
+
+<style>
+    p.attribution {
+        font-style: italic;
+        font-size: 80%;
+        text-align: right;
+    }
+    .body-container {
+        margin: 0 10%;
+        max-width: 55em;
+        width: 80%;
+    }
+    a.toc-link {
+      color: #aaa !important;
+      font-size: 90%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .fixed-top-right {
+        position: fixed;
+        margin-top: 0;
+        margin-left: 0;
+    }
+</style>
+
+</main>
+    <style>
+#footer {
+    font-size: 70%;
+    color:green;
+    text-align: center;
+    font-style: italic;
+    padding: 5px;
+}
+</style>
+<div id="footer" class="mt-auto">
+    All course materials © Stanford University 2021 <br>
+    Website programming by Julie Zelenski • Styles adapted from Chris Piech •
+    This page last updated 2022-May-17
+</div>
+
+
+  
+
+  <!-- Bootstrap JavaScript -->
+  <script src="./CS106A Sorting, Tuples, OOP, &amp; Memory_files/bootstrap.min.js.download"></script>
+  <script src="./CS106A Sorting, Tuples, OOP, &amp; Memory_files/popper.min.js.download"></script>
+
+  <script src="./CS106A Sorting, Tuples, OOP, &amp; Memory_files/jquery.min.js.download"></script>
+
+
+</body></html>

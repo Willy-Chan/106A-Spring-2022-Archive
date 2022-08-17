@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="./CS106A Variables &amp; Control Flow_files/site.css" rel="stylesheet">
+    <!-- jQuery library -->
+    <script src="./CS106A Variables &amp; Control Flow_files/jquery-3.4.1.min.js.download" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>  CS106A Variables &amp; Control Flow</title>
+  </head>
+
+  <!-- fill to height of viewport, flex col, footer will be mt-auto -->
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-md navbar-dark" role="navigation">
+  <a class="navbar-brand" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/">🏠CS106A </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2/#" aria-haspopup="true" aria-expanded="false"> Handouts </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/01-general-information.html">General Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/02-course-placement.html">Course Placement Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/03-honor-code.html">Honor Code</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/lair.html">LaIR Info</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/about_staff">Teaching Team</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/04-using-karel-with-pycharm.html">Using Karel with Pycharm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/05-assignment1.html">Assignment 1 Karel the Robot</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/06-submitting-assignments.html">Submitting Assignments</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html">Assignment 2 Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html">Assignment 3 Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/09-image-reference.html">Image Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html">Assignment 4</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/10-graphics-reference.html">Graphics Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bluebook-info.html">BlueBook Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html">Practice Midterm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm-solutions.html">Practice Midterm Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/12-assignment5.html">Assignment 5</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/midterm-solutions.html">Midterm Grades and Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/13-contest.html">Graphics/Image Contest</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/biasbars-handout.html">Assignment 6</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html">Assignment 7</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final.html">Final Exam Info and Practice</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html">Practice Final Solutions</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2/#" aria-haspopup="true" aria-expanded="false"> Lectures </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+             
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/01-welcome/">  1.  3/28 Welcome! </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/02-control-flow/">  2.  3/30 Control Flow </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/03-decomposition/">  3.  4/1 Decomposition </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/04-intro-python/">  4.  4/4 Intro to Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/05-arithmetic-expressions/">  5.  4/6 Arithmetic Expressions </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/06-control-flow-revisited/">  6.  4/8 Control Flow Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/07-functions-revisited/">  7.  4/11 Functions Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/08-parameters/">  8.  4/13 Parameters </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/09-lists/">  9.  4/15 Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/10-images/">  10.  4/18 Images </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/11-listoflists/">  11.  4/20 Lists of Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/12-canvas/">  12.  4/22 Wrapping Up Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/13-more-graphics/">  13.  4/25 Canvas </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/14-strings/">  14.  4/27 Strings </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/15-files/">  15.  4/29 Files </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/16-dictionaries/">  16.  5/2 Dictionaries </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/17-parsing/">  17.  5/4 Nested Structures </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/18-nested-structures/">  18.  5/9 String Parsing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/19-tuples-sorting/">  19.  5/11 Tuples Sorting </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/20-classes-objects/">  20.  5/13 Classes and Objects </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/21-ethics/">  21.  5/16 Ethics </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/22-memory/">  22.  5/18 Memory </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/23-search-indexing/">  23.  5/20 Search and Indexing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/24-internet/">  24.  5/23 The Internet </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/25-after-106a/">  25.  5/25 Life After CS106A </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/26-advanced-python/">  26.  5/27 Advanced Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/27-wrap-up/">  27.  6/1 Wrap Up </a>
+                
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2/#" aria-haspopup="true" aria-expanded="false"> Assignments </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSdN6415WaOi5C0bzlRysKuAEZJbAtN920JmrdeRz-EfXtaydg/viewform">Assignment 0</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/1-Karel">Assignment 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/2-KhansoleCompute">Assignment 2 - Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/3-ListImages">Assignment 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/4-Sand">Assignment 4 - Lists of Lists, Strings, Graphics, and Sand</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/5-WordGuess">Assignment 5 - Strings &amp; Word Guessing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/6-BiasBars">Assignment 6 - Dictionaries &amp; BiasBars</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/7-Bajillion">Assignment 7 - Bajillion</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/8-Contest">Graphics/Image Contest</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2/#" aria-haspopup="true" aria-expanded="false"> Sections </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://cs198.stanford.edu/cs198/auth/default.aspx">Section Portal</a>
+            
+            
+             <div class="dropdown-divider"></div>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section1">Section 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2">Section 2 - Variables &amp; Control Flow</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3">Section 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section4">Section 4 - Lists of Lists &amp; Strings</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5">Section 5 - File Reading &amp; Nested Structures</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6">Section 6 - Dictionaries &amp; Drawing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7">Section 7 - Sorting, OOP, &amp; Memory</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8">Section 8 - Final Exam Review</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item"><a class="nav-link" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/schedule.html">🗓Schedule</a></li>
+        
+      
+    </ul>
+    <!---
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" id="search-text" name="query" placeholder="🔍 Search CS106B..." aria-label="Search" action="search">
+    </form>
+    --->
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    margin-bottom: 2rem;
+  }
+  .navbar-dark {
+    background-color: #444;
+  }
+ .nav-item > a {
+    text-transform: uppercase;
+    letter-spacing: .08rem;
+    font-size: small;
+    color: #bbb !important;
+  }
+  .nav-item > a:hover {
+    color: white !important;
+  }
+</style>
+    
+    <main class="main container-fluid" role="main"><div class="body-container container-fluid" data-spy="scroll" data-target="#toc">
+
+<h1 class="title">Section 2. Variables &amp; Control Flow</h1>
+
+<hr>
+
+<p class="attribution">
+Brahm Capoor, Juliette Woodrow, Parth Sarin, Kara Eng &amp; Tori Qiu
+</p>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-10" id="content" <=""><style>
+.node {
+	border-style: solid;
+	border-width: 3px;
+    font-size: 130%;
+    text-align: center;
+    padding: 10px;
+    width:10%;
+}
+</style>
+
+<p>Here is the starter code:</p>
+
+<p><a href="https://edstem.org/us/courses/21537/lessons/32691/slides/188271">Online IDE Using Ed</a></p>
+
+<h2 id="tracing">Tracing</h2>
+
+<p>The following is code for an interactive console program that performs a
+type of calculation that is probably familiar. Examing the code. What is
+the role of the <code class="language-python highlighter-rouge"><span class="n">SENTINEL</span></code> constant? How do each of the four
+variables-<code class="language-python highlighter-rouge"><span class="n">a</span></code>, <code class="language-python highlighter-rouge"><span class="n">b</span></code>, <code class="language-python highlighter-rouge"><span class="n">x</span></code> and <code class="language-python highlighter-rouge"><span class="n">y</span></code>-change over time? Overall, what common
+task does this program do?</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""
+File: mystery_calculation.py 
+----------------------------
+It's your job to figure out what this program does!
+"""</span>
+
+<span class="n">SENTINEL</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter a value for a: "</span><span class="p">))</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter a value for b: "</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter a value for x: "</span><span class="p">))</span>
+    <span class="k">while</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">SENTINEL</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Result for x = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s">" is "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter a value for x: "</span><span class="p">))</span>
+        
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>      
+</code></pre></div></div>
+<div class="showtime" when="2022-04-15T18:00:00-07:00"></div>
+<style>
+  div.solution { display: none; }
+  .solution pre { background-color: inherit; border: none; }
+</style>
+
+<script>
+    $(document).ready(function() {
+        var now = new Date();
+        var gate = new Date($("div.showtime").attr("when"));
+        if (now >= gate || window.location.href.endsWith("#aprilshowers")) {$("div.solution").show()}
+ });
+</script>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2/#solution-collapse-1" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-1" style="">
+   
+<p>This program calculates output (<code class="language-python highlighter-rouge"><span class="n">y</span></code>) values for input (<code class="language-python highlighter-rouge"><span class="n">x</span></code>) values along
+a line with slope <code class="language-python highlighter-rouge"><span class="n">a</span></code> and intercept <code class="language-python highlighter-rouge"><span class="n">b</span></code>. First, it prompts the user for
+a slope <code class="language-python highlighter-rouge"><span class="n">a</span></code> and intercept term <code class="language-python highlighter-rouge"><span class="n">b</span></code> (remember that a line has an equation
+of the form <code class="language-python highlighter-rouge"><span class="n">y</span> <span class="o">=</span> <span class="n">ax</span> <span class="o">+</span> <span class="n">b</span></code>). Then, the program prompts the user for <code class="language-python highlighter-rouge"><span class="n">x</span></code>
+values until the user enters the <code class="language-python highlighter-rouge"><span class="n">SENTINEL</span></code> (the value of which is
+specified using a named constant). For each entered number, it prints
+the <code class="language-python highlighter-rouge"><span class="n">y</span></code> value that corresponds to the user's entered <code class="language-python highlighter-rouge"><span class="n">x</span></code> value
+according to <code class="language-python highlighter-rouge"><span class="n">y</span> <span class="o">=</span> <span class="n">ax</span> <span class="o">+</span> <span class="n">b</span></code>. The values for a and <code class="language-python highlighter-rouge"><span class="n">b</span></code> do not change after
+the user initially enters them, while <code class="language-python highlighter-rouge"><span class="n">x</span></code> and <code class="language-python highlighter-rouge"><span class="n">y</span></code> change with each
+iteration of the <code class="language-python highlighter-rouge"><span class="k">while</span></code> loop.</p>
+
+<p>Here is a sample run of the program, with <code class="language-python highlighter-rouge"><span class="n">SENTINEL</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span></code> (user input is
+<em>italicized</em>).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Enter a value for a: 2
+Enter a value for b: 4
+Enter a value for x: 5
+Result for x = 5 is 14 
+Enter a value for x: 1
+Result for x = 1 is 6
+Enter a value for x: -1         
+</code></pre></div></div>
+
+<p>The program works properly regardless of the value of <code class="language-python highlighter-rouge"><span class="n">SENTINEL</span></code>.</p>
+
+
+</div>
+</div>
+<hr>
+
+<h2 id="whats-that-in-dog-years">What's That in Dog Years?</h2>
+
+<p>Everyone knows that our furry friends age at a different rate to humans.
+Write a program that takes asks the user for a human age (expressed as a
+whole number) and prints the equivalent dog age using the fact that
+there are seven dog years per human year. Consider defining a constant
+<code class="language-python highlighter-rouge"><span class="n">DOG_YEARS_PER_HUMAN_YEAR</span></code>. You can assume the user types in an integer
+age, but not necessarily that the integer is positive. If it isn't,
+print an error message.</p>
+
+<p>Your program should continuously ask the user for human ages until the
+user types 0, at which the program should end.</p>
+
+<p>Here is an example of what one run of your program should look like
+(user input is [italicized]{style="font-style: italic;"}):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Enter an age in human years: -12
+Sorry, please enter a positive number or 0 to exit
+Enter an age in human years: 13
+The age in dog years is 91
+Enter an age in human years: 0          
+</code></pre></div></div>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2/#solution-collapse-2" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-2" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SENTINEL</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">DOG_YEARS_PER_HUMAN_YEAR</span> <span class="o">=</span> <span class="mi">7</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">user_input</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter an age in human years: "</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">user_input</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"Sorry, please enter a positive number or 0 to exit"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">user_input</span> <span class="o">==</span> <span class="n">SENTINEL</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dog_age</span> <span class="o">=</span> <span class="n">user_input</span> <span class="o">*</span> <span class="n">DOG_YEARS_PER_HUMAN_YEAR</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"The age in dog years is "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dog_age</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>          
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h2 id="finding-factors">Finding Factors</h2>
+
+<p>Implement a program that asks the user to enter an integer, then print
+out all the factors of the given number, one by one. Your function
+should check that the entered number is greater than 0. The program
+should keep asking for numbers until 0 is entered.</p>
+
+<p>Here is an example of what one run of your program should look like
+(user input is [italicized]{style="font-style: italic;"}):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Your number: -10
+Please input a positive number
+Your number: 42
+1
+2
+3
+6
+7
+14
+21
+42
+Your number: 53
+1
+53
+Your number: 0                
+</code></pre></div></div>
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2/#solution-collapse-3" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-3" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SENTINEL</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">user_in</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter a positive number to get its factors, or enter 0 to stop:"</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">user_in</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> 
+            <span class="k">print</span><span class="p">(</span><span class="s">"Please input a positive number"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">user_in</span> <span class="o">==</span> <span class="n">SENTINEL</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">user_in</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span> 
+                <span class="k">if</span> <span class="n">user_in</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+                    <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h2 id="rock-paper-scissors">Rock, Paper, Scissors</h2>
+
+<p>In 1997, a computer named Deep Blue beat world chess champion Gary
+Kasparov at a game of chess. In 2020, IBM has findally gained the
+confidence to expand its repertoire of human vs. computer games and
+enlisted you to write a program that allows a human player and computer
+to spar over a game of Rock Paper Scissors.</p>
+
+<p>Each game consists of 5 rounds of Rock, Paper, Scissors. Each round
+consists of you--the user--choosing whether to play Rock, Paper or
+Scissors, and the computer doing the same. In this game, the user will
+type <code class="language-python highlighter-rouge"><span class="mi">1</span></code> if they wish to play Rock, <code class="language-python highlighter-rouge"><span class="mi">2</span></code> if they wish to play Paper and
+<code class="language-python highlighter-rouge"><span class="mi">3</span></code> if they wish to play Scissors.</p>
+
+<p>In each round, you should follow the following steps:</p>
+
+<ol>
+  <li>Prompt the user to enter their move (you can assume they type '1',
+'2' or '3'.)</li>
+  <li>Randomly choose either rock, paper, or scissors as the computer's
+move using the random module (remember, calling `random.randint(a,
+b)` will give you back an integer between <code class="language-python highlighter-rouge"><span class="n">a</span></code> and <code class="language-python highlighter-rouge"><span class="n">b</span></code>, inclusive).</li>
+  <li>Determine who wins the round. As a reminder, rock beats scissors,
+scissors beats paper, and paper, somewhat inexplicably, beats rock.</li>
+  <li>Print a message reporting whether the human player won or lost and
+which moves each player made.</li>
+</ol>
+
+<p>At the end of the program, you should print a message saying how many
+rounds you won.</p>
+
+<p>Here is an example of what one run of your program should look like
+(user input is [italicized]{style="font-style: italic;"}):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Your move (1, 2, or 3): 1
+It's a tie!
+Your move (1, 2, or 3): 3
+You Win! Scissors cuts paper
+Your move (1, 2, or 3): 2
+You Lose! Scissors cuts paper
+Your move (1, 2, or 3): 2
+It's a tie!
+Your move (1, 2, or 3): 1
+You Win! Rock crushes scissors
+You won 2 rounds!       
+</code></pre></div></div>
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2/#solution-collapse-4" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-4" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span> 
+
+<span class="n">NUM_ROUNDS</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">num_human_wins</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUM_ROUNDS</span><span class="p">):</span>
+        <span class="n">user_choice</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Your move (1, 2, or 3): "</span><span class="p">))</span>
+        <span class="n">computer_choice</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="n">user_choice</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"It's a tie!"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">user_choice</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s">"You Win! Rock crushes scissors"</span><span class="p">)</span>
+                    <span class="n">num_human_wins</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s">"You Lose! Paper covers rock"</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">user_choice</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s">"You Win! Scissors cuts paper"</span><span class="p">)</span>
+                    <span class="n">num_human_wins</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s">"You Lose! Rock crushes scissors"</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">user_choice</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s">"You Win! Paper covers rock"</span><span class="p">)</span>
+                    <span class="n">num_human_wins</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s">"You Lose! Scissors cuts paper"</span><span class="p">)</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">"You won "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_human_wins</span><span class="p">)</span> <span class="o">+</span> <span class="s">" rounds!"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h2 id="estimating-π">Estimating (π)</h2>
+
+<p>Write a function, <code class="language-python highlighter-rouge"><span class="n">estimate_pi</span></code>, that estimates the value of \(\pi\)
+using Python!</p>
+
+<p>π is a mathematical constant that comes from geometric
+properties of a circle. Specifically, a circle that has radius r
+will have area (π r<sup>2</sup>) and circumference (2 π r).
+π's value is roughly 3.141… and in this problem,
+we'll get pretty close to that value (we're shooting for 2 decimal
+places of accuracy)!</p>
+
+<p>One nice way to estimate π is using the <code class="language-python highlighter-rouge"><span class="n">random</span></code> module.
+Imagine a 2x2 square drawn on a 2D plane, centered at the
+origin. We can draw a circle inside this square, with radius 1,
+centered at the origin. So far, our drawing looks like this:</p>
+
+<p><img src="./CS106A Variables &amp; Control Flow_files/inscribed_circle.png" alt="A circle drawn inside a square. Both shapes are centered at (0, 0) on
+the coordinate plane. The circle has radius 1 and the square measures 2
+x
+2."></p>
+
+<p>The area of the square is 2 x 2 = 4 and the area of the
+circle is π x 1<sup>2</sup> = π. The circle takes up a large
+fraction of the square's area: to be precise, the ratio of the
+circle's area to the square's area is π/4.</p>
+
+<p>One way to think about this is that if you pick a bunch of points,
+randomly, inside the square, the fraction of those points that will lie
+inside the circle is π/4.</p>
+
+<p><img src="./CS106A Variables &amp; Control Flow_files/inscribed_circle_rand_pts.png" alt="The same drawing as above with 100,000 randomly chosen points
+displayed in the
+square."></p>
+
+<p><img src="./CS106A Variables &amp; Control Flow_files/inscribed_circle_rand_pts_colored.png" alt="The same drawing as above where the randomly chosen points outside the
+circle are not
+shown."></p>
+
+<p>Your function, <code class="language-python highlighter-rouge"><span class="n">estimate_pi</span></code> should randomly pick <code class="language-python highlighter-rouge"><span class="mi">100000</span></code> points inside
+the square (remember that it's good programming style to use constants
+where appropriate; consider defining a constant <code class="language-python highlighter-rouge"><span class="n">NUM_POINTS</span> <span class="o">=</span> <span class="mi">100000</span></code>).</p>
+
+<p>You can pick a random point in the square by picking a random <code class="language-python highlighter-rouge"><span class="n">x</span></code>
+coordinate and a random <code class="language-python highlighter-rouge"><span class="n">y</span></code> coordinate (both of which should be real
+numbers between -1 and 1). Count the number of points that
+are inside the circle and use that number to calculate the <em>fraction</em> of
+points that landed inside the circle. That number is approximately
+π/4, so multiply your ratio by 4 and print out
+that value as our approximation of π. How close did you get?
+What happens when you change <code class="language-python highlighter-rouge"><span class="n">NUM_POINTS</span></code>?</p>
+
+<p><em>Hint: A point (x, y) is inside the circle of radius 1,
+centered at the origin, if (x<sup>2</sup> + y<sup>2</sup> &lt;= 1).</em></p>
+
+<p><em>Note: Your function will produce a number, not the graphs that you see
+in this writeup. However, these graphs were actually generated using
+Python and you'll be able to make images like these by the end of the
+quarter!</em></p>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2/#solution-collapse-5" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-5" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""
+File: solution.py
+-----------------
+
+Solutions for the Estimate Pi problem on CS 106A, Section 2, Spring 2020.
+"""</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">NUM_POINTS</span> <span class="o">=</span> <span class="mi">100_000</span>
+
+<span class="k">def</span> <span class="nf">estimate_pi</span><span class="p">():</span>
+    <span class="s">"""
+    Estimates the value of π by randomly choosing points in the square and 
+    calculating the percentage of points that lie in the circle. Prints out
+    the estimated value of π.
+    """</span>
+    <span class="n">num_in_circle</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Counter variable
+</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUM_POINTS</span><span class="p">):</span>
+        <span class="s">"""
+        Pick a random point in the square. To do this, we need to pick a random
+        x coordinate and random y coordinate, each in the interval [-1, 1].
+        """</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="s">"""
+        The formula for a circle is x^2 + y^2 = r^2. In this case, since the
+        circle has radius 1, it can be described by x^2 + y^2 = 1. Points that
+        lie *inside* the circle have x^2 + y^2 &lt;= 1.
+        """</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># (x, y) is inside the circle
+</span>            <span class="n">num_in_circle</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="s">"""
+    The area of the square is 4, the area of the circle is π. Thus, the
+    percentage of points in the circle is approximately π / 4.
+    """</span>
+    <span class="n">percent_in_circle</span> <span class="o">=</span> <span class="n">num_in_circle</span> <span class="o">/</span> <span class="n">NUM_POINTS</span> <span class="c1"># ~ π / 4
+</span>    <span class="n">π</span> <span class="o">=</span> <span class="n">percent_in_circle</span> <span class="o">*</span> <span class="mi">4</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">"π is roughly "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">π</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="c1"># random.seed(8675309)
+</span>    <span class="n">estimate_pi</span><span class="p">()</span> <span class="c1"># =&gt; 3.14224 (when seeded with Jenny's phone #)
+</span></code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+<h3 id="toc_1">Part B: Parameters and Return Values</h3>
+
+<p>Once we've covered parameters and return values in class, you can
+re-write your solution to this problem to get some practice with for the
+diagnostic and calculate a more accurate value of π!</p>
+
+<p>Re-write <code class="language-python highlighter-rouge"><span class="n">estimate_pi</span></code> so it returns the value of π that it
+computes and write a <code class="language-python highlighter-rouge"><span class="n">main</span></code> function that calls <code class="language-python highlighter-rouge"><span class="n">estimate_pi</span></code> 100 times,
+in a loop. The <code class="language-python highlighter-rouge"><span class="n">main</span></code> function should average the values that
+<code class="language-python highlighter-rouge"><span class="n">estimate_pi</span></code> returns and print out
+<code class="language-python highlighter-rouge"><span class="s">"The average of those estimations is:             {avg_estimation}"</span></code>
+where <code class="language-python highlighter-rouge"><span class="p">{</span><span class="n">avg_estimation</span><span class="p">}</span></code> is replaced by the average of values returned
+by <code class="language-python highlighter-rouge"><span class="n">estimate_pi</span></code>.</p>
+
+<p>How close is your estimation? Our estimation was accurate to four
+decimal places!</p>
+
+<div class="solution" style="display: block;">
+<div class="text-center">
+<a class="btn btn-primary" data-toggle="collapse" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2/#solution-collapse-6" role="button" aria-expanded="true">Solution</a>
+</div>
+<div class="alert alert-success collapse show" id="solution-collapse-6" style="">
+   
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">NUM_POINTS</span> <span class="o">=</span> <span class="mi">100_000</span>
+<span class="n">NUM_ESTIMATES</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="k">def</span> <span class="nf">estimate_pi</span><span class="p">():</span>
+    <span class="s">"""
+    Estimates the value of π by randomly choosing points in the square and 
+    calculating the percentage of points that lie in the circle. Prints out
+    the estimated value of π.
+
+    Returns
+    -------
+    float -- The estimated value of π.
+    """</span>
+    <span class="n">num_in_circle</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Counter variable
+</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUM_POINTS</span><span class="p">):</span>
+        <span class="s">"""
+        Pick a random point in the square. To do this, we need to pick a random
+        x coordinate and random y coordinate, each in the interval [-1, 1].
+        """</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="s">"""
+        The formula for a circle is x^2 + y^2 = r^2. In this case, since the
+        circle has radius 1, it can be described by x^2 + y^2 = 1. Points that
+        lie *inside* the circle have x^2 + y^2 &lt;= 1.
+        """</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># (x, y) is inside the circle
+</span>            <span class="n">num_in_circle</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="s">"""
+    The area of the square is 4, the area of the circle is π. Thus, the
+    percentage of points in the circle is approximately π / 4.
+    """</span>
+    <span class="n">percent_in_circle</span> <span class="o">=</span> <span class="n">num_in_circle</span> <span class="o">/</span> <span class="n">NUM_POINTS</span> <span class="c1"># ~ π / 4
+</span>    <span class="n">π</span> <span class="o">=</span> <span class="n">percent_in_circle</span> <span class="o">*</span> <span class="mi">4</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">"π is roughly "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">π</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">π</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="s">"""
+    Calls estimate_pi() 100 times and averages the estimates. Then, prints out
+    that value.
+    """</span>
+    <span class="n">running_total</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUM_ESTIMATES</span><span class="p">):</span>
+        <span class="n">running_total</span> <span class="o">+=</span> <span class="n">estimate_pi</span><span class="p">()</span>
+
+    <span class="n">average_value</span> <span class="o">=</span> <span class="n">running_total</span> <span class="o">/</span> <span class="mi">100</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">"The average of those estimations is: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">running_total</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="c1"># random.seed(8675309)
+</span>    <span class="n">main</span><span class="p">()</span> <span class="c1"># =&gt; 3.142082... (when seeded with Jenny's phone #)
+</span></code></pre></div></div>
+
+</div>
+</div>
+<hr>
+
+</div>
+        <div class="col-xs-hidden col-md-2"><nav class="fixed-top-right toc" id="toc"><ol class="toc-list "><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2/#tracing" class="toc-link node-name--H2 ">Tracing</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2/#whats-that-in-dog-years" class="toc-link node-name--H2 ">What's That in Dog Years?</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2/#finding-factors" class="toc-link node-name--H2 ">Finding Factors</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2/#rock-paper-scissors" class="toc-link node-name--H2 ">Rock, Paper, Scissors</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2/#estimating-%CF%80" class="toc-link node-name--H2 ">Estimating (π)</a><ol class="toc-list  is-collapsible"><li class="toc-list-item is-active-li"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2/#toc_1" class="toc-link node-name--H3  is-active-link">Part B: Parameters and Return Values</a></li></ol></li></ol></nav></div>
+    </div>
+
+    <script src="./CS106A Variables &amp; Control Flow_files/tocbot.min.js.download"></script>
+    <link rel="stylesheet" href="./CS106A Variables &amp; Control Flow_files/tocbot.css">
+
+    <script>
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '#toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '#content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h2, h3, h4',
+      });
+    </script>
+
+
+
+</div>
+
+<style>
+    p.attribution {
+        font-style: italic;
+        font-size: 80%;
+        text-align: right;
+    }
+    .body-container {
+        margin: 0 10%;
+        max-width: 55em;
+        width: 80%;
+    }
+    a.toc-link {
+      color: #aaa !important;
+      font-size: 90%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .fixed-top-right {
+        position: fixed;
+        margin-top: 0;
+        margin-left: 0;
+    }
+</style>
+
+</main>
+    <style>
+#footer {
+    font-size: 70%;
+    color:green;
+    text-align: center;
+    font-style: italic;
+    padding: 5px;
+}
+</style>
+<div id="footer" class="mt-auto">
+    All course materials © Stanford University 2021 <br>
+    Website programming by Julie Zelenski • Styles adapted from Chris Piech •
+    This page last updated 2022-Apr-18
+</div>
+
+
+  
+
+  <!-- Bootstrap JavaScript -->
+  <script src="./CS106A Variables &amp; Control Flow_files/bootstrap.min.js.download"></script>
+  <script src="./CS106A Variables &amp; Control Flow_files/popper.min.js.download"></script>
+
+  <script src="./CS106A Variables &amp; Control Flow_files/jquery.min.js.download"></script>
+
+
+</body></html>
