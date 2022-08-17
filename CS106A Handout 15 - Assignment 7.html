@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<!-- saved from url=(0084)https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="./CS106A Handout 15 - Assignment 7_files/site.css" rel="stylesheet">
+    <!-- jQuery library -->
+    <script src="./CS106A Handout 15 - Assignment 7_files/jquery-3.4.1.min.js.download" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>  CS106A Handout 15 - Assignment 7</title>
+  </head>
+
+  <!-- fill to height of viewport, flex col, footer will be mt-auto -->
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-md navbar-dark" role="navigation">
+  <a class="navbar-brand" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/">🏠CS106A </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html#" aria-haspopup="true" aria-expanded="false"> Handouts </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/01-general-information.html">General Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/02-course-placement.html">Course Placement Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/03-honor-code.html">Honor Code</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/lair.html">LaIR Info</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/about_staff">Teaching Team</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/04-using-karel-with-pycharm.html">Using Karel with Pycharm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/05-assignment1.html">Assignment 1 Karel the Robot</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/06-submitting-assignments.html">Submitting Assignments</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html">Assignment 2 Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html">Assignment 3 Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/09-image-reference.html">Image Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html">Assignment 4</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/10-graphics-reference.html">Graphics Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bluebook-info.html">BlueBook Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html">Practice Midterm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm-solutions.html">Practice Midterm Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/12-assignment5.html">Assignment 5</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/midterm-solutions.html">Midterm Grades and Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/13-contest.html">Graphics/Image Contest</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/biasbars-handout.html">Assignment 6</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html">Assignment 7</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final.html">Final Exam Info and Practice</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html">Practice Final Solutions</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html#" aria-haspopup="true" aria-expanded="false"> Lectures </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+             
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/01-welcome/">  1.  3/28 Welcome! </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/02-control-flow/">  2.  3/30 Control Flow </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/03-decomposition/">  3.  4/1 Decomposition </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/04-intro-python/">  4.  4/4 Intro to Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/05-arithmetic-expressions/">  5.  4/6 Arithmetic Expressions </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/06-control-flow-revisited/">  6.  4/8 Control Flow Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/07-functions-revisited/">  7.  4/11 Functions Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/08-parameters/">  8.  4/13 Parameters </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/09-lists/">  9.  4/15 Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/10-images/">  10.  4/18 Images </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/11-listoflists/">  11.  4/20 Lists of Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/12-canvas/">  12.  4/22 Wrapping Up Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/13-more-graphics/">  13.  4/25 Canvas </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/14-strings/">  14.  4/27 Strings </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/15-files/">  15.  4/29 Files </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/16-dictionaries/">  16.  5/2 Dictionaries </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/17-parsing/">  17.  5/4 Nested Structures </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/18-nested-structures/">  18.  5/9 String Parsing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/19-tuples-sorting/">  19.  5/11 Tuples Sorting </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/20-classes-objects/">  20.  5/13 Classes and Objects </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/21-ethics/">  21.  5/16 Ethics </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/22-memory/">  22.  5/18 Memory </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/23-search-indexing/">  23.  5/20 Search and Indexing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/24-internet/">  24.  5/23 The Internet </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/25-after-106a/">  25.  5/25 Life After CS106A </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/26-advanced-python/">  26.  5/27 Advanced Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/27-wrap-up/">  27.  6/1 Wrap Up </a>
+                
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html#" aria-haspopup="true" aria-expanded="false"> Assignments </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSdN6415WaOi5C0bzlRysKuAEZJbAtN920JmrdeRz-EfXtaydg/viewform">Assignment 0</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/1-Karel">Assignment 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/2-KhansoleCompute">Assignment 2 - Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/3-ListImages">Assignment 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/4-Sand">Assignment 4 - Lists of Lists, Strings, Graphics, and Sand</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/5-WordGuess">Assignment 5 - Strings &amp; Word Guessing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/6-BiasBars">Assignment 6 - Dictionaries &amp; BiasBars</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/7-Bajillion">Assignment 7 - Bajillion</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/8-Contest">Graphics/Image Contest</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html#" aria-haspopup="true" aria-expanded="false"> Sections </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://cs198.stanford.edu/cs198/auth/default.aspx">Section Portal</a>
+            
+            
+             <div class="dropdown-divider"></div>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section1">Section 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2">Section 2 - Variables &amp; Control Flow</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3">Section 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section4">Section 4 - Lists of Lists &amp; Strings</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5">Section 5 - File Reading &amp; Nested Structures</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6">Section 6 - Dictionaries &amp; Drawing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7">Section 7 - Sorting, OOP, &amp; Memory</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8">Section 8 - Final Exam Review</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item"><a class="nav-link" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/schedule.html">🗓Schedule</a></li>
+        
+      
+    </ul>
+    <!---
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" id="search-text" name="query" placeholder="🔍 Search CS106B..." aria-label="Search" action="search">
+    </form>
+    --->
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    margin-bottom: 2rem;
+  }
+  .navbar-dark {
+    background-color: #444;
+  }
+ .nav-item > a {
+    text-transform: uppercase;
+    letter-spacing: .08rem;
+    font-size: small;
+    color: #bbb !important;
+  }
+  .nav-item > a:hover {
+    color: white !important;
+  }
+</style>
+    
+    <main class="main container-fluid" role="main"><div class="body-container container-fluid" data-spy="scroll" data-target="#toc">
+
+<h1 class="title">Handout 15 - Assignment 7</h1>
+
+<hr>
+
+<p class="attribution">
+ Written by Mehran Sahami
+</p>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-10" id="content" <=""><p>May 23rd, 2022</p>
+
+<h1 id="assignment-7-bajillion">Assignment #7: Bajillion</h1>
+
+<p><strong>Due: 12:15pm (Pacific Time) on Wednesday, June 1st</strong><br>
+<strong>Note: You cannot use late days (free or otherwise) on this assignment</strong></p>
+
+<p><em><sup>Written by Mehran Sahami and Chris Piech</sup></em></p>
+
+<hr>
+
+<p>This assignment will give you an opportunity to use many of your Python
+skills to build an application that you probably now use on a daily
+basis – a search engine! You can download the starter code for this
+project under the "Assignments" tab on the CS106A website. The starter
+project will provide Python files for you to write your programs in.</p>
+
+<p>The assignment is broken up into four sections:</p>
+
+<ol>
+  <li><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html#warmup">Warmup</a>: The first part of the assignment is a short
+<strong>warmup</strong> problem to give you practice writing a function involving
+lists that you then might leverage in the second part of the
+assignment.</li>
+  <li><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html#bajillion">Bajillion</a>: In the second part of the assignment
+you'll be building a search engine from the ground up. It will give
+you a chance to see how concepts from CS106A are directly applicable
+to build some of the powerful applications we now use on a daily
+basis. And, we'll give you a little relevant history there as well.</li>
+  <li><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html#webapp">Optional WebApp</a>: Use classes to take your search engine
+online.</li>
+  <li><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html#ethics">Ethics</a>: Answer a few ethics questions about search
+engines.</li>
+</ol>
+
+<h3 id="warmup">Warmup: Finding common elements in two lists</h3>
+
+<p>This problem will give you practice with yet another aspect of using
+lists. Besides providing a little programming warm-up before you dive
+right into the main part of the assignment, the function you write here
+may actually be something that you use in some form in the second part
+of this assignment as well. You should write your code for this problem
+in the file <code class="language-python highlighter-rouge"><span class="n">common_elements</span><span class="p">.</span><span class="n">py</span></code>.</p>
+
+<p>There are many situations in which we may be interested in identifying
+the common elements of two lists. For example, say we have a list of all
+the students who have completed all their Ways course requirements at
+Stanford and another list of all the students who have completed the
+requirements for their major(s) at Stanford. By taking the elements
+(students) who appear in both lists, we could produce a list of students
+who have met all their course requirements at Stanford. If were then to
+take that resulting list (of students who have met all their course
+requirements) and a list of all undergrads at Stanford who completed at
+least 180 units and took the common elements from those two lists, we
+could produce a new list of all the students who were eligible to
+graduate. Thus, producing a list of the common elements from two other
+lists not only has practical applications, but can be applied repeatedly
+to produce even more specific results.</p>
+
+<p>You task is to write the following function:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">def common(list1, list2)
+</span></code></pre></div></div>
+
+<p>The function takes in two lists and should return a new list which
+contains only those elements which appear in <strong>both</strong> <code class="language-python highlighter-rouge"><span class="n">list1</span></code> and
+<code class="language-python highlighter-rouge"><span class="n">list2</span></code>. The original two lists passed into the function should not be
+changed.</p>
+
+<p>For example, if your function were called as follows:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">common</span><span class="p">([</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">],</span> <span class="p">[</span><span class="s">'c'</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="s">'z'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>it should return the list:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>If your function is called with two lists that have no overlapping
+elements, such as:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">common</span><span class="p">([</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">],</span> <span class="p">[</span><span class="s">'x'</span><span class="p">,</span> <span class="s">'y'</span><span class="p">,</span> <span class="s">'z'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>it should return the empty list:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[]</span>
+</code></pre></div></div>
+
+<p>Also, if your function is called with two lists that have multiple of
+the same shared element, such as:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">common</span><span class="p">([</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">],</span> <span class="p">[</span><span class="s">'x'</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="s">'a'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>it should return a result that includes only one of the elements that
+appeared multiple times, as shown in the result below:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="s">'a'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>Doctests are provided for you to test your function. Feel free to write
+additional doctests. Also, feel free to write any additional functions
+that may help you solve this problem. A main function is also provided,
+which calls your function with some sample test cases and prints the
+results.</p>
+
+<h3 id="bajillion">The Bajillion Search Engine</h3>
+
+<p>In 1998, two Stanford CS graduate students, Larry Page and Sergey Brin,
+founded Google Inc. to provide a new way of doing search on the Internet
+based on research they had conducted as part of the Stanford Digital
+Libraries project. If you're interested, you can find their original
+paper describing the initial version of the Google search engine here:</p>
+
+<p><a href="http://infolab.stanford.edu/~backrub/google.html">http://infolab.stanford.edu/~backrub/google.html</a></p>
+
+<p>As their paper explains, the original URL (Uniform Resource Locator, or
+web address) for Google was in fact hosted at Stanford:
+<a href="http://google.stanford.edu/">http://google.stanford.edu/</a>. Ironically enough, that URL now redirects
+to a web site describing the G Suite software tools that Stanford
+licenses from Google, Inc.</p>
+
+<p>What you might not know is that sigificant portions of the original
+version of the Google were written in Python. You can find more details
+about that in the paper referenced above. In fact, it turns out that
+writing a simple search engine in Python is entirely doable given the
+knowledge that you now have in CS106A! To prove that point, in this
+assignment you'll will be implementing your own text-based search
+engine. It's like Google, only smaller. Much, much, smaller.</p>
+
+<p>The name Google comes from the term "googol", which refers to the
+number formed by a 1 followed by 100 zeroes (or, equivalently, 10 to the
+100th power). The name of the company Google actually comes from an
+unintentional misspelling of the term googol, as Larry Page wanted the
+name to refer to a really large number. Since the name "google" is
+already taken, we figured you could name your search engine after
+another notion of a really large number, which is why your search engine
+is called "Bajillion." As in, "there are a bajillion things I've
+learning in CS106A this quarter!"</p>
+
+<p>There are two main parts of the search engine that you'll be
+implementing. The first, which is the heart of the search engine, is
+called the "index," which is described in Part A below and the second
+is the actual search functionality, which is described in Part B.</p>
+
+<h4 id="part-a-the-index">Part A: The Index</h4>
+
+<p>Most search engines are built on top of what is called an "inverted
+index," or just "index" for short. An index for a search engine is
+similar to the index of words in the back of book. Basically, it tells
+you the page (or, in the more general case, the document or file) where
+each word appears.</p>
+
+<p>In search, we use the notion of a "term" to refer to generalized
+notion of a word, name, number, etc. that we might want to look up in a
+collection of documents. If it's easier, you can just think of a
+"term" as a "word", but really it could refer to something like the
+number "127" which is not officially a "word".</p>
+
+<p>In any case, an index is structure where, for each term, we have a list
+of the documents that this term appears in. Consider the following
+expository examples of terms and documents they appear in:</p>
+
+<ul>
+  <li>The term "burrito" appears in the text documents named
+"recipes.txt", "greatest eats.txt", "top 10 foods.txt", and
+"favs.txt"</li>
+  <li>The term "sushi" appears in the text documents "favs.txt" and
+"Japanese foods.txt"</li>
+  <li>The term "samosa" appears in the text document "appetizers.txt"</li>
+</ul>
+
+<p>We could represent an index of these terms as something like:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"burrito"</span> <span class="err">→</span> <span class="s">"recipes.txt"</span><span class="p">,</span> <span class="s">"greatest eats.txt"</span><span class="p">,</span> <span class="s">"top 10 foods.txt"</span><span class="p">,</span> <span class="ow">and</span> <span class="s">"favs.txt"</span>
+<span class="s">"sushi"</span>   <span class="err">→</span> <span class="s">"favs.txt"</span> <span class="ow">and</span> <span class="s">"Japanese foods.txt"</span>
+<span class="s">"samosa"</span>  <span class="err">→</span> <span class="s">"appetizers.txt"</span>
+</code></pre></div></div>
+
+<p>If we wanted to represent such a mapping from terms to a list of
+documents (file names) in Python, a dictionary would be a natural
+structure to use. Thus, the index could be represented as the following
+Python dictionary:</p>
+
+<pre><code class="language-language-python">index = {
+  'burrito': ['recipes.txt', 'greatest eats.txt', 'top 10 foods.txt', 'favs.txt'], 
+  'sushi': ['favs.txt', 'Japanese foods.txt'],
+  'samosa': ['appetizers.txt']
+}
+</code></pre>
+
+<p>Note that in the dictionary above, the terms (strings) are the keys, and
+the values are lists of the names of files containing those terms (the
+file names are strings).</p>
+
+<h5 id="building-an-index">Building an index</h5>
+
+<p>Your task in this part of the assignment is to write the code the builds
+an index for a set of text files. More specifically, you will be
+implementing a function:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">create_index</span><span class="p">(</span><span class="n">filenames</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">file_titles</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This function is passed the following information:</p>
+
+<ul>
+  <li><code class="language-python highlighter-rouge"><span class="n">filenames</span></code>: this is a list of file names (strings) that you'll use
+in building an index.</li>
+  <li><code class="language-python highlighter-rouge"><span class="n">index</span></code>: this is a dictionary representing the index that you will
+need to build up. When your function is called, it will be passed an
+empty dictionary ({}) for index. Since dictionaries are mutable
+types, any changes your function makes to the parameter index will
+persist after your function completes.</li>
+  <li><code class="language-python highlighter-rouge"><span class="n">file_titles</span></code>: this is a dictionary where the keys are file names
+(strings) and the values are the titles of the articles in each file
+(which are also strings). We'll explain the details of this
+parameter later in this handout. When your function is called, it
+will be passed an empty dictionary ({}) for file_titles and your
+function will add entries to this dictionary as appropriate.</li>
+</ul>
+
+<p>You will build the index based on the set of files specified in the
+parameter filenames. For each file in the filenames list, you should
+parse out all the <strong>terms</strong> in the file in order to add appropriate
+entries to the index that you are building.</p>
+
+<p>Terms are defined as follows:</p>
+
+<ul>
+  <li>Terms are seperated from each other in text by spaces or newline
+(return) characters.</li>
+  <li>Terms should have all their letters converted to lowercase.</li>
+  <li>Terms should have all punctuation symbols stripped off from their
+beginning and end. (Punctuation characters in the middle of a term
+are fine and should not be removed).</li>
+</ul>
+
+<p>To help implement the third bullet point above, the Python string
+library (which is already imported in the starter code we give you with
+the line import string) provides a constant called <code class="language-python highlighter-rouge"><span class="n">string</span><span class="p">.</span><span class="n">punctuation</span></code>,
+which is a string containing all the punctuation marks in Python. You
+can use this constant in conjunction with the strip function on strings
+to remove punctuation marks from just the beginning and ending of a
+string, as shown in the example from the Python console below:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">&gt;</span><span class="o">&gt;&gt;</span> raw <span class="o">=</span> <span class="s1">'$$j.lo!'</span>
+<span class="gp">&gt;</span><span class="o">&gt;&gt;</span> term <span class="o">=</span> raw.strip<span class="o">(</span>string.punctuation<span class="o">)</span>
+<span class="gp">&gt;</span><span class="o">&gt;&gt;</span> term
+<span class="go">'j.lo'
+</span></code></pre></div></div>
+
+<p>Recall that the strip function only removes characters from the
+beginning and ending of a string. strip will not remove punctuation
+marks in the middle of a string. Thus, in the example above, the period
+in the middle of 'j.lo' remains after the call to strip.</p>
+
+<p>As an additional point about terms, any string of characters that only
+contains punctuation marks is not considered a term and should not be
+added to the index. In such a case, if we stripped all the punctuation
+from the string, we would be left with the empty string (""), and
+empty strings should not be included in the index.</p>
+
+<p>To make this all more concrete, say that we want to index the text file
+'doc1.txt' shown below:</p>
+
+<p><code class="language-python highlighter-rouge"><span class="n">doc1</span><span class="p">.</span><span class="n">txt</span></code></p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">*We* are 100,000
+</span><span class="gp">STRONG! $</span><span class="err">$</span>
+</code></pre></div></div>
+
+<p>In parsing this file, we should produce the following terms:</p>
+
+<ul>
+  <li>The string '*We*' should be converted to term 'we'</li>
+  <li>The string 'are' should be converted to term 'are'</li>
+  <li>The string '100,000' should be converted to term '100,000' (Note
+that the comma inside 100,000 is fine and should not be removed.)</li>
+  <li>The string 'STRONG!' should be converted to term 'strong'</li>
+  <li>The string '$$' should be ignored (i.e., not included in the
+index), as a string of only punctuation is not considered a term.</li>
+</ul>
+
+<p>As you produce terms from a file, you should add appropriate entries
+into the index for each of the terms. For example, if we started with an
+index that was the empty dictionary, the index should look as follows
+after processing the file 'doc1.txt':</p>
+
+<pre><code class="language-language-python">{
+  'we' : ['doc1.txt'],
+  'are' : ['doc1.txt'],
+  '100,000' : ['doc1.txt'],
+  'strong' : ['doc1.txt']
+}
+</code></pre>
+
+<p>Say, we now process another file, 'doc2.txt', shown below:</p>
+
+<p><code class="language-python highlighter-rouge"><span class="n">doc2</span><span class="p">.</span><span class="n">txt</span></code></p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">Strong, you are!
+--Yoda--
+</span></code></pre></div></div>
+
+<p>We should appropriately update the index we had before with the terms
+found in 'doc2.txt', we should result in the index shown below.</p>
+
+<pre><code class="language-language-python">{
+  'we' : ['doc1.txt'],
+  'are' : ['doc1.txt', 'doc2.txt'],
+  '100,000' : ['doc1.txt'],
+  'strong' : ['doc1.txt', 'doc2.txt'],
+  'you': ['doc2.txt'].
+  'yoda': ['doc2.txt']
+}
+</code></pre>
+
+<p>Note that in cases where a term found in 'doc2.txt' previously existed
+in the index (such as 'are' and 'strong'), the list of documents
+that contain that term was expanded to include the file 'doc2.txt'. In
+cases where a term found in 'doc2.txt' was not previously in the index
+(such as 'you' and 'yoda'), a new entry is added to the index to
+indicate that the given term appeared in 'doc2.txt'.</p>
+
+<h5 id="building-the-dictionary-file_titles">Building the dictionary file_titles</h5>
+
+<p>In real-world search engines, we often want to store additional
+information about each file while we are processing it in order to use
+this information later when we want to display search results. For
+example, for web pages, we might store the title of the page. For news
+articles, we might store the headline of the article. In the news
+article data we provide in this assignment, the first line of each file
+is a title for the article in that file, which we want to store for
+future reference. Here is an example of the first portion of two of the
+actual files (named '001.txt' and '002.txt', respectively) in the
+BBC News article data that we provide for you in the assignment:</p>
+
+<div>
+
+[ `001.txt` ]{style="max-width:50%"}
+
+``` {.console style="white-space: pre-wrap;"}
+Broadband steams ahead in the US
+
+More and more Americans are joining the internet's fast lane, according to official figures.
+...
+```
+
+[ `002.txt` ]{style="max-width:50%"}
+
+``` {.console style="white-space: pre-wrap;"}
+EA to take on film and TV giants
+
+Video game giant Electronic Arts (EA) says it wants to become the biggest entertainment firm in the world.
+...
+```
+
+</div>
+
+<p>When we are process each file to build up the index, we also want to add
+an entry to the dictionary file_titles to keep track of the title for
+each file. Recall, that the title is simply the first line of the file
+(with the "newline" character at the end of the line removed). We
+store this information in file_titles, where the file name (string) is
+the key and the title (string) is the value for an entry in the
+dictionary.</p>
+
+<p>So, if we started with file_titles as an empty dictionary (which is the
+case when your create_index function is called), after we process the
+files '001.txt' and '002.txt', the file_titles dictionary should
+look as follows:</p>
+
+<p><code class="language-python highlighter-rouge"><span class="n">file_titles</span><span class="p">.</span><span class="n">txt</span></code></p>
+
+<pre><code class="language-language-python">{
+ '001.txt': 'Broadband steams ahead in the US',
+ '002.txt': 'EA to take on film and TV giants'
+}
+</code></pre>
+
+<p>::: {.alert .alert-primary}
+<strong>Important note:</strong> the terms in the title line for each file should
+still be included in the index (along with the rest of the document). A
+common bug is to forget to add the terms from the title line to the
+index.
+:::</p>
+
+<p>Doctests for the create_index function are provided for you to test your
+function. Feel free to write additional doctests. Also, you should
+definitely write additional functions that may help you decompose your
+solution to this problem.</p>
+
+<h5 id="running-your-create_index-function">Running your create_index function</h5>
+
+<p>You can run your create_index function by running the searchengine.py
+program and specifying the directory name for a set of text files that
+you would like to index. We provide two such data sets for you to test
+your code. The first is in a directory named small, which includes three
+very short text files, making the size of the resulting index manageable
+to inspect manually. You can run your program with the small dataset in
+a Python Terminal using this command (on a Mac, use python3 instead of
+py):</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">&gt;</span><span class="w"> </span>py searchengine.py small
+</code></pre></div></div>
+
+<p>In the searchengine.py program, we provide a main function that calls
+your create_index function and prints the resulting index and
+file_titles on the terminal. The output printed by the program on the
+small dataset, should look as shown below. (Note that the output below
+is produced on a mac, where file paths use the forward-slash character:
+'/'. On a PC, you would see a double backslash '\\' in the file
+paths instead of a forward-slash).</p>
+
+<p>``` {.console style="white-space: pre-wrap;"}
+Index:
+{'file1': ['small/1.txt'], 'title': ['small/1.txt', 'small/2.txt', 'small/3.txt'], 'apple': ['small/1.txt', 'small/2.txt', 'small/3.txt'], 'ball': ['small/1.txt', 'small/3.txt'], 'dog': ['small/1.txt', 'small/2.txt'], 'elephant': ['small/1.txt'], 'frog': ['small/1.txt'], 'file2': ['small/2.txt'], 'carrot': ['small/2.txt', 'small/3.txt'], 'file3': ['small/3.txt'], 'gerbil': ['small/3.txt'], 'hamster': ['small/3.txt'], 'iguana': ['small/3.txt'], 'lizard': ['small/3.txt']}
+File names -&gt; document titles:
+{'small/1.txt': '** File1 title <strong>', 'small/2.txt': '</strong> File2 title <strong>', 'small/3.txt': '</strong> File3 title **'}</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">When</span> <span class="n">you</span> <span class="n">think</span> <span class="n">you</span>\<span class="s">'ve gotten your program working well on the small
+dataset, you can then try it out on the BBC News article dataset
+^[\[1\]](#credit)^ with the following command (on the Mac, use python3
+instead of py):
+
+``` console
+&gt; py searchengine.py bbcnews
+</span></code></pre></div></div>
+
+<p>The output produced in that case is too large to verify manually, but
+running on such a large dataset is a good way to see if you program
+crashes on any cases that might have been missed with the small dataset.</p>
+
+<h4 id="part-b-using-the-index-to-search">Part B: Using the index to search</h4>
+
+<p>Once you feel as though you are indexing documents correctly, you're
+ready to implement the actual search functionality. Luckily for you,
+many people find implementing this part of the program much easier than
+building an index. And, as an added bonus, you'll likely be able to
+leverage the common function you wrote in the first part of this
+assignment. Yeah, sometimes we really do plan for things to work out
+like that.</p>
+
+<p>Your task in this part of the assignment is to write the code that
+implements the search functionality making use of the index you built in
+Part A. Specifically, you will be implementing a function:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">search</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This function is passed the following information:</p>
+
+<ul>
+  <li>index: this is the index produced by your create_index function</li>
+  <li>query: this is a string representing the user's query. All the
+letters in this string are guaranteed to be lowercase (the starter
+code we provide uses the lower function to create a lowercase query
+string that is passed to this function). To simplify things, you can
+assume that the user will never enter punctuation characters as part
+of the query string. The code we provide does not actually strip out
+puctuation characters from the user's query (in case you wanted to
+do some sort of extension where such punctuation characters might be
+meaningful in terms of how the search is conducted). But, you can
+just assume for the basic version of the program that the user will
+not enter any punctuation characters in their query.</li>
+</ul>
+
+<p>Your search function should return a list of the names of the files that
+contain all of the terms in the given query. As we discussed in class,
+you can determine which files contain all the query terms using the
+index. Recall that in the index, the value associated with each term
+(key) is a list of the files that contain the given term. This list of
+files is called the "posting list" for the term. In order to determine
+which files contain all of the terms in a query, you start with the
+posting list for the first term in the query. You then consecutively
+consider the overlap (i.e., the common elements) of the posting list you
+have with the posting list associated with each subsequent term in the
+query. When you've processed all the terms in the query in this way,
+the posting list you have left should contain only those files that
+contain every term in the query.</p>
+
+<p>To make things more concrete, if you were to build an index on the small
+dataset, your search function should return the respective results shown
+in the seven examples below. (Again, note that the examples below are
+produced on a Mac, where file paths use: /. On a PC, you would see \<br>
+in the file paths instead).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Example</span> <span class="mf">1.</span> <span class="n">Calling</span><span class="p">:</span> <span class="n">search</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="s">'apple'</span><span class="p">)</span>
+<span class="n">Should</span> <span class="n">produce</span> <span class="n">the</span> <span class="nb">list</span><span class="p">:</span> <span class="p">[</span><span class="s">'small/1.txt'</span><span class="p">,</span> <span class="s">'small/2.txt'</span><span class="p">,</span> <span class="s">'small/3.txt'</span><span class="p">]</span>
+
+<span class="n">Example</span> <span class="mf">2.</span> <span class="n">Calling</span><span class="p">:</span> <span class="n">search</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="s">'ball'</span><span class="p">)</span>
+<span class="n">Should</span> <span class="n">produce</span> <span class="n">the</span> <span class="nb">list</span><span class="p">:</span> <span class="p">[</span><span class="s">'small/1.txt'</span><span class="p">,</span> <span class="s">'small/3.txt'</span><span class="p">]</span>
+
+<span class="n">Example</span> <span class="mf">3.</span> <span class="n">Calling</span><span class="p">:</span> <span class="n">search</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="s">'lizard'</span><span class="p">)</span>
+<span class="n">Should</span> <span class="n">produce</span> <span class="n">the</span> <span class="nb">list</span><span class="p">:</span> <span class="p">[</span><span class="s">'small/3.txt'</span><span class="p">]</span>
+
+<span class="n">Example</span> <span class="mf">4.</span> <span class="n">Calling</span><span class="p">:</span> <span class="n">search</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="s">'apple ball'</span><span class="p">)</span>
+<span class="n">Should</span> <span class="n">produce</span> <span class="n">the</span> <span class="nb">list</span><span class="p">:</span> <span class="p">[</span><span class="s">'small/1.txt'</span><span class="p">,</span> <span class="s">'small/3.txt'</span><span class="p">]</span>
+
+<span class="n">Example</span> <span class="mf">5.</span> <span class="n">Calling</span><span class="p">:</span> <span class="n">search</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="s">'dog ball'</span><span class="p">)</span>
+<span class="n">Should</span> <span class="n">produce</span> <span class="n">the</span> <span class="nb">list</span><span class="p">:</span> <span class="p">[</span><span class="s">'small/1.txt'</span><span class="p">]</span>
+
+<span class="n">Example</span> <span class="mf">6.</span> <span class="n">Calling</span><span class="p">:</span> <span class="n">search</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="s">'dog ball hamster'</span><span class="p">)</span>
+<span class="n">Should</span> <span class="n">produce</span> <span class="n">the</span> <span class="nb">list</span><span class="p">:</span> <span class="p">[]</span>
+
+<span class="n">Example</span> <span class="mf">7.</span> <span class="n">Calling</span><span class="p">:</span> <span class="n">search</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="s">'nope'</span><span class="p">)</span>
+<span class="n">Should</span> <span class="n">produce</span> <span class="n">the</span> <span class="nb">list</span><span class="p">:</span> <span class="p">[]</span>
+</code></pre></div></div>
+
+<p>Doctests for the search function are provided for you. Feel free to
+write additional doctests. Also, you should definitely write additional
+functions that may help you decompose your solution to this problem.</p>
+
+<h5 id="running-your-search-function">Running your search function</h5>
+
+<p>You can run your search function by running the searchengine.py program,
+specifying the directory name for a set of text files that you would
+like to index, and then add -s at the end of the command line to
+indicate "search mode". For example, you can run your program in
+"search mode" with the small dataset in a Python Terminal using this
+command (on the Mac, use python3 instead of py):</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">&gt;</span><span class="w"> </span>py searchengine.py small <span class="nt">-s</span>
+</code></pre></div></div>
+
+<p>In search mode, the program will first build an index (and a file_title
+dictionary) on the files in the directory you specify by calling your
+create_index function. It will then repeatedly ask the user (you) for a
+query, which is sent (along with the index) to your search function to
+produce a posting list of results. These results are then displayed on
+the terminal, where, for each result, the title of the article and the
+associated file name are listed (making use of the file_title dictionary
+produced by your create_index function). You can end the program by
+simply pressing Enter when asked for a query (i.e., giving the empy
+query).</p>
+
+<p>Test your program thoroughly with the small dataset. That dataset is
+small enough that you can check your results manually to make sure that
+you are producing the expected output for various queries. You can also
+free free to create your own datasets (directories containing text
+files) to test out any particular cases you want to create to debug your
+code.</p>
+
+<p>When you've think you've gotten your program working with the small
+dataset, try running your program with the BBC News data as follows:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">&gt;</span><span class="w"> </span>py searchengine.py bbcnews <span class="nt">-s</span>
+</code></pre></div></div>
+
+<p>Here is the output of a working program running on some sample queries
+on the BBC News data (user input is in <strong><em>blue italics</em></strong>). You can see
+if your program produces the same output. (Note that the order of the
+articles printed might be different depending on how you wrote your
+code, but the set of articles that match each query should be the same
+as in this sample run.)</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">Query (empty query to stop): stanford
+Results for query 'stanford':
+1.  Title: Yahoo celebrates a decade online,  File: bbcnews/066.txt
+2.  Title: Google to scan famous libraries,  File: bbcnews/217.txt
+Query (empty query to stop): bike
+Results for query 'bike':
+1.  Title: Games help you 'learn and play',  File: bbcnews/291.txt
+2.  Title: The Force is strong in Battlefront,  File: bbcnews/339.txt
+Query (empty query to stop): stanford bike
+Results for query 'stanford bike':
+No results match that query.
+Query (empty query to stop): windows virus security patch
+Results for query 'windows virus security patch':
+1.  Title: Microsoft releases patches,  File: bbcnews/003.txt
+2.  Title: Microsoft releases bumper patches,  File: bbcnews/162.txt
+Query (empty query to stop): cheap apple products
+Results for query 'cheap apple products':
+1.  Title: Apple Mac mini gets warm welcome,  File: bbcnews/033.txt
+Query (empty query to stop): *user presses "enter" to end program*
+</span></code></pre></div></div>
+
+<p>Congratulations! You just built a working search engine! That's pretty
+impressive given that you might not have known a lot about programming
+just 10 weeks ago. It's also a testament to how powerful a tool
+programming can be. A little knowledge can go a long way in building
+some really useful software. Happy searching! The rest of the assignment
+is optional – though we think it's a great deal of fun + learning.</p>
+
+<h3 id="webapp">[Optional] WebApp Extension: Your search engine online!</h3>
+
+<p>As a celebration of what you have built, and as an exciting extension,
+let's turn your python program into a server which can deliver those
+search results to a web-appication, running as a website in a browser.
+Woot! This extension will give you exposure to some really interesting
+next steps beyond CS106A as well as practice with classes. It is
+<strong>optional</strong> meaning you don't need to complete it to finish what is
+expected for this assignment.</p>
+
+<p>Write code in extension_server.py that responds to search requests! In
+order to do so, link up your server to call the functions you defined in
+searchengine.py. If you run the starter code for extension_server.py it
+will create a server which can serve up the shell search page, but is
+unable to do any search. To get started run the server:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">&gt;</span><span class="w"> </span>py extension_server.py
+</code></pre></div></div>
+
+<p>And navigate to <a href="http://localhost:8000/">http://localhost:8000</a> in a web-browser (such as
+Chrome, Safari or IE). How exciting. The starter code creates a
+bare-bones server which serves up the HTML of the search page, but does
+nothing more. HTML is the "markup language" of the world wide web –
+it's the description of the page with the search bar etc. When you try
+and search, this website sends a request to your server. In the starter
+code, your server does not respond to the query request so the web
+application does not work!</p>
+
+<p>If you look at the terminal where your server is running you will notice
+that every time someone types something into the search bar and hits
+"enter", you get a request. For example, say someone types in "nice"
+(as shown below):</p>
+
+<p><img src="./CS106A Handout 15 - Assignment 7_files/bajillion-search-nice.png" alt="">{style="width: min(100%, 500px)"}</p>
+
+<p>The client (aka webpage) sends a request, which is received by your
+server, with the command "search" and parameters that include the search
+query. The server currently prints the request out to the console (as
+shown below), but doesn't handle it.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s">'command'</span><span class="p">:</span> <span class="s">'search'</span><span class="p">,</span> <span class="s">'params'</span><span class="p">:</span> <span class="p">{</span><span class="s">'query'</span><span class="p">:</span> <span class="s">'nice'</span><span class="p">}}</span>
+</code></pre></div></div>
+
+<p>You can directly recreate this request by going to
+<a href="http://localhost:8000/search?query=nice">http://localhost:8000/search?query=nice</a></p>
+
+<p>Currently your server responds with the empty string. To complete this
+milestone, change the code to return a list of dictionaries, one
+dictionary per search result, with the key "title" and the value being
+the text of the title to display.</p>
+
+<p><img src="./CS106A Handout 15 - Assignment 7_files/bajillion-query-nice.png" alt="">{style="width: min(100%, 500px)"}</p>
+
+<p>That is all you need to do! Once you do so, your search engine at
+http://localhost:8000 will start working as expected. How fun! It's a
+hard task as it requires writing code in a class which is a brand new
+experience.</p>
+
+<p>Here are a few hints:</p>
+
+<ol>
+  <li>Check out the HitCounter example from class on May 23rd.</li>
+  <li>Recall that request has two properties, commands and parameters. You
+can extract the command with request.get_command() and the parameter
+dictionary using request.get_params()</li>
+  <li>Your handle_request function has to return the list of dictionaries
+as a string. You can use json.dumps(collection, indent=2) to turn
+any collection (e.g. a variable that is a list or dictionary) into
+string format.</li>
+  <li>extension_server.py already imports the following functions from
+searchengine.py: create_index, search and textfiles_in_dir. You
+should call these functions! When do you want to create the index?
+When do you want to search?</li>
+  <li>If you want your search engine to display more than just the title
+of an article, try adding "url" and "snippet" to the dictionary
+representing one search result. The WebApp is programmed to display
+these specific fields. These are extra extensions.</li>
+</ol>
+
+<p><strong>How did we write that WebApp website?</strong> In this assignment we provide
+the website which is able to call your python code. Writing a website is
+a neat skill, which is certainly within your grasp to learn now that you
+have finished CS106A. It is certainly not necessary, but we invite you
+to read the contents of extension_client.html . This file describes the
+webpage you see (with the search bar). It is commented so that a curious
+student could learn more about HTML, JavaScript and CSS. Those aren't
+things we teach in CS106A, but they are super cool!</p>
+
+<p>A note on localhost: Localhost is a special URL which means the website
+being served from "this computer". People on different computers won't
+be able to access your python script over the internet using the
+localhost URL. To get a URL which other people can use, you can use a
+service like the one here: <a href="https://ngrok.com/">https://ngrok.com/</a></p>
+
+<h3 id="optional-other-extension-features">[Optional] Other Extension Features</h3>
+
+<p>There are many other possibilities for optional extra features that you
+can add if you like, potentially for extra credit. If you are going to
+do this, please submit two versions of your program: one that meets all
+the assignment requirements, and a second extended version. As usual, in
+the Assignment 7 project folder, we have provided a file called
+extension.py that you can use if you want to write any extensions that
+you might want to make based on this assignment. The file doesn't
+contain any useful code to begin with. So, you only need to submit the
+extension.py file if you've written some sort of extension in that file
+that you'd like us to see.</p>
+
+<p>At the top of the files for an extended version (if you submit one), in
+your comment header, you should comment what extra features you
+completed.</p>
+
+<p>Here are a few extra extension ideas:</p>
+
+<ul>
+  <li>Ranking function. The basic search program just lists all the
+documents that match the query in no particular order. It would be
+much more useful, especially with large collections of documents, if
+the documents were ranked (sorted) by their relevance to the user's
+query. We talked about some ways to do this in class, but there are
+many different approaches to this. Try implementing a ranking
+function that you think does a good job of ordering the search
+results. As we talked about, that might involve augmenting your
+index to store more information than just which terms appeared in
+which documents, so you can use that information to determine how to
+rank the search results.</li>
+  <li>Stop word elimination. The English language has many words that
+appear frequently in text, but don't have much value as far as
+content is concerned. These are words such as "the", "and",
+"but", "a", etc. Such words are called stop words, and it would
+make your index smaller if you removed the stop words from the
+index. (That also means you'd potentially want to remove stop words
+from the user's query before doing a search.) Of course, you can
+find out more about stop words (as well as find potential lists of
+them) by searching the web for "stop words".</li>
+  <li>Word stemming. In your current index, if a user searches for
+"section" they won't match files that contain the word
+"sections" (but don't include the singular form of the word
+"section"), even though files that talk about "sections" might
+be relevant to the user. Stemming is the process of reducing words
+to their base form, so that (for example) both "section" and
+"sections" would become, simply, "section". Word stemming is a
+common feature in commercial search engines as it's very useful for
+helping people get relevant results. As a start, you can find out
+more about word stemming from Wikipedia:
+https://en.wikipedia.org/wiki/Stemming</li>
+</ul>
+
+<h3 id="ethics">Ethics Questions</h3>
+
+<p>Although Sergey Brin and Larry Page didn't take CS106A with embedded
+ethics at Stanford, they also considered questions about the ethics of
+search as they developed their search engine. Below is an excerpt from
+their paper describing the PageRank algorithm that became the core of
+the Google search engine. We ask you to read this excerpt and then
+reflect on the contents, framing your analysis in the context of the
+ehtics portion of Monday's lecture (May 23rd).</p>
+
+<p>"Currently, the predominant business model for commercial search
+engines is advertising. The goals of the advertising business model do
+not always correspond to providing quality search to users. [...] For
+this type of reason and historical experience with other media
+[<a href="http://infolab.stanford.edu/~backrub/google.html#ref">Bagdikian
+83</a>], we expect
+that advertising funded search engines will be inherently biased towards
+the advertisers and away from the needs of the consumers.</p>
+
+<p>Since it is very difficult even for experts to evaluate search engines,
+search engine bias is particularly insidious. [...] This type of bias
+is much more insidious than advertising, because it is not clear who
+"deserves" to be [at the top of search results], and who is willing
+to pay money to be listed. [...] But less blatant bias [sic] are
+likely to be tolerated by the market. For example, a search engine could
+add a small factor to search results from "friendly" companies, and
+subtract a factor from results from competitors. This type of bias is
+very difficult to detect but could still have a significant effect on
+the market. [...] [W]e believe the issue of advertising causes
+enough mixed incentives that it is crucial to have a competitive search
+engine that is transparent and in the academic realm."</p>
+
+<p><strong>Question 1</strong> Brin and Page were worried that search companies that
+were paid by advertisers would be inclined to modify their ranking of
+results to give more favorable treatment to those advertisers? Do you
+believe this is a concern and if so, what approach (at a high-level)
+might you suggest to address it?</p>
+
+<p><strong>Question 2</strong> In this excerpt, Brin and Page express concerns about the
+negative impacts of advertising on search engine quality and results.
+Their main observation is that monetary incentives are likely to bias
+search engine results such that they are less likely to provide the most
+relevant content to the searcher. Bias towards advertisers is not the
+only potential problem with search results, however. Based on our
+discussion in lecture, how might you address these problems? How could
+you alter or extend your Bajillion search engine to deliver multiple
+perspectives to the same searcher? To deliver personalized results? To
+be more transparent about why it delivers the results it does? Which of
+these goals is most important and why?</p>
+
+<p>Like in previous assignments, please write your answers in ethics.txt</p>
+
+<h3 id="submitting-your-work">Submitting your work</h3>
+
+<p>Once you've gotten all the parts of this assignment working, you're
+ready to submit! Make sure to submit only the python files you modified
+for this assignment on Paperless. You should make sure to (at least)
+submit the files:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">common_elements.py
+searchengine.py
+ethics.txt
+</span></code></pre></div></div>
+
+<hr>
+
+<h3 id="credit">Credit</h3>
+
+<p>[1]: The BBC News dataset is a collection of articles covering
+technology news. We reference the paper which was responsible for making
+this dataset available to the research community: D. Greene and P.
+Cunningham. "Practical Solutions to the Problem of Diagonal Dominance
+in Kernel Document Clustering", Proc. ICML 2006. Please note that all
+rights, including copyright, in the content of the original articles are
+owned by the BBC. The articles are used here only for educational
+purposes.</p>
+
+<p>Ethics questions written by Kathleen Creel, Nick Bowman, and Mehran
+Sahami.</p>
+</div>
+        <div class="col-xs-hidden col-md-2"><nav class="fixed-top-right toc" id="toc"><ol class="toc-list "><li class="toc-list-item is-active-li"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html#warmup" class="toc-link node-name--H3  is-active-link">Warmup: Finding common elements in two lists</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html#bajillion" class="toc-link node-name--H3 ">The Bajillion Search Engine</a><ol class="toc-list  is-collapsible is-collapsed"><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html#part-a-the-index" class="toc-link node-name--H4 ">Part A: The Index</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html#part-b-using-the-index-to-search" class="toc-link node-name--H4 ">Part B: Using the index to search</a></li></ol></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html#webapp" class="toc-link node-name--H3 ">[Optional] WebApp Extension: Your search engine online!</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html#optional-other-extension-features" class="toc-link node-name--H3 ">[Optional] Other Extension Features</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html#ethics" class="toc-link node-name--H3 ">Ethics Questions</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html#submitting-your-work" class="toc-link node-name--H3 ">Submitting your work</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html#credit" class="toc-link node-name--H3 ">Credit</a></li></ol></nav></div>
+    </div>
+
+    <script src="./CS106A Handout 15 - Assignment 7_files/tocbot.min.js.download"></script>
+    <link rel="stylesheet" href="./CS106A Handout 15 - Assignment 7_files/tocbot.css">
+
+    <script>
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '#toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '#content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h2, h3, h4',
+      });
+    </script>
+
+
+
+</div>
+
+<style>
+    p.attribution {
+        font-style: italic;
+        font-size: 80%;
+        text-align: right;
+    }
+    .body-container {
+        margin: 0 10%;
+        max-width: 55em;
+        width: 80%;
+    }
+    a.toc-link {
+      color: #aaa !important;
+      font-size: 90%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .fixed-top-right {
+        position: fixed;
+        margin-top: 0;
+        margin-left: 0;
+    }
+</style>
+
+</main>
+    <style>
+#footer {
+    font-size: 70%;
+    color:green;
+    text-align: center;
+    font-style: italic;
+    padding: 5px;
+}
+</style>
+<div id="footer" class="mt-auto">
+    All course materials © Stanford University 2021 <br>
+    Website programming by Julie Zelenski • Styles adapted from Chris Piech •
+    This page last updated 2022-May-23
+</div>
+
+
+  
+
+  <!-- Bootstrap JavaScript -->
+  <script src="./CS106A Handout 15 - Assignment 7_files/bootstrap.min.js.download"></script>
+  <script src="./CS106A Handout 15 - Assignment 7_files/popper.min.js.download"></script>
+
+  <script src="./CS106A Handout 15 - Assignment 7_files/jquery.min.js.download"></script>
+
+
+</body></html>
