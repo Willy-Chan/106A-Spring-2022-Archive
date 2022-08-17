@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<!-- saved from url=(0089)https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="./CS106A Handout 11 - Assignment 4_files/site.css" rel="stylesheet">
+    <!-- jQuery library -->
+    <script src="./CS106A Handout 11 - Assignment 4_files/jquery-3.4.1.min.js.download" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>  CS106A Handout 11 - Assignment 4</title>
+  </head>
+
+  <!-- fill to height of viewport, flex col, footer will be mt-auto -->
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-md navbar-dark" role="navigation">
+  <a class="navbar-brand" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/">🏠CS106A </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+        
+          <li class="nav-item dropdown show"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html#" aria-haspopup="true" aria-expanded="true"> Handouts </a>
+          <div class="dropdown-menu show" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/01-general-information.html">General Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/02-course-placement.html">Course Placement Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/03-honor-code.html">Honor Code</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/lair.html">LaIR Info</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/about_staff">Teaching Team</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/04-using-karel-with-pycharm.html">Using Karel with Pycharm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/05-assignment1.html">Assignment 1 Karel the Robot</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/06-submitting-assignments.html">Submitting Assignments</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html">Assignment 2 Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html">Assignment 3 Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/09-image-reference.html">Image Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html">Assignment 4</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/10-graphics-reference.html">Graphics Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bluebook-info.html">BlueBook Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html">Practice Midterm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm-solutions.html">Practice Midterm Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/12-assignment5.html">Assignment 5</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/midterm-solutions.html">Midterm Grades and Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/13-contest.html">Graphics/Image Contest</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/biasbars-handout.html">Assignment 6</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html">Assignment 7</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final.html">Final Exam Info and Practice</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html">Practice Final Solutions</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html#" aria-haspopup="true" aria-expanded="false"> Lectures </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+             
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/01-welcome/">  1.  3/28 Welcome! </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/02-control-flow/">  2.  3/30 Control Flow </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/03-decomposition/">  3.  4/1 Decomposition </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/04-intro-python/">  4.  4/4 Intro to Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/05-arithmetic-expressions/">  5.  4/6 Arithmetic Expressions </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/06-control-flow-revisited/">  6.  4/8 Control Flow Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/07-functions-revisited/">  7.  4/11 Functions Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/08-parameters/">  8.  4/13 Parameters </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/09-lists/">  9.  4/15 Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/10-images/">  10.  4/18 Images </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/11-listoflists/">  11.  4/20 Lists of Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/12-canvas/">  12.  4/22 Wrapping Up Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/13-more-graphics/">  13.  4/25 Canvas </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/14-strings/">  14.  4/27 Strings </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/15-files/">  15.  4/29 Files </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/16-dictionaries/">  16.  5/2 Dictionaries </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/17-parsing/">  17.  5/4 Nested Structures </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/18-nested-structures/">  18.  5/9 String Parsing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/19-tuples-sorting/">  19.  5/11 Tuples Sorting </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/20-classes-objects/">  20.  5/13 Classes and Objects </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/21-ethics/">  21.  5/16 Ethics </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/22-memory/">  22.  5/18 Memory </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/23-search-indexing/">  23.  5/20 Search and Indexing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/24-internet/">  24.  5/23 The Internet </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/25-after-106a/">  25.  5/25 Life After CS106A </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/26-advanced-python/">  26.  5/27 Advanced Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/27-wrap-up/">  27.  6/1 Wrap Up </a>
+                
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html#" aria-haspopup="true" aria-expanded="false"> Assignments </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSdN6415WaOi5C0bzlRysKuAEZJbAtN920JmrdeRz-EfXtaydg/viewform">Assignment 0</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/1-Karel">Assignment 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/2-KhansoleCompute">Assignment 2 - Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/3-ListImages">Assignment 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/4-Sand">Assignment 4 - Lists of Lists, Strings, Graphics, and Sand</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/5-WordGuess">Assignment 5 - Strings &amp; Word Guessing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/6-BiasBars">Assignment 6 - Dictionaries &amp; BiasBars</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/7-Bajillion">Assignment 7 - Bajillion</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/8-Contest">Graphics/Image Contest</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html#" aria-haspopup="true" aria-expanded="false"> Sections </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://cs198.stanford.edu/cs198/auth/default.aspx">Section Portal</a>
+            
+            
+             <div class="dropdown-divider"></div>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section1">Section 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2">Section 2 - Variables &amp; Control Flow</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3">Section 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section4">Section 4 - Lists of Lists &amp; Strings</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5">Section 5 - File Reading &amp; Nested Structures</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6">Section 6 - Dictionaries &amp; Drawing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7">Section 7 - Sorting, OOP, &amp; Memory</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8">Section 8 - Final Exam Review</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item"><a class="nav-link" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/schedule.html">🗓Schedule</a></li>
+        
+      
+    </ul>
+    <!---
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" id="search-text" name="query" placeholder="🔍 Search CS106B..." aria-label="Search" action="search">
+    </form>
+    --->
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    margin-bottom: 2rem;
+  }
+  .navbar-dark {
+    background-color: #444;
+  }
+ .nav-item > a {
+    text-transform: uppercase;
+    letter-spacing: .08rem;
+    font-size: small;
+    color: #bbb !important;
+  }
+  .nav-item > a:hover {
+    color: white !important;
+  }
+</style>
+    
+    <main class="main container-fluid" role="main"><div class="body-container container-fluid" data-spy="scroll" data-target="#toc">
+
+<h1 class="title">Handout 11 - Assignment 4</h1>
+
+<hr>
+
+<p class="attribution">
+ Written by Mehran Sahami
+</p>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-10" id="content" <=""><p>April 25, 2022</p>
+
+<h1 id="assignment-4-lists-of-lists-strings-graphics-and-sand">Assignment #4: Lists of Lists, Strings, Graphics, and Sand</h1>
+
+<p><strong>Due: 12:15pm (Pacific Time) on Monday, May 9th</strong></p>
+
+<p><em><sup>Based on problems by Nick Parlante, Eric Roberts, and the current
+CS106A staff.</sup></em></p>
+
+<p>This assignment consists of a few different programs to give you
+practice with list of lists (2-dimensional lists), strings, and graphics
+in Python. You can download the starter code for this project under the
+"Assignments" tab on the CS106A website. The starter project will
+provide Python files for you to write your programs in.</p>
+
+<p>The first part of the assignment provides two sandcastle problems to
+give you practice writing functions with lists of lists (2-dimensional
+lists) and strings. The second part of the assignment is a graphics
+problem. The third part of the assignment is a longer program that uses
+2-dimensional lists to simulate falling sand in a larger program.</p>
+
+<h2 id="part-1-sandcastles">Part 1: Sandcastles</h2>
+
+<h3 id="sandcastle-1-lists-of-lists">Sandcastle 1: Lists of lists</h3>
+
+<p>In the file <strong>ziplists.py</strong>, implement the function <strong>zip2lists(list1,
+list2)</strong>. This function is passed two lists of strings (<strong>list1</strong> and
+<strong>list2</strong>), where you can assume that both lists both have the same
+length (number of elements). The function should return a
+<strong>new</strong> list that "zips" together the two lists passed in.
+That is, the result should be a list that contains lists that are pairs
+of elements, one from each of the original lists, in order. For example,
+calling:</p>
+
+<p><strong>zip2lists(['a', 'b', 'c'], ['d', 'e', 'f'])</strong></p>
+
+<p>should return the following new list (of lists):</p>
+
+<p><strong>[['a', 'd'], ['b', 'e'], ['c', 'f']]</strong></p>
+
+<p>The original lists passed in should [not]{.underline} be changed. If
+this function is passed two empty lists, it should just return an empty
+list, since there would be no lists (of pairs) in the result. In other
+words, calling:</p>
+
+<p><strong>zip2lists([], [])</strong></p>
+
+<p>should return the following empty list:</p>
+
+<p><strong>[]</strong></p>
+
+<p>You can think of that as a list that contains no lists as elements.</p>
+
+<p>Doctests are provided for you to test your <strong>zip2lists</strong> function. Feel
+free to write additional doctests if you would like to more thoroughly
+test your code.</p>
+
+<h3 id="sandcastle-2-strings">Sandcastle 2: Strings</h3>
+
+<p>A simple means for trying to compress text with many repeated characters
+is to use something known as <em>run-length encoding</em>. The idea is that
+rather than representing every character in a string explicitly, we
+instead simply have each character immediately followed by a digit which
+denotes how many times that character should be repeated. For example,
+the string <strong>'B4'</strong> would represent the string <strong>'BBBB'</strong> as the
+character <strong>B</strong> is to be repeated 4 times. Similarly, the string
+<strong>'m1e2t1'</strong> would represent <strong>'meet'</strong>, as the character <strong>m</strong> is
+to be repeated 1 time, followed by the character <strong>e</strong> which is to be
+repeated 2 times, followed by the character <strong>t</strong> is to be repeated 1
+time. Thus, the general format for run-length encoded strings is a
+series of pairs, where each pair contains a [single]{.underline}
+character followed immediately by a [single]{.underline} digit (1
+through 9 only, the digit will never be 0). The digit denotes the number
+of consecutive occurrences of the character immediately before it in the
+encoded string.</p>
+
+<p>Your job is to write a function named <strong>expand_encoded_string</strong> in the
+file <strong>encoded_string.py</strong> that takes as a parameter a called
+<strong>encoded</strong>, which is a string representing the run-length encoded text,
+and returns a string which is the expanded version of the text.</p>
+
+<p>For example, if you call:</p>
+
+<p><strong>expand_encoded_string('B1o2k2e2p1e1r1!3')</strong></p>
+
+<p>your function should return the string:</p>
+
+<p><strong>'Bookkeeper!!!'</strong></p>
+
+<p>as the result.</p>
+
+<h2 id="part-2-graphics--drawing-a-pyramid">Part 2: Graphics – drawing a Pyramid</h2>
+
+<p>In the file <strong>pyramid.py</strong>, write a function <strong>draw_pyramid</strong> that draws
+a pyramid consisting of bricks arranged in horizontal rows, so that the
+number of bricks in each row decreases by one as you move up the
+pyramid. A sample run is shown below.</p>
+
+<p><img src="./CS106A Handout 11 - Assignment 4_files/11image1.png" alt=""></p>
+
+<p>The pyramid should be <strong>centered</strong> at the bottom of the
+drawing canvas and should use constants for the following parameters:</p>
+
+<p><strong>BRICK_WIDTH</strong> The width of each brick (30 pixels)
+<strong>BRICK_HEIGHT</strong> The height of each brick (12 pixels)
+<strong>BRICKS_IN_BASE</strong> The number of bricks in the base (14)</p>
+
+<p>The numbers in parentheses show the values for the pyramid image shown
+above. You should write your program so that, if the constant values
+were different, the pyramid drawn would reflect the values in those
+constants (i.e., brick sizes or the number of bricks in the base could
+be different).</p>
+
+<p>Note that in the picture above, there is a blue line at the bottom of
+the canvas. You do <strong>not</strong> need to draw that line. It is automatically
+drawn by the starter code we give you to show you where the <strong>bottom on
+the drawing canvas</strong> is (since it doesn't correspond to the
+bottom of the graphics window).</p>
+
+<h2 id="part-3-sand">Part 3: Sand</h2>
+
+<p>For the third part of this assignment, you will write a program called
+<strong>sand.py</strong>, that uses 2-dimensional lists to to implement a kind of
+2-dimensional (grid) world of sand. When the program is working, it's
+kind of fun to play and watch (in its low-key way).</p>
+
+<p>The starter code handles setting up the program window with a user
+interface, handling the controls and drawing, that allows the user to
+interact with the program, and. Although the implementation of the user
+interface (including the drawing) is provided for you, all the logic
+that makes the world work will be built by you. Here's a screen shot so
+you'll have some early sense of what you will be building:</p>
+
+<p><img src="./CS106A Handout 11 - Assignment 4_files/11image2.png" alt="alt: sand window showing open space, rock, falling
+sand"></p>
+
+<h3 id="decomposition"><strong>Decomposition</strong></h3>
+
+<p>This is a big program, and we want the advantage of using decomposition
+to solve this problem in bite-sized chunks. So, we will build the
+program up as a series of decomposed functions. We can leverage Python
+Doctests, testing each function in isolation before moving on to the
+larger functions. You need to write 5 functions to make the program
+work.</p>
+
+<h3 id="2-dimensional-list"><strong>2-Dimensional list</strong></h3>
+
+<p>The Sand world is represented using a 2-dimensional list (i.e., list of
+lists) that is treated as a grid to keep track of the elements in the
+Sand world. Each element (which you can think of as a square) in the
+Sand world holds one (and only one) of three things:</p>
+
+<ol>
+  <li>
+    <p><strong>Sand</strong>, represented by the string <strong>'s'</strong></p>
+  </li>
+  <li>
+    <p><strong>Rock</strong>, represented by the string <strong>'r'</strong></p>
+  </li>
+  <li>
+    <p><strong>Empty</strong>, represented by <strong>None</strong>. (This is the Python's
+<strong>None</strong>, not a string)</p>
+  </li>
+</ol>
+
+<p>Here is a visual representation of a 3 by 2 grid (i.e., list of lists)
+with some rocks and one sand. The sand <strong>'s'</strong> is in the 0th row, 1st
+column (equivalently, x = 1, y = 0. Recall that y represents the row
+number and x is the column number). The 0th row (y = 0) is the top row.</p>
+
+<p><img src="./CS106A Handout 11 - Assignment 4_files/11image00.png" alt=""></p>
+
+<p>This visual representation of a grid would actually be represented by a
+list of lists, as follows:</p>
+
+<p><strong>[['r', 's', 'r'], ['r', None, 'r']]</strong></p>
+
+<p>Note the use of <strong>None</strong> to denote the blank cell in the grid.</p>
+
+<p>If we move the sand (<strong>'s'</strong>) down from row 0, column 1 (x = 1, y = 0)
+to row 1, column 1 (x = 1, y = 1) the grid would looks like this:</p>
+
+<p><img src="./CS106A Handout 11 - Assignment 4_files/11image0.png" alt=""></p>
+
+<p>This grid would be represented by the list of lists, as:</p>
+
+<p><strong>[['r', None, 'r'], ['r', 's', 'r']]</strong></p>
+
+<p>Moving sand down by one square like this is the central operation of
+this game.</p>
+
+<p>You should write your code in the following five stages:</p>
+
+<ol>
+  <li>
+    <p><strong>Task: Moving elements in the grid</strong></p>
+
+    <p>Function: <strong>do_move(grid, x1, y1, x2, y2)</strong></p>
+
+    <p>Write the code for the do_move function.  This function is passed a grid (list of lists, representing the sand world, as described above) and two x, y coordinate pairs: x1, y1 and x2, y2. The function should update the grid by moving the contents of the grid element at position x1, y1 into the element at position x2, y2 (overwriting whatever value might have previously been there).  That means you should also update the element at position x1, y1 to reflect that this cell in the grid is now Empty.  You can assume that your function is only called with parameters for "legal" moves, that is, you can assume that all coordinates given to you are in the bounds of the grid and that the element at position x2, y2 starts Empty.  Your function should return the updated grid.  You may be wondering why your function needs to return the updated grid if changes you make to the grid parameter will persist after this function is done.  The reason is that we provide Doctests for your function and these tests work by examining what is returned by the function.  So, for the Doctests to work, your function needs to return the updated grid.  You should use these Doctests to test that your implementation works before you move on.</p>
+
+    <p>The code for do_move is short, but it is good example of using Doctests to try out test cases. In this case, the two Doctests are provided.  Feel free to add others to more thoroughly test your code.  Doctest pro-tip: you can run a Doctest by right-clicking (on PC) or Ctrl-clicking (on Mac) on the Doctest text in PyCharm and selecting the "Run Doctest …" option from the menu that pops up. Running a Doctest again and again is the common pattern as you work out each function.</p>
+
+    <p>For example, the first Doctest (shown below) tests moving the 's' at the location (x = 1, y = 0) down to location (x = 1, y = 1).</p>
+
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <p>grid = [['r', 's', 's'], [None, None, None]]
+do_move(grid, 1, 0, 1, 1)
+ [['r', None, 's'], [None, 's', None]]</p>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+
+    <p>Here is what the three lines of the Doctest do:</p>
+
+    <ol>
+      <li>
+        <p><strong>grid = [['r', 's', 's'], [None, None, None]]</strong> This sets up a grid variable for the next 2 lines. The grid is tiny: width is 3 and height is 2, just enough to write a little test.</p>
+      </li>
+      <li>
+        <p><strong>do_move(grid, 1, 0, 1, 1)</strong> This line calls your do_move function, moving the 's' at location (1,0) to location (1,1). The function returns the changed grid.</p>
+      </li>
+      <li>
+        <p>The third line shows what the grid should look like post-move: [['r', None, 's'], [None, 's', None]] The Doctest machinery verifies that the result returned by the do_move function matches this written state.</p>
+      </li>
+    </ol>
+
+    <p><strong>IMPORTANT NOTE (definitely read this and understand it before writing your code for this assignment)</strong>: Recall that when you access elements of a lists of lists, the first index represents the row, which is the y coordinate.  The second index represents the column, which is the x coordinate.  That's in the reverse order than we usually think of when dealing with (x, y) coordinates.  To be more explicit, to access the element at location (x = 1, y = 0), you would refer to grid[0][1].  Note that the coordinates are in reverse order from how you might think to write them (the y coordinate comes first, then the x coordinate).  It's important to keep this point clear while you are developing your code for this assignment.</p>
+  </li>
+  <li>
+    <p><strong>Task: Checking legal moves</strong></p>
+
+    <p>Function: <strong>check_move(grid, x1, y1, x2, y2)</strong></p>
+
+    <p>Write the code for the <strong>check_move</strong> function. The <strong>check_move</strong>
+function is given a prospective starting (<strong>x1,y1</strong>) location and ending
+(<strong>x2,y2</strong>) for a potential move, and returns <strong>True</strong> if the move is
+okay, or <strong>False</strong> otherwise. The grid is <strong>not</strong> changed by
+this operation.</p>
+
+    <p>Here are the comments describing what the <strong>check_move</strong> function does:</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">check_move</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
+  <span class="s">"""
+  Given grid, starting point (x1,y1) and destination (x2,y2).
+  Check if it's possible to move the value at (x1,y1) to (x2,y2).
+  The (x1,y1) location is always in bounds of the grid, but (x2,y2)
+  may not be.
+  Return True if the move is okay, or False otherwise.
+  Okay move: (x2,y2) in bounds, empty, and not violating corner rule.
+  """</span>
+</code></pre></div>    </div>
+
+    <p>We'll call location <strong>(x2,y2)</strong> the "destination" of the move. In the
+Sand world, there are five possible moves: left, right, down, down-left,
+and down-right. Here are the rules for a legal move:</p>
+
+    <p><strong>Rule 1</strong>. The destination must be within the edges of
+the grid.</p>
+
+    <p>Three Doctests for this rule are provided. These tests build a 1 row by
+1 column grid, checking that a few out-of-bounds moves return <strong>False</strong>.</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="c1"># Provided out-of-bounds tests
+</span><span class="o">&gt;&gt;&gt;</span> <span class="c1"># Make a 1 by 1 grid with an 's' in it to check in-bounds cases
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">grid</span> <span class="o">=</span> <span class="p">[[</span><span class="s">'s'</span><span class="p">]]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">check_move</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># left blocked
+</span><span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">check_move</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># down blocked
+</span><span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">check_move</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># down-right blocked
+</span><span class="bp">False</span>
+</code></pre></div>    </div>
+
+    <p><strong>Rule 2</strong>. The destination square in the grid must be
+empty.</p>
+
+    <p>Consider the situation shown below:</p>
+
+    <p><img src="./CS106A Handout 11 - Assignment 4_files/11image4.PNG" alt=""></p>
+
+    <p>Note: this grid would be represented by a list of lists, as:</p>
+
+    <p><strong>[[None, 's', 'r'], [None, None, None]]</strong></p>
+
+    <p>Above is a picture of a single <strong>'s'</strong> at location (1,0) in a 3 by 2
+grid. The move <em>left</em> to location (0,0) and the move <em>down</em> to
+location (1,1) are both okay (return <strong>True</strong>). The move <em>right</em> to
+location (2,0) is bad, since it's blocked the <strong>'r'</strong> (rock) there
+(return <strong>False</strong>).</p>
+
+    <p><strong>Rule 3</strong>. For a diagonal down-left or down-right move,
+the corner square must be empty (that is, it should contain <strong>None</strong>).</p>
+
+    <p>Consider the down-left and down-right diagonal moves of the <strong>'s'</strong> in
+this situation:</p>
+
+    <p><img src="./CS106A Handout 11 - Assignment 4_files/11image5.png" alt=""></p>
+
+    <p>The "corner" rule: for a down-left or down-right move, the corner
+square <strong>above</strong> the destination must also be empty. So,
+in the picture above, the down-left is okay since location (0,0) is
+empty, but down-right is bad due to the <strong>'r'</strong> (rock) at location
+(2,0). Sand (<strong>'s'</strong>) at location (2,0) would also block the move.</p>
+
+    <p><strong>check_move Doctests</strong></p>
+
+    <p>The starter code includes five tests for left, right, down, down-left
+and down-right moves, respectively, in a 3 by 2 world:</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="c1"># check of left move from (1,0)
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">grid</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">None</span><span class="p">,</span> <span class="s">'s'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">],</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">]]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">check_move</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># left ok
+</span><span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># check of right move from (1,0)
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">check_move</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># right blocked
+</span><span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># check of down move from (1,0)
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">check_move</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># down, ok
+</span><span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># check of down-left move from (1,0)
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">check_move</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># down-left ok, corner rule
+</span><span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># check of down-right move from (1,0)
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">check_move</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># down-right blocked, corner rule
+</span><span class="bp">False</span>
+</code></pre></div>    </div>
+
+    <p>These Doctests will be very helpful for you to find bugs in your code
+before you move on to the next step.</p>
+
+    <p><strong>check_move code</strong></p>
+
+    <p>There are many reasonable ways to structure your code for the
+<strong>check_move</strong> function. Obviously the one requirement is that the
+code returns the correct answer for all cases. Our solution has a
+single <strong>return True</strong> at the bottom of the function, and many <strong>if</strong>
+... <strong>return False</strong> statements detecting the various cases where the
+move is bad. Use the Doctests as you work out the code.</p>
+
+    <p>Note that it's fine to use <strong>==</strong> and <strong>!=</strong> in comparisons like
+this:</p>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+</code></pre></div>    </div>
+    <p>Disregard warnings PyCharm gives you about the line above. The
+warnings, in this case, are misguided. PyCharm is pretty good, but
+it's not perfect.</p>
+  </li>
+  <li>
+    <p><strong>Task: Gravity</strong></p>
+
+    <p>Function: <strong>do_gravity(grid, x, y)</strong></p>
+
+    <p>Write the code for the <strong>do_gravity</strong> function. The <strong>do_gravity</strong>
+function simulates the effect of gravity in the Sand world. Here's the
+basic set-up. Consider an (x,y) location in the grid. This function
+implements one "gravity" move for whatever is at that (x,y) location
+as shown below. In the gravity algorithm, the moves should be handled in
+a specific order:</p>
+
+    <ol>
+      <li>
+        <p>If there is <strong>not</strong> a sand <strong>'s'</strong> at location (x,y), do
+nothing, the move is over.</p>
+      </li>
+      <li>
+        <p><strong>down</strong>: if the sand can move down, do it, this ends the
+move.</p>
+      </li>
+      <li>
+        <p><strong>down-left</strong>: otherwise, if the sand can move down-left,
+do it, this ends the move.</p>
+      </li>
+      <li>
+        <p><strong>down-right</strong>: otherwise, if the sand can move
+down-right, do it, this ends the move.</p>
+      </li>
+    </ol>
+
+    <p>In all cases, <strong>return the grid</strong> when the function is
+done. As we talked about earlier in this assignment, you need to return
+the grid here so that the Doctests for this function work appropriately.</p>
+
+    <p>Use the helper functions you wrote in the previous steps help do the
+work. That is the key to this function. How can you tell if the way is
+clear for the sand to move, for example, down? We provide a rich set of
+Doctests for this function, but of course you still need to write the
+code to actually solve the problem. You are always free to add more
+Doctests if you like.</p>
+
+    <p>The header for the function, comments describing it, and the Doctests
+provided in the starter code are shown below (next page) for reference.</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">do_gravity</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+  <span class="s">"""
+  Given grid and an in-bounds (x,y). If there is a sand at that (x,y)
+  location, then try to make one move, trying them in this order:
+  move down, move down-left, move down-right.
+  Return the grid in all cases.
+  (tests provided)
+  &gt;&gt;&gt; # not sand
+  &gt;&gt;&gt; grid = [[None, 's', None], [None, None, None]]
+  &gt;&gt;&gt; do_gravity(grid, 0, 0)
+  [[None, 's', None], [None, None, None]]
+  &gt;&gt;&gt;
+  &gt;&gt;&gt; # down
+  &gt;&gt;&gt; grid = [[None, 's', None], [None, None, None]]
+  &gt;&gt;&gt; do_gravity(grid, 1, 0)
+  [[None, None, None], [None, 's', None]]
+  &gt;&gt;&gt;
+  &gt;&gt;&gt; # bottom blocked
+  &gt;&gt;&gt; grid = [[None, 's', None], ['r', 'r', 'r']]
+  &gt;&gt;&gt; do_gravity(grid, 1, 0)
+  [[None, 's', None], ['r', 'r', 'r']]
+  &gt;&gt;&gt;
+  &gt;&gt;&gt; # rock-below down-left
+  &gt;&gt;&gt; grid = [[None, 's', None], [None, 'r', None]]
+  &gt;&gt;&gt; do_gravity(grid, 1, 0)
+  [[None, None, None], ['s', 'r', None]]
+  &gt;&gt;&gt;
+  &gt;&gt;&gt; # sand-below down-right
+  &gt;&gt;&gt; grid = [[None, 's', None], ['s', 's', None]]
+  &gt;&gt;&gt; do_gravity(grid, 1, 0)
+  [[None, None, None], ['s', 's', 's']]
+  &gt;&gt;&gt;
+  &gt;&gt;&gt; # sand corner: down-right
+  &gt;&gt;&gt; grid = [['s', 's', None], [None, 's', None]]
+  &gt;&gt;&gt; do_gravity(grid, 1, 0)
+  [['s', None, None], [None, 's', 's']]
+  &gt;&gt;&gt;
+  &gt;&gt;&gt; # at bottom already
+  &gt;&gt;&gt; grid = [[None, None, None], [None, 's', None]]
+  &gt;&gt;&gt; do_gravity(grid, 1, 1)
+  [[None, None, None], [None, 's', None]]
+  """</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>Task: Loop through the whole grid</strong></p>
+
+    <p>Function: <strong>do_whole_grid(grid, brownian)</strong></p>
+
+    <p>The next step is to write the code for the <strong>do_whole_grid</strong> function.
+For the moment, ignore the <strong>brownian</strong> parameter which is handled in a
+later step.</p>
+
+    <p>Write code for the <strong>do_whole_grid</strong> function which just calls
+<strong>do_gravity</strong> once for every (x,y) location in the grid. The function
+should <strong>return the grid</strong> when it is done (again, the
+reason for this is to have some result returned from the function for
+Doctests to compare against). You might consider testing out your code
+for this function by writing some Doctests. For example, you could have
+a test that uses a 3x3 world with sand in just the top row. If you do
+write such Doctests, you could just use the value 0 for the <strong>brownian</strong>
+parameter.</p>
+
+    <p><strong>Important note on looping through the grid</strong>: The
+standard y/x nested <strong>for</strong> loops to loop through the coordinates of a
+grid from the top row downward are usually fine for working with grids.
+However, in this case, it is important to <strong>reverse</strong> the
+y-direction to have the loop go bottom-up. That is, you should visit the
+bottom row (which is at y = height-1) first and the top row (which is at
+y = 0) last. In this situation, it might be helpful to use the
+<strong>reversed</strong> function. The <strong>reversed</strong> function can be applied to a
+<strong>range</strong> to generate the elements of that <strong>range</strong> in
+<strong>reverse order</strong>. Here is an example of using the
+<strong>reversed</strong> function on a <strong>range</strong> in a <strong>for</strong> loop:</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div>    </div>
+
+    <p>The code above would produce the following output:</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">2</span>
+<span class="mi">1</span>
+<span class="mi">0</span>
+</code></pre></div>    </div>
+
+    <p>What's wrong with regular top-down order of going through rows? Suppose
+the loops went top-down, and at row y=0, a sand moved from y=0 down to
+y=1 by gravity. Then when the loop got to y=1, that sand would get to
+move again. Going bottom-up avoids this problem.</p>
+
+    <p>Try testing your <strong>do_whole_grid</strong> function (with Doctest) to see that
+your code is working correctly.</p>
+
+    <p>Note: the <strong>do_whole_grid</strong> function just does <strong>one</strong>
+pass over the whole grid in the Sand world, calling <strong>do_gravity</strong> (and
+later, after you implement the next step, <strong>do_brownian</strong>) a
+<strong>single</strong> time for each square. The provided GUI code
+calls your <strong>do_whole_grid</strong> function again and again (when the gravity
+checkmark is checked) to run the whole simulation.</p>
+
+    <p><strong>Milestone: Run sand.py</strong></p>
+
+    <p>With your functions tested, you can try running the whole program.
+Gravity should work, but "Brownian" is not done yet. Normally when a
+program runs the first time, there are many problems. But here we have
+leaned on decomposition and testing of the pieces as they were built, so
+there is a chance your code will work perfectly the first time. If your
+program works the first time, try to remember the moment. More
+typically, new code is not so well tested and so exhibits many problems
+when run the first time.</p>
+
+    <p>Bring up the terminal and run the program like this (no command line
+arguments are required, on the Mac its "python3"):</p>
+
+    <p><strong>py sand.py</strong></p>
+
+    <p>When the Sand window comes up, you can click (and hold the mouse)
+anywhere in the window to start generating "sand" in the simulation.
+The radio-buttons for "Sand", "Rock", "Erase", and "Big Erase"
+allow you to generated different effects when you select them and the
+click in the window (allowing you to create rocks and also erase
+existing sand/rocks). You can turn on/off Gravity and Brownian motion
+using the respect checkboxes.</p>
+  </li>
+  <li>
+    <p><strong>Task: Create Brownian motion</strong></p>
+
+    <p>Function: <strong>do_brownian(grid, x, y, brownian)</strong></p>
+
+    <p>Now for that last little bit of algorithm. Brownian motion
+(<a href="https://en.wikipedia.org/wiki/Brownian_motion">https://en.wikipedia.org/wiki/Brownian_motion</a>) is a real physical
+process, documented first by Robert Brown, who observed tiny pollen
+grains jiggling around on his microscope slide.</p>
+
+    <p>We'll say that the "Brownian" move for an (x,y) location means that
+there is a probability that sand at that location will randomly move
+just a little bit — one square left or right. The "brownian"
+parameter is an integer (int) in the range 0 to 100 inclusive: 0 means
+never do a brownian move, 100 means always do a brownian move. This
+value is taken in real-time from the little slider at the top of the
+Sand application window. This function does not have tests (randomness
+and tests are an awkward combination).</p>
+
+    <p>Here are the steps for implementing Brownian motion in the sand world:</p>
+
+    <ol>
+      <li>Check if the square is sand. Proceed to the next steps only if it is
+        <blockquote>
+          <p>sand. If it is not sand, the square does not have Brownian motion.</p>
+        </blockquote>
+      </li>
+      <li>Create a random number in the range 0 to 99. Note that the Python
+        <blockquote>
+          <p>function <strong>random.randrange(n)</strong> (from the <strong>random</strong> library)
+returns a random number uniformly distributed in the range from 0
+to n – 1, inclusive. So, you could use the following call:</p>
+          <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</code></pre></div>          </div>
+        </blockquote>
+
+        <p>Proceed to step #3 below only if <strong>num &lt; brownian</strong> (recall that <strong>brownian</strong> is a parameter to this function). In this way, for example, if <strong>brownian</strong> is 50, we'll do the Brownian move about 50% of the time.</p>
+      </li>
+      <li>To try to move left or right, set a "coin" variable like a coin
+        <blockquote>
+          <p>flip with the following line. This line sets <strong>coin</strong> to either 0
+or 1:</p>
+          <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">coin</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>          </div>
+        </blockquote>
+      </li>
+      <li>If <strong>coin</strong> is 0, try to move the sand at the current (x,y) location
+one cell to the <strong>left</strong>. If <strong>coin</strong> is 1, try to move
+the sand at the current (x,y) location one cell
+<strong>right</strong>. Use your helper functions to check if the
+move is possible and then move the sand if the move is legal.
+Don't try both directions. Based on the coin flip, you choose one
+direction for the sand at this location and see if it can move
+(and move it if it can).</li>
+    </ol>
+  </li>
+  <li>
+    <p><strong>Task: Add Brownian motion to do_whole_grid</strong></p>
+
+    <p>After you have completed Task #5 above to implement the <strong>do_brownian</strong>
+function, you should edit the loop body in <strong>do_whole_grid</strong> so that
+<strong>after</strong> calling <strong>do_gravity</strong> for an (x,y) location, it
+also calls <strong>do_brownian</strong> for that (x,y) location.</p>
+
+    <p>Now, try running the Sand program, and make sure the Brownian checkbox
+in the application is switched on. Hopefully, you'll see a lively, less
+artificial look. Play around with the slider (next to the Brownian
+checkbox) to create different levels of Brownian motion.</p>
+  </li>
+</ol>
+
+<h3 id="running-with-different-sizes">Running with Different Sizes</h3>
+
+<p>You can provide two command line arguments (numbers) to specify the
+number of squares wide and high that the grid should be in the Sand
+simulation. The default is 50 by 50 squares. The following line would
+run the Sand simulation using a grid that is 100 by 50 squares:</p>
+
+<p><strong>py sand.py 100 50</strong></p>
+
+<p>An optional third command line argument specifies how many pixels wide
+each square should be. The default value is 14. For example, the
+following line would run the Sand simulation with a 100 by 50 square
+grid, where each square was just 4 pixels:</p>
+
+<p><strong>py sand.py 100 50 4</strong></p>
+
+<p>A sample picture from such a world is shown below.</p>
+
+<p><img src="./CS106A Handout 11 - Assignment 4_files/11image3.png" alt=""></p>
+
+<h3 id="lots-of-computation">Lots of Computation!</h3>
+
+<p>The Sand program is pretty demanding on your computer – it's a lot of
+computation run continuously. You may notice the fans on your laptop
+spinning up. At the upper right of the window is a little gray number,
+which is the frames-per-second (fps) the program is achieving in the
+sand animation at that moment (for example, it is 44 in the picture
+above). The animation has a nice, fluid look when the fps is higher.</p>
+
+<p>The more grid squares there are, and the more grains of sand there are,
+the slower the program runs. For each gravity round, your code needs to
+at least glance at every square and every grain of sand, and we want to
+do that 40 times per second. Play around with different grid and pixel
+sizes to try out the different aesthetics.</p>
+
+<h3 id="reflective-ethics-question">Reflective Ethics Question:</h3>
+
+<p>By completing Sand, you've implemented your own computer simulation. A
+computer simulation is a program designed to emulate or predict the
+behavior of a real-world system or phenomenon using mathematical
+modeling. Computer simulations have been used to model natural systems
+in biology, physics, chemistry, climate science, etc. and human systems
+in economics, psychology, and other social sciences.</p>
+
+<p>As in the last assignment, your new computational abilities raise
+interesting ethical, philosophical and social considerations. Simulating
+complex phenomena requires making simplifying assumptions and choosing
+discrete representations that can be understood and expressed by
+computer systems. In simulations, there are tradeoffs between expressive
+power, breadth of representation, and computational limitations. With
+this in mind, please answer the questions below. All we ask is that you
+think critically and <em>answer the questions to the best of your ability
+in a short paragraph (a few sentences for each of part (a) and (b))</em> in
+the text file <strong>ethics.txt</strong> provided in the Assignment 4 folder.</p>
+
+<p>a.  What simplifying and idealizing assumptions did we ask you to make
+    when working on the Sand portion of this assignment? How did
+    different components of the "real-world system" we were
+    representing get mapped to different computational
+    representations?</p>
+
+<p>b.  What considerations should computer scientists keep in mind when
+    designing computer simulations? What should the programmers of
+    simulations communicate about the idealizing assumptions they made
+    to allow others to understand and evaluate them?</p>
+
+<h3 id="submitting-your-work">Submitting Your Work</h3>
+
+<p>Once you've gotten all the parts of this assignment working,
+congratulations! And with the Sand program, you just built a pretty nice
+simulation with complex logic and some neat output.</p>
+
+<p>Make sure to submit <strong>all</strong> the python files and answers
+for the ethics questions for this assignment on Paperless. You should
+make sure to submit the files:</p>
+
+<ol>
+  <li>ziplists.py</li>
+  <li>encoded_string.py</li>
+  <li>pyramid.py</li>
+  <li>sand.py</li>
+  <li>ethics.txt</li>
+</ol>
+
+<p>Additionally, in the Assignment 4 project folder, we have provided a
+file called <strong>extension.py</strong> that you can use if you want to write any
+extensions that you might want to make based on this assignment. The
+file doesn't contain any useful code to begin with. So, you only need
+to submit the <strong>extension.py</strong> file if you've written some sort of
+extension in that file that you'd like us to see.</p>
+
+<p><strong>Acknowledgements</strong>: The Sand portion of this assignment is based on
+the "Falling Sand" assignment by Dave Feinberg at the Stanford Nifty
+Assignment archive (<a href="http://nifty.stanford.edu/">http://nifty.stanford.edu/</a>). Nick Parlante
+re-built a version of that assignment in Python, adding tests and
+decomposition. The assignment was then modified for use in the current
+CS106A class by your CS106A staff.</p>
+</div>
+        <div class="col-xs-hidden col-md-2"><nav class="fixed-top-right toc" id="toc"><ol class="toc-list "><li class="toc-list-item is-active-li"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html#part-1-sandcastles" class="toc-link node-name--H2  is-active-link">Part 1: Sandcastles</a><ol class="toc-list  is-collapsible"><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html#sandcastle-1-lists-of-lists" class="toc-link node-name--H3 ">Sandcastle 1: Lists of lists</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html#sandcastle-2-strings" class="toc-link node-name--H3 ">Sandcastle 2: Strings</a></li></ol></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html#part-2-graphics--drawing-a-pyramid" class="toc-link node-name--H2 ">Part 2: Graphics – drawing a Pyramid</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html#part-3-sand" class="toc-link node-name--H2 ">Part 3: Sand</a><ol class="toc-list  is-collapsible is-collapsed"><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html#decomposition" class="toc-link node-name--H3 ">Decomposition</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html#2-dimensional-list" class="toc-link node-name--H3 ">2-Dimensional list</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html#running-with-different-sizes" class="toc-link node-name--H3 ">Running with Different Sizes</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html#lots-of-computation" class="toc-link node-name--H3 ">Lots of Computation!</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html#reflective-ethics-question" class="toc-link node-name--H3 ">Reflective Ethics Question:</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html#submitting-your-work" class="toc-link node-name--H3 ">Submitting Your Work</a></li></ol></li></ol></nav></div>
+    </div>
+
+    <script src="./CS106A Handout 11 - Assignment 4_files/tocbot.min.js.download"></script>
+    <link rel="stylesheet" href="./CS106A Handout 11 - Assignment 4_files/tocbot.css">
+
+    <script>
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '#toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '#content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h2, h3, h4',
+      });
+    </script>
+
+
+
+</div>
+
+<style>
+    p.attribution {
+        font-style: italic;
+        font-size: 80%;
+        text-align: right;
+    }
+    .body-container {
+        margin: 0 10%;
+        max-width: 55em;
+        width: 80%;
+    }
+    a.toc-link {
+      color: #aaa !important;
+      font-size: 90%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .fixed-top-right {
+        position: fixed;
+        margin-top: 0;
+        margin-left: 0;
+    }
+</style>
+
+</main>
+    <style>
+#footer {
+    font-size: 70%;
+    color:green;
+    text-align: center;
+    font-style: italic;
+    padding: 5px;
+}
+</style>
+<div id="footer" class="mt-auto">
+    All course materials © Stanford University 2021 <br>
+    Website programming by Julie Zelenski • Styles adapted from Chris Piech •
+    This page last updated 2022-May-08
+</div>
+
+
+  
+
+  <!-- Bootstrap JavaScript -->
+  <script src="./CS106A Handout 11 - Assignment 4_files/bootstrap.min.js.download"></script>
+  <script src="./CS106A Handout 11 - Assignment 4_files/popper.min.js.download"></script>
+
+  <script src="./CS106A Handout 11 - Assignment 4_files/jquery.min.js.download"></script>
+
+
+</body></html>
