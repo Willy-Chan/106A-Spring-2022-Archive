@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<!-- saved from url=(0089)https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="./CS106A Handout 7 - Assignment 2_files/site.css" rel="stylesheet">
+    <!-- jQuery library -->
+    <script src="./CS106A Handout 7 - Assignment 2_files/jquery-3.4.1.min.js.download" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>  CS106A Handout 7 - Assignment 2</title>
+  </head>
+
+  <!-- fill to height of viewport, flex col, footer will be mt-auto -->
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-md navbar-dark" role="navigation">
+  <a class="navbar-brand" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/">🏠CS106A </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html#" aria-haspopup="true" aria-expanded="false"> Handouts </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/01-general-information.html">General Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/02-course-placement.html">Course Placement Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/03-honor-code.html">Honor Code</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/lair.html">LaIR Info</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/about_staff">Teaching Team</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/04-using-karel-with-pycharm.html">Using Karel with Pycharm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/05-assignment1.html">Assignment 1 Karel the Robot</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/06-submitting-assignments.html">Submitting Assignments</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html">Assignment 2 Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html">Assignment 3 Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/09-image-reference.html">Image Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html">Assignment 4</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/10-graphics-reference.html">Graphics Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bluebook-info.html">BlueBook Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html">Practice Midterm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm-solutions.html">Practice Midterm Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/12-assignment5.html">Assignment 5</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/midterm-solutions.html">Midterm Grades and Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/13-contest.html">Graphics/Image Contest</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/biasbars-handout.html">Assignment 6</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html">Assignment 7</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final.html">Final Exam Info and Practice</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html">Practice Final Solutions</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html#" aria-haspopup="true" aria-expanded="false"> Lectures </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+             
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/01-welcome/">  1.  3/28 Welcome! </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/02-control-flow/">  2.  3/30 Control Flow </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/03-decomposition/">  3.  4/1 Decomposition </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/04-intro-python/">  4.  4/4 Intro to Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/05-arithmetic-expressions/">  5.  4/6 Arithmetic Expressions </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/06-control-flow-revisited/">  6.  4/8 Control Flow Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/07-functions-revisited/">  7.  4/11 Functions Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/08-parameters/">  8.  4/13 Parameters </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/09-lists/">  9.  4/15 Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/10-images/">  10.  4/18 Images </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/11-listoflists/">  11.  4/20 Lists of Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/12-canvas/">  12.  4/22 Wrapping Up Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/13-more-graphics/">  13.  4/25 Canvas </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/14-strings/">  14.  4/27 Strings </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/15-files/">  15.  4/29 Files </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/16-dictionaries/">  16.  5/2 Dictionaries </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/17-parsing/">  17.  5/4 Nested Structures </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/18-nested-structures/">  18.  5/9 String Parsing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/19-tuples-sorting/">  19.  5/11 Tuples Sorting </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/20-classes-objects/">  20.  5/13 Classes and Objects </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/21-ethics/">  21.  5/16 Ethics </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/22-memory/">  22.  5/18 Memory </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/23-search-indexing/">  23.  5/20 Search and Indexing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/24-internet/">  24.  5/23 The Internet </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/25-after-106a/">  25.  5/25 Life After CS106A </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/26-advanced-python/">  26.  5/27 Advanced Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/27-wrap-up/">  27.  6/1 Wrap Up </a>
+                
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html#" aria-haspopup="true" aria-expanded="false"> Assignments </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSdN6415WaOi5C0bzlRysKuAEZJbAtN920JmrdeRz-EfXtaydg/viewform">Assignment 0</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/1-Karel">Assignment 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/2-KhansoleCompute">Assignment 2 - Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/3-ListImages">Assignment 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/4-Sand">Assignment 4 - Lists of Lists, Strings, Graphics, and Sand</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/5-WordGuess">Assignment 5 - Strings &amp; Word Guessing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/6-BiasBars">Assignment 6 - Dictionaries &amp; BiasBars</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/7-Bajillion">Assignment 7 - Bajillion</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/8-Contest">Graphics/Image Contest</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html#" aria-haspopup="true" aria-expanded="false"> Sections </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://cs198.stanford.edu/cs198/auth/default.aspx">Section Portal</a>
+            
+            
+             <div class="dropdown-divider"></div>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section1">Section 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2">Section 2 - Variables &amp; Control Flow</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3">Section 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section4">Section 4 - Lists of Lists &amp; Strings</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5">Section 5 - File Reading &amp; Nested Structures</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6">Section 6 - Dictionaries &amp; Drawing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7">Section 7 - Sorting, OOP, &amp; Memory</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8">Section 8 - Final Exam Review</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item"><a class="nav-link" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/schedule.html">🗓Schedule</a></li>
+        
+      
+    </ul>
+    <!---
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" id="search-text" name="query" placeholder="🔍 Search CS106B..." aria-label="Search" action="search">
+    </form>
+    --->
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    margin-bottom: 2rem;
+  }
+  .navbar-dark {
+    background-color: #444;
+  }
+ .nav-item > a {
+    text-transform: uppercase;
+    letter-spacing: .08rem;
+    font-size: small;
+    color: #bbb !important;
+  }
+  .nav-item > a:hover {
+    color: white !important;
+  }
+</style>
+    
+    <main class="main container-fluid" role="main"><div class="body-container container-fluid" data-spy="scroll" data-target="#toc">
+
+<h1 class="title">Handout 7 - Assignment 2</h1>
+
+<hr>
+
+<p class="attribution">
+ Written by Mehran Sahami
+</p>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-10" id="content" <=""><p>April 8, 2022</p>
+
+<h1 id="assignment-2-khan-sole-academy-and-computing-interest">Assignment #2: Khan-sole Academy and Computing Interest</h1>
+
+<p><strong>Due: 12:15pm (Pacific Time) on Friday, April 15th</strong></p>
+
+<p><em><sup>Based on problems by Jerry Cain, Eric Roberts, Nick Bowman, Sonja
+Johnson-Yu, Kylie Jue, Chris Piech and current CS106A staff.</sup></em></p>
+
+<p>This assignment consists of multiple short problems to give you practice
+with several different concepts in Python (e.g., variables, control
+structures, etc.) as well as two longer programs. You can download the
+starter code for this project under the "Assignments" tab on the CS106A
+website. The starter project will provide Python files for you to write
+your programs in.</p>
+
+<p>The assignment is broken up into two parts. The first part of the
+assignment will give you practice writing short programs (we call them
+"sandcastles"). In the second part of the assignment, you'll get the
+chance to create two larger programs. In the spirit of learning how to
+code, in this assignment we're going to use code to help others learn!
+The second part of this assignment includes a mini version of
+Khan(-sole) Academy as well as a program to show users how to compute
+interest in a bank account.</p>
+
+<h2 id="part-1-sandcastles">Part 1: Sandcastles</h2>
+
+<p>"Sandcastle" problems are meant to be fairly straightforward and make
+sure you're solid on particular concepts (like control flow, variables,
+and functions) before moving on to writing larger programs. They're kind
+of like building sandcastles in a sandbox – they're meant to be fun to
+do and no one gets hurt. Please make sure you do these six problems
+before moving on to other parts of the assignment.</p>
+
+<ol>
+  <li>For this problem, you will be tracing some code (below) by hand.
+    <blockquote>
+      <p><strong>Please try doing this by hand rather than plugging it into
+PyCharm.</strong> What is printed to the console when the following
+function call is made? Put your answer in the file <strong>trace.txt</strong>
+provided in the Assignment 2 folder.</p>
+    </blockquote>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""
+This program is just meant to test your understanding
+of variables, control flow, and functions.
+"""</span>
+
+<span class="k">def</span> <span class="nf">mystery</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">-</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"x = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">mystery</span><span class="p">()</span>
+        <span class="n">x</span> <span class="o">*=</span> <span class="mi">2</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"x = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Write a program in the file <strong>subtract_numbers.py</strong> that reads two
+<strong><em>real numbers</em></strong> from the user and prints the first number minus
+the second number. You can assume the user will always enter valid
+real numbers as input (negative values are fine). Yes, we know this
+problem is really similar to a problem we did in class – that's why
+this problem is a sandcastle! A sample run of the program is shown
+below (user input is in <strong><em>italics</em></strong>):</p>
+
+    <blockquote>
+      <p><strong>This program subtracts one number from another.</strong></p>
+
+      <p><strong>Enter first number: <em>5.5</em></strong></p>
+
+      <p><strong>Enter second number: <em>2.1</em></strong></p>
+
+      <p><strong>The result is 3.4.</strong></p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Write a program in the file <strong>liftoff.py</strong> that prints out the calls for a spaceship that is about to
+launch. Countdown the numbers from 10 to 1 and then write "Liftoff!" Your program should include a <strong>for</strong> loop using <strong>range</strong>. A sample run of the program is below.</p>
+
+    <blockquote>
+      <p><strong>10</strong></p>
+
+      <p><strong>9</strong></p>
+
+      <p><strong>8</strong></p>
+
+      <p><strong>7</strong></p>
+
+      <p><strong>6</strong></p>
+
+      <p><strong>5</strong></p>
+
+      <p><strong>4</strong></p>
+
+      <p><strong>3</strong></p>
+
+      <p><strong>2</strong></p>
+
+      <p><strong>1</strong></p>
+
+      <p><strong>Liftoff!</strong></p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Write a program in the file <strong>random_numbers.py</strong> that prints 10
+random integers (each random integer should have a value between 0
+and 100, inclusive). Your program should use a constant named
+<strong>NUM_RANDOM</strong> (with a value of 10), which determines the number of
+random numbers to print. Your program should also use constants
+named <strong>MIN_RANDOM</strong> and <strong>MAX_RANDOM</strong> to determine the minimal and
+maximal values of the random numbers generated (with respective
+values 0 and 100). To generate random numbers, you should use the
+function <strong>random.randint()</strong> from Python's <strong>random</strong> library
+(which we discussed in class). A sample run of the program is shown
+below.</p>
+
+    <blockquote>
+      <p><strong>35</strong></p>
+
+      <p><strong>10</strong></p>
+
+      <p><strong>45</strong></p>
+
+      <p><strong>59</strong></p>
+
+      <p><strong>45</strong></p>
+
+      <p><strong>100</strong></p>
+
+      <p><strong>8</strong></p>
+
+      <p><strong>31</strong></p>
+
+      <p><strong>48</strong></p>
+
+      <p><strong>6</strong></p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Humans first landed on the moon on July 20, 1969. (No, the moon
+landing was not faked.) People have often wondered how much they
+would weigh if they were on the moon. It turns out that on the moon,
+you would weigh 16.5% of your weight on Earth. Write a program
+<strong>moon_weight.py</strong> that asks the user for their weight (you can
+assume a real-valued input is given by the user) and prints out
+their weight on the moon. If the user enters a negative value (yes,
+they're being mean and trying to break your program), you should
+just print out that weights can't be negative. Remember when writing
+your solution, that it's good programming style to use
+<strong>constants</strong> where appropriate. Two sample runs of the
+program are shown below (user input is in <strong><em>italics</em></strong>).</p>
+
+    <p>Sample run 1 (note the imprecision of floating-point numbers in the
+answer)</p>
+
+    <p><strong>Enter your weight: <em>165.3</em></strong></p>
+
+    <p><strong>Your weight on the moon is 27.274500000000003</strong></p>
+
+    <p>Sample run 2</p>
+
+    <p><strong>Enter your weight: <em>-13</em></strong></p>
+
+    <p><strong>Sorry, you can't have a negative weight.</strong></p>
+  </li>
+  <li>
+    <p>In geometry, you learned the Pythagorean theorem for the
+relationship among the lengths of the three sides of a right
+triangle:</p>
+
+    <p><img src="./CS106A Handout 7 - Assignment 2_files/07-image1.png" alt=""></p>
+
+    <p>which can alternatively be written as:</p>
+
+    <p><img src="./CS106A Handout 7 - Assignment 2_files/07-image2.png" alt=""></p>
+
+    <p>Write a program in the file <strong>pythagorean.py</strong> that gets two values for <strong>a</strong> and <strong>b</strong> as floats (you can assume that <strong>a</strong> and <strong>b</strong> will be positive real values) from the user and then calculates the solution of <strong>c</strong> and prints it. Recall that to compute square roots, you can use the function <strong>math.sqrt()</strong> from Python's <strong>math</strong> library (which we discussed in class). A sample run of the program is shown below (user input is in <strong><em>italics</em></strong>):</p>
+
+    <p><strong>Enter values to compute the Pythagorean theorem.</strong></p>
+
+    <p>a: <em>9.7</em></p>
+
+    <p>b: <em>3.2</em></p>
+
+    <p>c = 10.21420579389313</p>
+  </li>
+</ol>
+
+<h2 id="part-2-longer-programs">Part 2: Longer programs</h2>
+
+<ol>
+  <li>
+    <p><strong>Khan-sole Academy</strong></p>
+
+    <p>Now that you've seen how programming can help us in a number of
+different areas, it's time for you to implement Khan-sole Academy—a
+program that helps other people learn! In this problem, you'll write a
+program in the file <strong>khansole_academy.py</strong> that randomly generates
+simple addition problems for the user, reads in the answer from the
+user, and then checks to see if they got it right or wrong, until the
+user appears to have mastered the material.</p>
+
+    <p>More specifically, your program should be able to generate simple
+addition problems that involve adding two 2-digit integers (i.e., the
+numbers 10 through 99). The user should be asked for an answer to each
+problem. Your program should determine if the answer was correct or not,
+and give the user an appropriate message to let them know. Your program
+should keep giving the user problems until the user has gotten 3
+problems <strong>correct in a row</strong>. (Note: the number of
+problems the user needs to get correctly in a row to complete the
+program is just one example of a good place to specify a constant in
+your program).</p>
+
+    <p>A sample run of the program is shown below (user input is in
+<strong><em>italics</em></strong>).</p>
+
+    <p><strong>What is 51 + 79?</strong></p>
+
+    <p><strong>Your answer: <em>120</em></strong></p>
+
+    <p><strong>Incorrect. The expected answer is 130</strong></p>
+
+    <p><strong>What is 33 + 19?</strong></p>
+
+    <p><strong>Your answer: <em>42</em></strong></p>
+
+    <p><strong>Incorrect. The expected answer is 52</strong></p>
+
+    <p><strong>What is 55 + 11?</strong></p>
+
+    <p><strong>Your answer: <em>66</em></strong></p>
+
+    <p><strong>Correct! You've gotten 1 correct in a row.</strong></p>
+
+    <p><strong>What is 84 + 25?</strong></p>
+
+    <p><strong>Your answer: <em>109</em></strong></p>
+
+    <p><strong>Correct! You've gotten 2 correct in a row.</strong></p>
+
+    <p><strong>What is 26 + 58?</strong></p>
+
+    <p><strong>Your answer: 74</strong></p>
+
+    <p><strong>Incorrect. The expected answer is 84</strong></p>
+
+    <p><strong>What is 98 + 85?</strong></p>
+
+    <p><strong>Your answer: <em>183</em></strong></p>
+
+    <p><strong>Correct! You've gotten 1 correct in a row.</strong></p>
+
+    <p><strong>What is 79 + 66?</strong></p>
+
+    <p><strong>Your answer: <em>145</em></strong></p>
+
+    <p><strong>Correct! You've gotten 2 correct in a row.</strong></p>
+
+    <p><strong>What is 97 + 20?</strong></p>
+
+    <p><strong>Your answer: <em>117</em></strong></p>
+
+    <p><strong>Correct! You've gotten 3 correct in a row.</strong></p>
+
+    <p><strong>Congratulations! You mastered addition.</strong></p>
+
+    <p>As a side note, one of the earliest programs Mehran wrote (with his
+friend Matthew) when he was first learning how to program was very
+similar to Khansole Academy. It was called "M&amp;M's Math Puzzles." It was
+written in a language named BASIC on a computer that had 4K of memory
+(that's 4 Kilobytes) and used cassette tapes (the same kind used for
+music in the 1970's) to store information. Yeah, Mehran is old.</p>
+  </li>
+  <li>
+    <p><strong>Computing Interest</strong></p>
+
+    <p>We want to write a program <strong>compute_interest.py</strong> that helps a user
+compute how much interest their bank account will accrue over time. The
+program starts by asking the user for an initial account balance, which
+is entered as a float (you can assume a positive real-value is entered).
+The program then asks the user for a starting year and month as well as
+an ending year and month, all entered as integers. The program then asks
+the user for a monthly interest rate. For example, a 2% interest rate
+would be entered by the user as the value 0.02.</p>
+
+    <p>The program should print out the monthly balance in the account from the
+starting year/month up to and including the ending year/month with
+<strong>interest accruing monthly</strong>. The amount of interest earned
+each month is simply the amount in the account in that month multiplied
+by the interest rate entered by the user. So (using a 2% interest rate)
+an account with $1000.00 at the start of the month would earn $20.00
+that month and have a total of $1020.00 at the start of the next month.</p>
+
+    <p>After printing the monthly balance projection, your program should then
+repeat the process of asking the user for a new interest rate and
+printing the monthly balance in the account using the same starting
+account balance, starting year/month, and ending year/month as the user
+<em>initially</em> entered in the program. The program should end
+if the user specifies a monthly interest rate of 0%.</p>
+
+    <p>You can assume that the user will always enter a valid (i.e., positive)
+value for the start/end year and an integer from 1 to 12 for the
+start/end month. If the starting year/month is the <em>same as or
+after</em> the ending year/month, your program should not ask
+for an interest rate, but rather simply print "Starting date needs to be
+before the ending date." and then end without an error.</p>
+
+    <p>The values for the initial balance, the starting year/month, and the
+ending year/month are entered by the user. The monthly balance is simply
+printed as a float, so you don't have to worry about rounding to the
+nearest cent.</p>
+
+    <p>Remember that it's a good idea to decompose your program and use
+parameters with functions as needed to pass information around your
+program. That's really part of good programming style.</p>
+
+    <p>Two sample runs of the program are shown below (user input is in
+<strong><em>italics</em></strong>).</p>
+
+    <p><strong>Sample run 1</strong> (showing what happens if the user enters a starts
+year/month that is <em>after</em> the ending year/month. Note the program
+simply ends without asking for an interest rate.)</p>
+
+    <p><strong>Initial balance: <em>500.00</em></strong></p>
+
+    <p><strong>Start year: <em>2020</em></strong></p>
+
+    <p><strong>Start month: <em>9</em></strong></p>
+
+    <p><strong>End year: <em>2019</em></strong></p>
+
+    <p><strong>End month: <em>10</em></strong></p>
+
+    <p><strong>Starting date needs to be before the ending date.</strong></p>
+
+    <p><strong>Sample run 2</strong></p>
+
+    <p><strong>Initial balance: <em>1000.00</em></strong></p>
+
+    <p><strong>Start year: <em>2022</em></strong></p>
+
+    <p><strong>Start month: <em>5</em></strong></p>
+
+    <p><strong>End year: <em>2024</em></strong></p>
+
+    <p><strong>End month: <em>3</em></strong></p>
+
+    <p><strong>Interest rate (0 to quit): <em>0.02</em></strong></p>
+
+    <p><strong>Year 2022, month 5 balance: 1000.0</strong></p>
+
+    <p><strong>Year 2022, month 6 balance: 1020.0</strong></p>
+
+    <p><strong>Year 2022, month 7 balance: 1040.4</strong></p>
+
+    <p><strong>Year 2022, month 8 balance: 1061.208</strong></p>
+
+    <p><strong>Year 2022, month 9 balance: 1082.43216</strong></p>
+
+    <p><strong>Year 2022, month 10 balance: 1104.0808032</strong></p>
+
+    <p><strong>Year 2022, month 11 balance: 1126.162419264</strong></p>
+
+    <p><strong>Year 2022, month 12 balance: 1148.6856676492798</strong></p>
+
+    <p><strong>Year 2023, month 1 balance: 1171.6593810022655</strong></p>
+
+    <p><strong>Year 2023, month 2 balance: 1195.0925686223109</strong></p>
+
+    <p><strong>Year 2023, month 3 balance: 1218.994419994757</strong></p>
+
+    <p><strong>Year 2023, month 4 balance: 1243.3743083946522</strong></p>
+
+    <p><strong>Year 2023, month 5 balance: 1268.2417945625452</strong></p>
+
+    <p><strong>Year 2023, month 6 balance: 1293.6066304537962</strong></p>
+
+    <p><strong>Year 2023, month 7 balance: 1319.478763062872</strong></p>
+
+    <p><strong>Year 2023, month 8 balance: 1345.8683383241296</strong></p>
+
+    <p><strong>Year 2023, month 9 balance: 1372.7857050906123</strong></p>
+
+    <p><strong>Year 2023, month 10 balance: 1400.2414191924245</strong></p>
+
+    <p><strong>Year 2023, month 11 balance: 1428.246247576273</strong></p>
+
+    <p><strong>Year 2023, month 12 balance: 1456.8111725277984</strong></p>
+
+    <p><strong>Year 2024, month 1 balance: 1485.9473959783543</strong></p>
+
+    <p><strong>Year 2024, month 2 balance: 1515.6663438979213</strong></p>
+
+    <p><strong>Year 2024, month 3 balance: 1545.9796707758796</strong></p>
+
+    <p><strong>Interest rate (0 to quit): <em>0.05</em></strong></p>
+
+    <p><strong>Year 2022, month 5 balance: 1000.0</strong></p>
+
+    <p><strong>Year 2022, month 6 balance: 1050.0</strong></p>
+
+    <p><strong>Year 2022, month 7 balance: 1102.5</strong></p>
+
+    <p><strong>Year 2022, month 8 balance: 1157.625</strong></p>
+
+    <p><strong>Year 2022, month 9 balance: 1215.50625</strong></p>
+
+    <p><strong>Year 2022, month 10 balance: 1276.2815624999998</strong></p>
+
+    <p><strong>Year 2022, month 11 balance: 1340.0956406249998</strong></p>
+
+    <p><strong>Year 2022, month 12 balance: 1407.1004226562497</strong></p>
+
+    <p><strong>Year 2023, month 1 balance: 1477.4554437890622</strong></p>
+
+    <p><strong>Year 2023, month 2 balance: 1551.3282159785153</strong></p>
+
+    <p><strong>Year 2023, month 3 balance: 1628.894626777441</strong></p>
+
+    <p><strong>Year 2023, month 4 balance: 1710.3393581163132</strong></p>
+
+    <p><strong>Year 2023, month 5 balance: 1795.8563260221288</strong></p>
+
+    <p><strong>Year 2023, month 6 balance: 1885.6491423232353</strong></p>
+
+    <p><strong>Year 2023, month 7 balance: 1979.9315994393971</strong></p>
+
+    <p><strong>Year 2023, month 8 balance: 2078.928179411367</strong></p>
+
+    <p><strong>Year 2023, month 9 balance: 2182.8745883819356</strong></p>
+
+    <p><strong>Year 2023, month 10 balance: 2292.0183178010325</strong></p>
+
+    <p><strong>Year 2023, month 11 balance: 2406.619233691084</strong></p>
+
+    <p><strong>Year 2023, month 12 balance: 2526.950195375638</strong></p>
+
+    <p><strong>Year 2024, month 1 balance: 2653.29770514442</strong></p>
+
+    <p><strong>Year 2024, month 2 balance: 2785.962590401641</strong></p>
+
+    <p><strong>Year 2024, month 3 balance: 2925.260719921723</strong></p>
+
+    <p><strong>Interest rate (0 to quit): <em>0</em></strong></p>
+  </li>
+</ol>
+
+<h2 id="possible-extensions">Possible Extensions</h2>
+
+<p>Once you've completed all the required parts of the assignment, you
+might want to consider adding some extensions.</p>
+
+<ol>
+  <li>
+    <p>Extend Khansole Academy</p>
+
+    <p>You could consider extending your Khansole Academy program to, for
+ example, add more problem types (subtraction, multiplication, division,
+ and more). You could also consider problems beyond arithmetic. If you
+ could build your own version of Khansole Academy, what would you use it
+ to help people learn? Be creative and enjoy.</p>
+  </li>
+  <li>
+    <p>Hailstones</p>
+
+    <p>A separate (optional) problem you could consider writing is based on a
+ problem in Douglas Hofstadter's Pulitzer-prize-winning book <em>Gödel,
+ Escher, Bach</em>. That book contains many interesting
+ mathematical puzzles, many of which can be expressed in the form of
+ computer programs. In Chapter XII, Hofstadter mentions a wonderful
+ problem that is well within the scope of what you know. The problem can
+ be expressed as follows:</p>
+
+    <blockquote>
+      <p>Pick some positive integer and call it <em>n</em>.</p>
+
+      <p>If <em>n</em> is even, divide it by two.</p>
+
+      <p>If <em>n</em> is odd, multiply it by three and add one.</p>
+
+      <p>Continue this process until <em>n</em> is equal to one.</p>
+    </blockquote>
+
+    <p>On page 401 of the Vintage edition of his book, Hofstadter illustrates
+ this process with thfollowing example, starting with the number 15:</p>
+
+    <p>15 is odd, so I make 3<em>n</em>+1: 46</p>
+
+    <p>46 is even, so I take half: 23</p>
+
+    <p>23 is odd, so I make 3<em>n</em>+1: 70</p>
+
+    <p>70 is even, so I take half: 35</p>
+
+    <p>35 is odd, so I make 3<em>n</em>+1: 106</p>
+
+    <p>106 is even, so I take half: 53</p>
+
+    <p>53 is odd, so I make 3<em>n</em>+1: 160</p>
+
+    <p>160 is even, so I take half: 80</p>
+
+    <p>80 is even, so I take half: 40</p>
+
+    <p>40 is even, so I take half: 20</p>
+
+    <p>20 is even, so I take half: 10</p>
+
+    <p>10 is even, so I take half: 5</p>
+
+    <p>5 is odd, so I make 3<em>n</em>+1: 16</p>
+
+    <p>16 is even, so I take half: 8</p>
+
+    <p>8 is even, so I take half: 4</p>
+
+    <p>4 is even, so I take half: 2</p>
+
+    <p>2 is even, so I take half: 1</p>
+
+    <p>As you can see from this example, the numbers go up and down, but
+ eventually—at least for all numbers that have ever been tried—comes
+ down to end in 1. In some respects, this process is reminiscent of the
+ formation of hailstones, which get carried upward by the winds over and
+ over again before they finally descend to the ground. Because of this
+ analogy, this sequence of numbers is usually called the <strong>Hailstone
+ sequence,</strong> although it goes by many other names as well.</p>
+
+    <p>You might want to write a Python program that reads in a number from the
+ user and then displays the Hailstone sequence for that number, just as
+ in Hofstadter's book, followed by a line showing the number of steps
+ taken to reach 1. For example, here's a sample run of what such a
+ program might look like (user input is in <strong><em>italics</em></strong>):</p>
+
+    <p><strong>Enter a number: <em>17</em></strong></p>
+
+    <p><strong>17 is odd, so I make 3n + 1: 52</strong></p>
+
+    <p><strong>52 is even, so I take half: 26</strong></p>
+
+    <p><strong>26 is even, so I take half: 13</strong></p>
+
+    <p><strong>13 is odd, so I make 3n + 1: 40</strong></p>
+
+    <p><strong>40 is even, so I take half: 20</strong></p>
+
+    <p><strong>20 is even, so I take half: 10</strong></p>
+
+    <p><strong>10 is even, so I take half: 5</strong></p>
+
+    <p><strong>5 is odd, so I make 3n + 1: 16</strong></p>
+
+    <p><strong>16 is even, so I take half: 8</strong></p>
+
+    <p><strong>8 is even, so I take half: 4</strong></p>
+
+    <p><strong>4 is even, so I take half: 2</strong></p>
+
+    <p><strong>2 is even, so I take half: 1</strong></p>
+
+    <p><strong>The process took 12 steps to reach 1</strong></p>
+  </li>
+</ol>
+</div>
+        <div class="col-xs-hidden col-md-2"><nav class="fixed-top-right toc" id="toc"><ol class="toc-list "><li class="toc-list-item is-active-li"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html#part-1-sandcastles" class="toc-link node-name--H2  is-active-link">Part 1: Sandcastles</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html#part-2-longer-programs" class="toc-link node-name--H2 ">Part 2: Longer programs</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html#possible-extensions" class="toc-link node-name--H2 ">Possible Extensions</a></li></ol></nav></div>
+    </div>
+
+    <script src="./CS106A Handout 7 - Assignment 2_files/tocbot.min.js.download"></script>
+    <link rel="stylesheet" href="./CS106A Handout 7 - Assignment 2_files/tocbot.css">
+
+    <script>
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '#toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '#content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h2, h3, h4',
+      });
+    </script>
+
+
+
+</div>
+
+<style>
+    p.attribution {
+        font-style: italic;
+        font-size: 80%;
+        text-align: right;
+    }
+    .body-container {
+        margin: 0 10%;
+        max-width: 55em;
+        width: 80%;
+    }
+    a.toc-link {
+      color: #aaa !important;
+      font-size: 90%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .fixed-top-right {
+        position: fixed;
+        margin-top: 0;
+        margin-left: 0;
+    }
+</style>
+
+</main>
+    <style>
+#footer {
+    font-size: 70%;
+    color:green;
+    text-align: center;
+    font-style: italic;
+    padding: 5px;
+}
+</style>
+<div id="footer" class="mt-auto">
+    All course materials © Stanford University 2021 <br>
+    Website programming by Julie Zelenski • Styles adapted from Chris Piech •
+    This page last updated 2022-Apr-10
+</div>
+
+
+  
+
+  <!-- Bootstrap JavaScript -->
+  <script src="./CS106A Handout 7 - Assignment 2_files/bootstrap.min.js.download"></script>
+  <script src="./CS106A Handout 7 - Assignment 2_files/popper.min.js.download"></script>
+
+  <script src="./CS106A Handout 7 - Assignment 2_files/jquery.min.js.download"></script>
+
+
+</body></html>

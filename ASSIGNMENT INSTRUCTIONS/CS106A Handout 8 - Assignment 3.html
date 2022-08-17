@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<!-- saved from url=(0089)https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="./CS106A Handout 8 - Assignment 3_files/site.css" rel="stylesheet">
+    <!-- jQuery library -->
+    <script src="./CS106A Handout 8 - Assignment 3_files/jquery-3.4.1.min.js.download" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>  CS106A Handout 8 - Assignment 3</title>
+  </head>
+
+  <!-- fill to height of viewport, flex col, footer will be mt-auto -->
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-md navbar-dark" role="navigation">
+  <a class="navbar-brand" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/">🏠CS106A </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+        
+          <li class="nav-item dropdown show"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html#" aria-haspopup="true" aria-expanded="true"> Handouts </a>
+          <div class="dropdown-menu show" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/01-general-information.html">General Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/02-course-placement.html">Course Placement Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/03-honor-code.html">Honor Code</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/lair.html">LaIR Info</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/about_staff">Teaching Team</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/04-using-karel-with-pycharm.html">Using Karel with Pycharm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/05-assignment1.html">Assignment 1 Karel the Robot</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/06-submitting-assignments.html">Submitting Assignments</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/07-assignment2.html">Assignment 2 Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html">Assignment 3 Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/09-image-reference.html">Image Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/11-assignment4.html">Assignment 4</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/10-graphics-reference.html">Graphics Reference Guide</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bluebook-info.html">BlueBook Information</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm.html">Practice Midterm</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-midterm-solutions.html">Practice Midterm Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/12-assignment5.html">Assignment 5</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/midterm-solutions.html">Midterm Grades and Solutions</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/13-contest.html">Graphics/Image Contest</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/biasbars-handout.html">Assignment 6</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/bajillion.html">Assignment 7</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final.html">Final Exam Info and Practice</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/practice-final-soln.html">Practice Final Solutions</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html#" aria-haspopup="true" aria-expanded="false"> Lectures </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+             
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/01-welcome/">  1.  3/28 Welcome! </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/02-control-flow/">  2.  3/30 Control Flow </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/03-decomposition/">  3.  4/1 Decomposition </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/04-intro-python/">  4.  4/4 Intro to Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/05-arithmetic-expressions/">  5.  4/6 Arithmetic Expressions </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/06-control-flow-revisited/">  6.  4/8 Control Flow Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/07-functions-revisited/">  7.  4/11 Functions Revisited </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/08-parameters/">  8.  4/13 Parameters </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/09-lists/">  9.  4/15 Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/10-images/">  10.  4/18 Images </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/11-listoflists/">  11.  4/20 Lists of Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/12-canvas/">  12.  4/22 Wrapping Up Lists </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/13-more-graphics/">  13.  4/25 Canvas </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/14-strings/">  14.  4/27 Strings </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/15-files/">  15.  4/29 Files </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/16-dictionaries/">  16.  5/2 Dictionaries </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/17-parsing/">  17.  5/4 Nested Structures </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/18-nested-structures/">  18.  5/9 String Parsing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/19-tuples-sorting/">  19.  5/11 Tuples Sorting </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/20-classes-objects/">  20.  5/13 Classes and Objects </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/21-ethics/">  21.  5/16 Ethics </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/22-memory/">  22.  5/18 Memory </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/23-search-indexing/">  23.  5/20 Search and Indexing </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/24-internet/">  24.  5/23 The Internet </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/25-after-106a/">  25.  5/25 Life After CS106A </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/26-advanced-python/">  26.  5/27 Advanced Python </a>
+                
+                  <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/lectures/27-wrap-up/">  27.  6/1 Wrap Up </a>
+                
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html#" aria-haspopup="true" aria-expanded="false"> Assignments </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSdN6415WaOi5C0bzlRysKuAEZJbAtN920JmrdeRz-EfXtaydg/viewform">Assignment 0</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/1-Karel">Assignment 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/2-KhansoleCompute">Assignment 2 - Khan-sole &amp; Compute</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/3-ListImages">Assignment 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/4-Sand">Assignment 4 - Lists of Lists, Strings, Graphics, and Sand</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/5-WordGuess">Assignment 5 - Strings &amp; Word Guessing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/6-BiasBars">Assignment 6 - Dictionaries &amp; BiasBars</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/7-Bajillion">Assignment 7 - Bajillion</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/assignments/8-Contest">Graphics/Image Contest</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html#" aria-haspopup="true" aria-expanded="false"> Sections </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            
+              <a class="dropdown-item" href="https://cs198.stanford.edu/cs198/auth/default.aspx">Section Portal</a>
+            
+            
+             <div class="dropdown-divider"></div>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section1">Section 1 - Karel</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section2">Section 2 - Variables &amp; Control Flow</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section3">Section 3 - Lists &amp; Images</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section4">Section 4 - Lists of Lists &amp; Strings</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section5">Section 5 - File Reading &amp; Nested Structures</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section6">Section 6 - Dictionaries &amp; Drawing</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section7">Section 7 - Sorting, OOP, &amp; Memory</a>
+            
+            
+            
+              <a class="dropdown-item" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/section/section8">Section 8 - Final Exam Review</a>
+            
+            
+          </div>
+          </li>
+        
+      
+        
+          <li class="nav-item"><a class="nav-link" href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/schedule.html">🗓Schedule</a></li>
+        
+      
+    </ul>
+    <!---
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" id="search-text" name="query" placeholder="🔍 Search CS106B..." aria-label="Search" action="search">
+    </form>
+    --->
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    margin-bottom: 2rem;
+  }
+  .navbar-dark {
+    background-color: #444;
+  }
+ .nav-item > a {
+    text-transform: uppercase;
+    letter-spacing: .08rem;
+    font-size: small;
+    color: #bbb !important;
+  }
+  .nav-item > a:hover {
+    color: white !important;
+  }
+</style>
+    
+    <main class="main container-fluid" role="main"><div class="body-container container-fluid" data-spy="scroll" data-target="#toc">
+
+<h1 class="title">Handout 8 - Assignment 3</h1>
+
+<hr>
+
+<p class="attribution">
+ Written by Mehran Sahami
+</p>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-10" id="content" <=""><p>April 15, 2022</p>
+
+<h1 id="assignment-3-lists-and-images">Assignment #3: Lists and Images</h1>
+
+<p><strong>Due: 12:15pm (Pacific Time) on Monday, April 25th</strong></p>
+
+<p><em><sup>Based on problems by Nick Bowman, Sonja Johnson-Yu, Kylie Jue, Nick
+Parlante, Eric Roberts, and the current CS106A staff.</sup></em></p>
+
+<p>This assignment consists of two sets of programs to give you practice
+with lists and images, respectively, in Python. You can download the
+starter code for this project under the "Assignments" tab on the CS106A
+website. The starter project will provide Python files for you to write
+your programs in.</p>
+
+<p>The assignment is broken up into two parts. The first part of the
+assignment focuses on writing a function and a program using lists,
+which you can get started on now. In the second part of the assignment,
+you'll get the chance to do some image manipulation, including a
+sandcastle (warm-up) problem as well as two longer programs to write.
+We'll cover images in class on Monday, April 18th, so you can do the
+second part of the assignment after that.</p>
+
+<p>The handout for this assignment is on the longer side, but don't be
+intimidated by its length! It is long because it's designed to give you
+step-by-step instructions for implementing several cool algorithms and
+also considering their ethical implications!</p>
+
+<h2 id="ethics-in-computing">Ethics in Computing</h2>
+
+<p>As we mentioned at the beginning of the quarter, being a computer
+scientist entails more than just writing code. The Association for
+Computing Machinery's Code of Ethics
+(<a href="https://www.acm.org/code-of-ethics">https://www.acm.org/code-of-ethics</a>) begins, "Computing
+professionals' actions change the world. To act responsibly, they
+should reflect upon the wider impacts of their work, consistently
+supporting the public good." Starting with this assignment (the portion
+on image manipulation), you will put your ethical thinking skills to use
+by reflecting on the potential impacts of your work and how they align
+with your values. The programming fundamentals that you are mastering
+give you the ability to create powerful, expressive, and impressive
+applications – just remember that with great power comes great
+responsibility!</p>
+
+<h2 id="part-1-lists">Part 1: Lists</h2>
+
+<ol>
+  <li>
+    <p><strong>"Sandcastle" (warm-up) problem</strong>
+You should write a function called <strong>greater_than</strong> (in the file <strong>greater_than.py</strong>) that is passed a threshold integer value and a list of integers, and returns a <em>new</em> list which contains only the numbers <em>strictly greater</em> than the threshold value from the original list passed in. For example, if your function was called as follows:</p>
+
+    <p><strong>greater_than(6, [20, 6, 12, -3, 14])</strong></p>
+
+    <p>then it should return the new list:</p>
+
+    <p><strong>[20, 12, 14]</strong></p>
+
+    <p>Note that the 6 in the original list is <strong>not</strong> included in the result
+list since it is not strictly greater than the threshold value, which is 6.</p>
+
+    <p>If your function is called with the empty list (or a list that does not contain any values greater than the threshold value), as follows:</p>
+
+    <p><strong>greater_than(0, [])</strong></p>
+
+    <p>then it should return a new empty list:</p>
+
+    <p><strong>[]</strong></p>
+
+    <p>Doctests are provided for you to test your function. Feel free to write additional doctests if you would like practice with that aspect of Python. Tests for your function are also provided in the <strong>main</strong> function included in the program.</p>
+  </li>
+  <li>
+    <p><strong>Reading values into a list and removing duplicates</strong></p>
+
+    <p>In the file <strong>removeduplicates.py</strong> you should implement two functions. The first, called <strong>read_list()</strong>, asks the user for a series of integers until the user enters 0 to stop. The integers entered by the user (not including the final 0) should be stored in a list that the function should then <em>return</em>. Here is a sample run of the user entering values (user's inputs are in <strong><em>italics</em></strong>) and what the function should return (internally) in the program:</p>
+
+    <p><strong>Enter value (0 to stop): <em>5</em></strong></p>
+
+    <p><strong>Enter value (0 to stop): <em>3</em></strong></p>
+
+    <p><strong>Enter value (0 to stop): <em>6</em></strong></p>
+
+    <p><strong>Enter value (0 to stop): <em>2</em></strong></p>
+
+    <p><strong>Enter value (0 to stop): <em>7</em></strong></p>
+
+    <p><strong>Enter value (0 to stop): <em>6</em></strong></p>
+
+    <p><strong>Enter value (0 to stop): <em>3</em></strong></p>
+
+    <p><strong>Enter value (0 to stop): <em>3</em></strong></p>
+
+    <p><strong>Enter value (0 to stop): <em>0</em></strong></p>
+
+    <p>If the user entered the values above, the function should return the list:</p>
+
+    <p><strong>[5, 3, 6, 2, 7, 6, 3, 3]</strong></p>
+
+    <p>The second function you should write (also in the file
+<strong>removeduplicates.py</strong>) is called <strong>remove_duplicates(num_list)</strong>. This
+function is passed a list of integers (<strong>num_list</strong>) and it should
+create and return a <em>new</em> list which does not include any
+duplicate values from the original list passed in. The original list
+passed into the function (<strong>num_list</strong>) should not be changed. For
+example, calling:</p>
+
+    <p><strong>remove_duplicates([5, 3, 6, 2, 7, 6, 3, 3])</strong></p>
+
+    <p>should return the following new list:</p>
+
+    <p><strong>[5, 3, 6, 2, 7]</strong></p>
+
+    <p>If your function is called with the empty list, as follows:</p>
+
+    <p><strong>remove_duplicates([])</strong></p>
+
+    <p>then it should return a new empty list:</p>
+
+    <p><strong>[]</strong></p>
+
+    <p>Doctests are provided for you to test your <strong>remove_duplicates</strong>
+function. Feel free to write additional doctests if you would like
+practice with that aspect of Python.</p>
+  </li>
+</ol>
+
+<h2 id="part-2-images">Part 2: Images</h2>
+
+<h3 id="setup-installing-pillow">Setup: Installing Pillow</h3>
+
+<p>Before you get started on Part 2 of the assignment, make sure that you
+have run through the Pillow installation instructions, which can be
+found in the "Image Reference" handout on the CS106A website. If you
+cannot get Pillow installed successfully, please come to LaIR or post on
+Ed for help.</p>
+
+<h3 id="ethics-questions">Ethics Questions</h3>
+
+<p>After completing certain components of Part 2 of this assignment, we
+will ask you to reflect on the ethical issues raised by the code you
+have just written by answering a couple of free-response questions. In
+most cases, the ethical context for the questions will have been touched
+upon during class (for images, that will be in the lecture on April
+20th), but sometimes we may present a brief description of new contexts
+as well. We do not believe that there is one right answer to these
+questions. All we ask is that you think critically and <em>answer the
+question to the best of your ability in a short paragraph (2-4
+sentences)</em> in the text file <strong>ethics.txt</strong> provided in the Assignment 3
+folder.</p>
+
+<p>Reasoning about these questions will help you to understand and evaluate
+the impact of the computer programs you write and instill you with
+skills that you'll use throughout the rest of your journey as a
+computer scientist. We encourage you to discuss these questions and the
+issues they raise with your section leaders at IGs, with your fellow
+students, and with the Embedded EthiCS Fellow, Katie Creel.</p>
+
+<h3 id="part-2-to-do">Part 2 To Do</h3>
+
+<ol>
+  <li>
+    <p><strong>"Sandcastle" (warm-up) problem: Finding forest fires.</strong></p>
+
+    <p>We're going to start by writing a function called <strong>highlight_fires</strong>
+(in the file <strong>forestfile.py</strong>) that highlights the areas where a forest
+fire is active. You're given a satellite image of Greenland's 2017 fires
+(photo credit: Stef Lhermitte, Delft University of Technology). Your job
+is to detect all of the "sufficiently red" pixels in the image, which
+are indicative of where fires are burning in the image. As we did in
+class with the "redscreening" example, we consider a pixel "sufficiently
+red" if its red value is greater than or equal to the average of the
+pixel's three RGB values times some intensity threshold. In this case,
+we have provided you with an appropriate intensity threshold of 1.05 via
+a constant named <strong>INTENSITY_THRESHOLD</strong> in the file <strong>forestfire.py</strong>.
+Note that this is a different intensity threshold value than we used in
+class for the "redscreening" example, as different applications often
+require different intensity threshold.</p>
+
+    <p>When you detect a "sufficiently red" pixel in the original image, you
+set its red value to 255 and its green and blue values to 0. This will
+highlight the pixel by making it entirely red. For all other pixels
+(i.e., those that are not "sufficiently red"), you should convert them
+to their grayscale equivalent, so that we can more easily see where the
+fire is originating from. You can grayscale a pixel by summing together
+its red, green, and blue values and dividing by three (finding the
+average), and then setting the pixel's red, green, and blue values to
+all have this same "average" value. Once you highlight the areas that
+are on fire in the image (and greyscale all the remaining pixels), you
+should see an image like that shown on the right in Figure 1. On the
+left side of Figure 1, we should the original image for comparison.</p>
+
+    <div class="row">
+    <div class="col">
+        <img src="./CS106A Handout 8 - Assignment 3_files/08-image1.png">
+    </div>
+    <div class="col">
+        <img src="./CS106A Handout 8 - Assignment 3_files/08-image2.png">
+    </div>
+</div>
+    <!-- ![](img/08-image1.png) ![](img/08-image2.png) -->
+
+    <p><strong>Figure 1</strong>: Original forest fire image on left, and highlighted
+version of image on right.</p>
+
+    <p>For a helpful reminder about the SimpleImage functions you have
+available, you can use the Image Reference handout (available on the
+CS106A webpage).</p>
+
+    <p><strong>Ethics Question</strong></p>
+
+    <p>In this exercise, you've used the power of computing to accomplish a
+real-world task: recoloring satellite imagery to help humans understand
+it. Your tool could make it easier for a human to identify which areas
+of the forest are on fire. This could help firefighters to plan a fire
+containment strategy or to decide which homes need to be evacuated.
+You've used image manipulation to highlight and accentuate an existing
+phenomenon, making it easier to comprehend via the naked eye. In the
+process, you have reduced or eliminated other color information in the
+image. This kind of visual idealization is common in science.
+Astronomers use coloration schemes to display different types of
+non-visual measurements and biologists use image processing tools to
+accentuate potentially diseased areas of tissue.</p>
+
+    <p>However, idealizations can also be dangerous. Their use relies heavily
+on the assumptions built into their creation and the match between the
+idealization and its purpose. Thinking back to the program you've
+written and looking more closely at the output image, you can see that
+the red highlighting of the fires is not perfect. Some areas that are on
+fire are not highlighted and other areas that are highlighted are not
+actually on fire. The consequences of this on a firefighter's plan of
+attack for the fires or an evacuation administrator's evacuation plan
+could be dire – lives and homes could potentially be lost. Thus, we
+want you to consider and answer the following questions (write your
+answer in the file <strong>ethics.txt</strong>):</p>
+
+    <p>a.  What is the programmer's responsibility in knowing the context of
+    evaluation of an image processing algorithm/tool? How should this
+    affect their decision-making process when implementing the
+    algorithm/tool?</p>
+
+    <p>b.  What information should you convey with your image in order to allow
+    the viewer to evaluate its limitations? How would this change with
+    the context of use?</p>
+  </li>
+  <li>
+    <p><strong>Warhol Images</strong></p>
+
+    <p>Your next task is to write a program that generates Andy Warhol-style
+images that includes repeated variants of a starting image. The name of
+the image file that you will be using for the starting image is
+specified in the constant <strong>IMAGE_FILE</strong>, which is provided for you. To
+tackle this task, we're going to break it down into a two primary
+functions (although you are certainly welcome and encouraged to write
+additional functions to decompose your program). You should implement
+the following two functions in the order in which they are listed below.
+Empty versions of these functions are provided in the file <strong>warhol.py</strong>
+for you to fill in. As mentioned, you can add additional functions to
+the <strong>warhol.py</strong> file as needed, but the functions specified below are
+meant to be milestones in developing your program.</p>
+
+    <p>a.  <strong>Task: Create a filter for a single image</strong></p>
+
+    <p>Function: <strong>create_filtered_image(red_scale, green_scale, blue_scale)</strong></p>
+
+    <p>The first step is to create a function that can create filtered versions
+of the starting image. The function is passed in floats (real values)
+for <strong>red_scale</strong>, <strong>green_scale</strong>, and <strong>blue_scale</strong>. The function
+should return an image object that is a copy of the image in the file
+specified by the constant <strong>IMAGE_FILE</strong>, where the red, green, and blue
+values for each pixel are respectively scaled by the parameters
+<strong>red_scale</strong>, <strong>green_scale</strong>, and <strong>blue_scale</strong>. In order words, for
+<strong>every</strong> pixel in the original image in the file
+<strong>IMAGE_FILE</strong>, the corresponding pixel in the resulting filtered image
+should have:</p>
+
+    <p><strong>new red value = old red value * red_scale</strong></p>
+
+    <p><strong>new green value = old green value * green_scale</strong></p>
+
+    <p><strong>new blue value = old blue value * blue_scale</strong></p>
+
+    <p>In the starter file we give you, the constant <strong>IMAGE_FILE</strong> is set to
+<strong>'images/simba.jpg'</strong>, which is the name of an image file of Simba
+the Dog:</p>
+
+    <p><img src="./CS106A Handout 8 - Assignment 3_files/08-image3.png" alt=""></p>
+
+    <p>If you were to call your function as follows:</p>
+
+    <p><strong>create_filtered_image(1.5, 0.7, 1.5)</strong></p>
+
+    <p>then your function should return a new image object that would look as
+shown below if it was displayed:</p>
+
+    <p><img src="./CS106A Handout 8 - Assignment 3_files/08-image4.png" alt=""></p>
+
+    <p>Note that this function does <strong>not</strong> save an image file to disk and does
+<strong>not</strong> modify the original file containing the image. This function
+reads the image from the file into an <em>image object</em> (in memory when the
+Python program is running) and all color changes are made to that image
+object (in memory).</p>
+
+    <p>b.  <strong>Task: Create a Warhol-style image</strong></p>
+
+    <p>Function: <strong>make_warhol()</strong></p>
+
+    <p>You should write a function <strong>make_warhol</strong> that returns an image
+object, which has the image in the file specified by the constant
+<strong>IMAGE_FILE</strong>, copied 6 times (in 2 rows and 3 columns), where each
+patch (subimage) gets recolored using your <strong>create_filtered_image</strong>
+function. An example resulting image is shown below:</p>
+
+    <p><img src="./CS106A Handout 8 - Assignment 3_files/08-image5.png" alt=""></p>
+
+    <p>You should select different <strong>red_scale</strong>, <strong>green_scale</strong>, and
+<strong>blue_scale</strong> values for each of the patches, so they look distinct.
+You don't need to try to match the colors in this example exactly. The
+picture here is just an example. Experiment with different combinations
+of <strong>red_scale</strong>, <strong>green_scale</strong>, and <strong>blue_scale</strong> values. For
+example, the pink Simba in the first (upper left) patch in the image
+above was generated by calling:</p>
+
+    <p><strong>create_filtered_image(1.5, 0, 1.5)</strong></p>
+
+    <p>The choice of the actual <strong>red_scale</strong>, <strong>green_scale</strong>, and
+<strong>blue_scale</strong> values for each patch in your program are left up to you.
+Be creative! This sort of image is inspired by some of Andy Warhol's
+paintings, which is where the name for this function comes from.</p>
+
+    <p>As before, this function does <strong>not</strong> save an image file to disk and
+does <strong>not</strong> modify the original file containing the image. This
+function reads the image from the file into an <em>image object</em> (in memory
+when the Python program is running) and generates a new image object (in
+memory) that contains the different colored patches.</p>
+
+    <p>Hint: Your <strong>make_warhol</strong> function will need to start by creating a new
+blank image object (using the function <strong>SimpleImage.blank</strong>) in order
+to then copy individual patches into. In order to do that, you will
+first need to determine the width and height of the original image so
+you can determine how large the new blank image you are going to create
+should be.</p>
+
+    <p><strong>Writing the program</strong></p>
+
+    <p>There is a <strong>main</strong> function provided in the starter code which simply
+calls your <strong>make_warhol</strong> function and displays the resulting image
+returned from your function.</p>
+
+    <p>To help you write and debug the function <strong>create_filtered_image</strong>
+<em>before</em> you write your <strong>make_warhol</strong> function, the
+starter code also contains a call to the <strong>create_filtered_image</strong>
+function, and displays the image returned from that function. The code
+that calls <strong>create_filtered_image</strong> and displays the resulting image is
+just provided for debugging purposes so you can complete the first task
+in this problem (creating a single image filter) before moving to create
+full Warhol images. You can delete the code in the <strong>main</strong> function
+that calls <strong>create_filtered_image</strong> and displays the results when you
+think you have the filter for single images working, and then just make
+use of the call to the <strong>make_warhol</strong> function to show the final result
+of your program.</p>
+  </li>
+  <li>
+    <p><strong>Ghost</strong></p>
+
+    <p>In the final problem, we're going to use multiple images to create a
+new image (with some "clutter" removed). Suppose we are trying to take
+pictures of Stanford, but each image has people walking through the
+scene, as shown in Figure 2 below:</p>
+
+    <div class="row">
+    <div class="col">
+        <img src="./CS106A Handout 8 - Assignment 3_files/08-image6.jpg">
+    </div>
+    <div class="col">
+        <img src="./CS106A Handout 8 - Assignment 3_files/08-image7.jpg">
+    </div>
+    <div class="col">
+        <img src="./CS106A Handout 8 - Assignment 3_files/08-image8.jpg">
+    </div>
+</div>
+    <!-- 	![](img/08-image6.jpg){width="1.7053051181102363in"
+height="1.2864588801399826in"}
+![](media/image7.jpg){width="1.708248031496063in"
+height="1.2864588801399826in"} ![](media/image8.jpg){width="1.71875in"
+height="1.2916054243219597in"} -->
+
+    <p><strong>Figure 2</strong>: Three images of Hoover Tower, with pedestrians walking in
+the images.</p>
+
+    <p>We'd like to analyze all these three images and figure out a way to
+"ghost" out all the people and make them disappear, giving us a clear
+view of Hoover tower, as shown in Figure 3. For this part of the
+assignment, you will be writing a program called <strong>ghost.py</strong> that
+implements this functionality. An algorithm for solving this problem is
+explained below. <strong>Please also see the ethics question for this part of the assignment
+below</strong>.</p>
+
+    <p><img src="./CS106A Handout 8 - Assignment 3_files/08-image9.png" alt=""></p>
+
+    <p><strong>Figure 3</strong>: A sample output of your program in <strong>ghost.py</strong>.</p>
+  </li>
+</ol>
+
+<h3 id="ghost-algorithm-motivation">Ghost algorithm motivation</h3>
+
+<p>Let's say that we have three images. From these images, consider the
+three pixels that exist at coordinate <strong>(x, y)</strong> in each respective
+image. Most of the time, these three pixels will look the same across
+all three pictures, but in some cases, one of the pixels will look
+different because there's a person at that location in that image. We'll
+call pixels where there is a person "outlier" pixels, because they are
+different from all the other pixels that exist at that that same <strong>(x,
+y)</strong> location in the other photos. We'll assume that outlier pixels are
+always in the minority – that is, there will always be more "regular"
+pixels than outliers.</p>
+
+<p>For example, suppose the three pixels at location x = 100, y = 50 in
+each of our three images look like this (we use the shorthand (<em>red</em>,
+<em>green</em>, <em>blue</em>) to refer to the RGB values):</p>
+
+<p>First photo: (1, 1, 1), Second photo: (1, 1, 1), Third photo: (28, 28,
+28)</p>
+
+<p>Looking at the pixels, you can guess that (28, 28, 28) is an outlier and
+that (1, 1, 1) is the actual background since the RGB values (1, 1, 1)
+appear the majority of the time among the pixels at location x=100,
+y=50. In order to "ghost" out the person, we would throw out the (28,
+28, 28) and use (1, 1, 1) as the RGB values for the pixel at location
+x=100, y=50 in our final image. So, we need a way to algorithmically
+distinguish outliers from background pixels. We explain that below.</p>
+
+<h3 id="color-distance">Color Distance</h3>
+
+<p>To solve this problem, it's handy to introduce the idea of "color
+distance" between pixels. A distance metric can help us to quantify how
+similar or dissimilar two colors are. This may initially seem like a
+daunting task, until we recall that a color is comprised of a red value,
+a green value, and a blue value. We can think of each pixel's color as a
+point in a 3-dimensional color space, with red-green-blue coordinates
+instead of the regular x-y-z coordinates.</p>
+
+<p>Thinking in 2D: if we're trying to find the distance between two points
+on a graph, we can use the distance formula (derived from the
+Pythagorean Theorem) to find the distance between them:</p>
+
+<p><img src="./CS106A Handout 8 - Assignment 3_files/08-image11.png" alt=""></p>
+
+<p>We can apply this same principle to our 3D color space in order to
+define a distance metric!</p>
+
+<p><img src="./CS106A Handout 8 - Assignment 3_files/08-image12.png" alt=""></p>
+
+<p>In Python, we could write that distance function as:</p>
+
+<p><strong>math.sqrt(red_difference ** 2 + green_difference ** 2 +
+blue_difference ** 2)</strong></p>
+
+<p>As a surprising optimization, we can <strong>omit</strong> the <strong>math.sqrt</strong> for this
+algorithm (this will be explained further below).</p>
+
+<h3 id="ghost-algorithm">Ghost algorithm</h3>
+
+<p>Let's revisit our problem: for any particular <strong>(x, y)</strong> location in an
+image, look at the pixels across all images at that same <strong>(x, y)</strong>
+location. We want to pick out the "best" pixel to use while avoiding the
+outlier pixels. The algorithm for doing this consists of two main parts:</p>
+
+<p>a)  <strong>Compute the average RGB values</strong></p>
+
+<p>For a given <strong>(x, y)</strong> location across all the images, average all the
+red values to get the average red value, average all the green values to
+get the average green value, and do the same for blue.</p>
+
+<p>For example, consider a pixel at location (0, 5), which had the
+following respective RGB values across three images:</p>
+
+<ul>
+  <li>
+    <p>Picture 1: (1, 1, 2)</p>
+  </li>
+  <li>
+    <p>Picture 2: (1, 1, 1)</p>
+  </li>
+  <li>
+    <p>Picture 3: (28, 27, 29)</p>
+  </li>
+</ul>
+
+<p>The average value for each color across the pixels would be as follows
+(using <em>integer</em> division):</p>
+
+<ul>
+  <li>
+    <p>The average red value would be 10: (1 + 1 + 28) divided by 3</p>
+  </li>
+  <li>
+    <p>The average green value would be 9: (1 + 1 + 27) divided by 3</p>
+  </li>
+  <li>
+    <p>The average blue would be 10: (2 + 1 + 29) divided by 3</p>
+  </li>
+</ul>
+
+<p>b)  <strong>Select the best pixel</strong></p>
+
+<p>To choose the best among the pixels, select the pixel with the
+<strong><em>smallest</em></strong> color distance to the average red, green, and blue
+values. Equivalently, we could say "the pixel closest to the average
+RGB."</p>
+
+<p>To think through the algorithm more generally, imagine the pixels
+scattered in a 2D space of colors.</p>
+
+<p><img src="./CS106A Handout 8 - Assignment 3_files/08-image10.png" alt=""></p>
+
+<p><strong>Figure 4</strong>: 2D mapping of true color, average of colors, and outlier
+values.</p>
+
+<p>All the pixels but the outlier will naturally cluster together,
+grouped around the perfect color for that <strong>(x, y)</strong>, but displaced by
+little measurement errors. The outlier pixel will be off by itself, a
+completely different color. The average will fall somewhere in
+between, but nearer to, the cluster, since the cluster has many pixels
+and the outlier is just one pixel.</p>
+
+<p>As a result, selecting the pixel closest to the average will give you
+a pixel in the cluster of true color pixels.</p>
+
+<p><strong>Note</strong>: In order to select the closest pixel, we can omit the
+<strong>math.sqrt</strong> in our color distance calculations. The pixel we choose
+has the smallest distance from the average pixel, and but due to the
+nature of squaring numbers, the pixel will also have the smallest
+squared color distance from the average pixel. In other words,
+comparing distance versus squared distance does not change the pixel
+we end up choosing. Therefore, we can leave out <strong>math.sqrt</strong> and use
+distance squared instead of distance to find the best pixel (this is
+actually a common technique when dealing with large amounts of data!).</p>
+
+<h3 id="ghost-code">Ghost code</h3>
+
+<p>To complete the tasks described above, you should implement the
+following three functions in the order in which they are listed below.
+Empty versions of these functions are provided in the file <strong>ghost.py</strong>
+for you to fill in. Of course, you can add additional functions to the
+<strong>ghost.py</strong> file as needed, but the functions specified below are meant
+to be milestones in developing your program.</p>
+
+<p><strong>Note</strong>: Because we are using Pixel objects, which can be difficult to
+create and test with, we have written the doctests for you for these
+functions. Our tests are not comprehensive, but should provide some
+simple checks. You are certainly welcome (and encouraged) to write your
+own doctests as well. This will give you a chance to get practice with
+Python's very useful doctest feature.</p>
+
+<p>a)  <strong>Task: Calculating squared pixel distance</strong></p>
+
+<p>Function: <strong>get_pixel_dist(pixel, red, green, blue)</strong></p>
+
+<p>Write the code for the <strong>get_pixel_dist</strong> function, which returns the
+squared-distance between a pixel and a given red, green, and blue
+value.</p>
+
+<p>b)  <strong>Task: Find the best pixel</strong></p>
+
+<p>Function: <strong>get_best_pixel(pixel_list)</strong></p>
+
+<p>Write the code for the <strong>get_best_pixel</strong> function, which is given a
+list of Pixel objects and returns the best Pixel from that list
+according to the Ghost algorithm. As a reminder, the "best" pixel is
+defined as the pixel that is closest to the "average" pixel. For
+example, if the <strong>get_best_pixel</strong> function is called on a list
+containing three Pixels with the following RBG values: (1, 1, 2), (1,
+1, 1), and (28, 27, 29), it should return the Pixel which has RGB
+values (1, 1, 2).</p>
+
+<p>If multiple pixels qualify as the best, <strong>get_best_pixel</strong> can return
+any of the closest pixels. You can assume <strong>pixel_list</strong> will never be
+empty.</p>
+
+<p>c)  <strong>Task: Create a ghost image</strong></p>
+
+<p>Function: <strong>create_ghost(image_list)</strong></p>
+
+<p>This is the function that solves the whole problem and should make use
+of the other functions you wrote to solve sub-tasks. The <strong>main</strong>
+function we provide for you, which you should not modify<strong>,</strong> does the
+housekeeping of loading the image objects, and then calls
+<strong>create_ghost</strong> to do the real work. It will then display the image
+returned by your <strong>create_ghost</strong> function. You can assume that all
+the images in the list of images passed into this function are the
+same size (have the same height and width) and that the list of images
+is never empty. Remember that your function should create a new
+(blank) image of the same size as the images passed into the function
+and the appropriately set the pixels in this new image to create the
+"ghost" effect.</p>
+
+<p><strong>Ghost Decomposition</strong></p>
+
+<p>If you decide to define helper functions while completing the above
+functions, you should write function header comments explaining what
+these helper functions do. However, doctests are not required.</p>
+
+<p><strong>How to run your code</strong></p>
+
+<p>The <strong>ghost.py</strong> program takes one "command line" argument, which is the
+name of the folder that contains the image files you would like to run
+the Ghost algorithm on. A command line argument is just something that
+you type on the terminal command line after the name of the program you
+want to run. For example, to run the <strong>ghost.py</strong> program using the
+images in the "hoover" directory, you would type:</p>
+
+<p>On the PC: <strong>py ghost.py hoover</strong></p>
+
+<p>On the Mac: <strong>python3 ghost.py hoover</strong></p>
+
+<p>Running the program on the "hoover" files from the Terminal like this
+will print out the names of the images from that directory that your
+program is being run on. It should (after you write your solution), then
+display the image returned by your <strong>create_ghost</strong> function. For
+example, the output on the terminal would like:</p>
+
+<p><strong>&gt; py ghost.py hoover</strong></p>
+
+<p><strong>Loading hoover\156-500.jpg</strong></p>
+
+<p><strong>Loading hoover\158-500.jpg</strong></p>
+
+<p><strong>Loading hoover\200-500.jpg</strong></p>
+
+<p><strong>Displaying image!</strong></p>
+
+<p>(then solution image appears)</p>
+
+<p><strong>Additional test cases</strong></p>
+
+<p>In addition to the <strong>hoover</strong> directory, we have provided image of other
+places on the Stanford where you can apply the ghost program! Each set
+of pictures is in its own folder, which are:</p>
+
+<blockquote>
+  <p><strong>clock-tower</strong></p>
+
+  <p><strong>math-corner</strong></p>
+
+  <p><strong>monster</strong></p>
+</blockquote>
+
+<p>Look at the individual images inside each folder to get a feel for the
+data. Your code should work for all of these image folders. To try the
+different places, you can run the following commands in a Terminal (use
+"python3" instead of "py" if you are on a Mac).</p>
+
+<p>Clock Tower – a medium-sized case (Takes a few seconds to run)</p>
+
+<p><strong>py ghost.py clock-tower</strong></p>
+
+<p>Math Corner – a large-sized case (Takes a few seconds to run)</p>
+
+<p><strong>py ghost.py math-corner</strong></p>
+
+<p>Monster – an extra-large-sized case (Can take a few minutes to run, so
+be patient)</p>
+
+<p><strong>py ghost.py monster</strong></p>
+
+<p>Note that in some of the resulting images, you might see some
+"ghost-like" artifacts of people/bicycles that have been removed from
+the original images. This is normal (though you might want to think
+about why it happens).</p>
+
+<p><strong>Ethics Question</strong></p>
+
+<p>In this part of the assignment, you've implemented a clever algorithm
+that eliminates transient passings of people in many partial images to
+build a single image of Stanford's campus as empty. Your Ghost algorithm
+performs an "idealization," removing components that are deemed to be
+impediments to the presentation of the desired version of the image.
+Taking this into consideration, we want you to consider and answer the
+following questions (write your answer in the file <strong>ethics.txt</strong>):</p>
+
+<p>a.  For what purposes might the final image produced by your Ghost
+    algorithm, or other empty images of other parts of the world, be
+    used? Who might want to create such an idealization?</p>
+
+<p>b.  In class (on April 20th), we defined manipulation as hidden
+    influence that subverts another's decision-making powers. Of the
+    purposes you listed in (a), which ones involve <em>manipulation</em> and
+    why?</p>
+</div>
+        <div class="col-xs-hidden col-md-2"><nav class="fixed-top-right toc" id="toc"><ol class="toc-list "><li class="toc-list-item is-active-li"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html#ethics-in-computing" class="toc-link node-name--H2  is-active-link">Ethics in Computing</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html#part-1-lists" class="toc-link node-name--H2 ">Part 1: Lists</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html#part-2-images" class="toc-link node-name--H2 ">Part 2: Images</a><ol class="toc-list  is-collapsible is-collapsed"><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html#setup-installing-pillow" class="toc-link node-name--H3 ">Setup: Installing Pillow</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html#ethics-questions" class="toc-link node-name--H3 ">Ethics Questions</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html#part-2-to-do" class="toc-link node-name--H3 ">Part 2 To Do</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html#ghost-algorithm-motivation" class="toc-link node-name--H3 ">Ghost algorithm motivation</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html#color-distance" class="toc-link node-name--H3 ">Color Distance</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html#ghost-algorithm" class="toc-link node-name--H3 ">Ghost algorithm</a></li><li class="toc-list-item"><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1226/handouts/08-assignment3.html#ghost-code" class="toc-link node-name--H3 ">Ghost code</a></li></ol></li></ol></nav></div>
+    </div>
+
+    <script src="./CS106A Handout 8 - Assignment 3_files/tocbot.min.js.download"></script>
+    <link rel="stylesheet" href="./CS106A Handout 8 - Assignment 3_files/tocbot.css">
+
+    <script>
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '#toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '#content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h2, h3, h4',
+      });
+    </script>
+
+
+
+</div>
+
+<style>
+    p.attribution {
+        font-style: italic;
+        font-size: 80%;
+        text-align: right;
+    }
+    .body-container {
+        margin: 0 10%;
+        max-width: 55em;
+        width: 80%;
+    }
+    a.toc-link {
+      color: #aaa !important;
+      font-size: 90%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .fixed-top-right {
+        position: fixed;
+        margin-top: 0;
+        margin-left: 0;
+    }
+</style>
+
+</main>
+    <style>
+#footer {
+    font-size: 70%;
+    color:green;
+    text-align: center;
+    font-style: italic;
+    padding: 5px;
+}
+</style>
+<div id="footer" class="mt-auto">
+    All course materials © Stanford University 2021 <br>
+    Website programming by Julie Zelenski • Styles adapted from Chris Piech •
+    This page last updated 2022-Apr-22
+</div>
+
+
+  
+
+  <!-- Bootstrap JavaScript -->
+  <script src="./CS106A Handout 8 - Assignment 3_files/bootstrap.min.js.download"></script>
+  <script src="./CS106A Handout 8 - Assignment 3_files/popper.min.js.download"></script>
+
+  <script src="./CS106A Handout 8 - Assignment 3_files/jquery.min.js.download"></script>
+
+
+</body></html>
